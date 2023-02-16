@@ -10,7 +10,7 @@ class TZBottomNavigationBar extends StatelessWidget {
       backgroundColor: UIColors.primary,
       selectedItemColor: UIColors.activeIcon,
       selectedFontSize: 12,
-      unselectedItemColor: UIColors.inActiveIcon,
+      unselectedItemColor: UIColors.inActiveIcon.withOpacity(0.5),
       unselectedFontSize: 12,
       currentIndex: 0,
       type: BottomNavigationBarType.fixed,
