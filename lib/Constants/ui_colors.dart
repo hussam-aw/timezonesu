@@ -2,6 +2,36 @@ import 'package:flutter/material.dart';
 
 class UIColors {
   static const blue = Color(0xff1A3281);
-  //TODO: ALI Add Colors From XD File
+  static const white = Color(0xffffffff);
+  static const primary = Color(0xff2D358E);
+  static const lightGrey = Color(0xff9C9C9C);
+  static const defaultProgress = Color(0xffEC272E);
 
+  // TextField Colors
+  static const textFieldBackground = Color(0xffF6F6F6);
+  static const textFieldBorder = Color(0xffD5D5D5);
+
+  // Text Colors
+  static const title = Color(0xffF6F6F6);
+  static const subTitle = Color(0xff9C9C9C);
+  static const darkSubtitle = Color(0xffD5D5D5);
+  static const darknormalText = Color(0xff6D6D6D);
+  static const normalText = Color(0xff707070);
+  static const lightNormalText = Color(0xffF6F6F6);
+  static const inActiveText = Color(0xff919398);
+  static const specialText = Color(0xffFF9498);
+
+  // Icon Colors
+  static const darkIcon = Color(0xff3D404A);
+  static const inActiveIcon = Color(0xff919398);
+  static const activeIcon = Color(0xffF6F6F6);
+
+  // Border Colors
+  static const buttonBorder = Color(0xff3D404A);
+  static const circleAvatarBorder = Color(0xff707070);
+  static const containerBorder = Color(0xff3D404A);
+
+  // Background Colors
+  static const containerBackground = Color(0xffD5D5D5);
+  static const circleAvatarBackground = Color(0xffD5D5D5);
 }
