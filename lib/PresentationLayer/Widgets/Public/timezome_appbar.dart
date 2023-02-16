@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 
-PreferredSizeWidget tzAppBar({List<Widget> actions = const []}) {
+PreferredSizeWidget tzAppBar(
+    {Widget? leading, List<Widget> actions = const []}) {
   return AppBar(
     elevation: 0.0,
     centerTitle: true,
@@ -12,6 +13,7 @@ PreferredSizeWidget tzAppBar({List<Widget> actions = const []}) {
         bottomRight: Radius.circular(25),
       ),
     ),
+    leading: leading,
     actions: actions,
   );
 }
