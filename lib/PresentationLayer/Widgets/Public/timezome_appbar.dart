@@ -10,7 +10,7 @@ PreferredSizeWidget tzAppBar(
     title: Image.asset('assets/images/logo-gold.png'),
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
-        bottomRight: Radius.circular(25),
+        bottomRight: Radius.circular(24),
       ),
     ),
     leading: leading,
