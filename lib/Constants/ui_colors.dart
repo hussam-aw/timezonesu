@@ -27,7 +27,8 @@ class UIColors {
   static const buttonBorder = Color(0xff3D404A);
   static const circleAvatarBorder = Color(0xff707070);
   static const containerBorder = Color(0xff3D404A);
-  static const textFieldBorder = Color(0xffD5D5D5);
+  static const authTextFieldBorder = Color(0xffD5D5D5);
+  static const updateTextFieldBorder = Color(0xff3D404A);
 
   // Background Colors
   static const containerBackground = Color(0xffD5D5D5);
