@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
-import 'package:timezonesu/PresentationLayer/Widgets/Public/bottomNavigationBar.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/Public/bottom_navigation_bar.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/drawer.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/timezome_appbar.dart';
 

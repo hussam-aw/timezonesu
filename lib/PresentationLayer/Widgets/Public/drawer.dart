@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
+import 'package:timezonesu/Constants/ui_text_style.dart';
 
 class TzDrawer extends StatelessWidget {
   const TzDrawer({super.key});
@@ -8,47 +9,40 @@ class TzDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Drawer(
-        width: MediaQuery.of(context).size.width * .7,
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-          child: Column(
+        child: Container(
+          padding: EdgeInsets.zero,
+          color: UIColors.blue,
+          child: ListView(
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 30),
-                child: Row(
-                  children: [
-                    CircleAvatar(
-                      maxRadius: 40,
-                    ),
-                    SizedBox(width: 30),
-                    Text(
-                      "Ali Ali",
-                    ),
-                  ],
+              const UserAccountsDrawerHeader(
+                  decoration: BoxDecoration(color: UIColors.red),
+                  currentAccountPicture: CircleAvatar(
+                    backgroundColor: UIColors.lightGrey,
+                    backgroundImage:
+                        AssetImage("assets/images/user-default.png"),
+                  ),
+                  accountName: Text("Ali"),
+                  accountEmail: Text("Ali@timezone.store")),
+              ListTile(
+                title: Text(
+                  "Home",
+                  style: UITextStyle.boldMeduim.apply(fontSizeFactor: .8),
+                ),
+                leading: const Icon(
+                  Icons.home,
+                  color: UIColors.activeIcon,
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 30),
-                child: Column(
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text('Home'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text('Categories'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text('Brands'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text('Featured Products'),
-                    ),
-                  ],
-                ),
+              ListTile(
+                title: Text("Categories",
+                    style: UITextStyle.boldMeduim.apply(fontSizeFactor: .8)),
+                leading: const Icon(Icons.category, color: UIColors.activeIcon),
+              ),
+              ListTile(
+                title: Text("Top Sales",
+                    style: UITextStyle.boldMeduim.apply(fontSizeFactor: .8)),
+                leading:
+                    const Icon(Icons.shopping_bag, color: UIColors.activeIcon),
               ),
             ],
           ),

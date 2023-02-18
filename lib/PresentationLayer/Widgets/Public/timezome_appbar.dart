@@ -7,7 +7,10 @@ PreferredSizeWidget tzAppBar(
     elevation: 0.0,
     centerTitle: true,
     backgroundColor: UIColors.primary,
-    title: Image.asset('assets/images/logo-gold.png'),
+    title: Image.asset(
+      'assets/images/logo-gold.png',
+      width: 100,
+    ),
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
         bottomRight: Radius.circular(24),

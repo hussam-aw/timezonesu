@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:timezonesu/BussinessLayer/Controllers/auth_controller.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_styles.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
-
+  LoginScreen({super.key});
+  final AuthController authController = Get.put(AuthController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
             child: Column(
               children: [
                 ClipPath(
@@ -42,6 +43,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                spacer(height: 30),
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
@@ -50,20 +52,22 @@ class LoginScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         TextFormField(
+                          controller: authController.loginEmailController,
                           keyboardType: TextInputType.emailAddress,
                           decoration: authInputsStyle.copyWith(
                             hintText: "Enter Your Email",
                           ),
                         ),
-                        const SizedBox(height: 20),
+                        spacer(height: 20),
                         TextFormField(
+                          controller: authController.loginPasswordController,
                           keyboardType: TextInputType.visiblePassword,
                           decoration: authInputsStyle.copyWith(
                             hintText: 'Enter Your Password',
-                            suffixIcon: Icon(Icons.visibility),
+                            suffixIcon: const Icon(Icons.visibility),
                           ),
                         ),
-                        const SizedBox(height: 15),
+                        spacer(height: 15),
                         Padding(
                           padding: const EdgeInsets.only(left: 8),
                           child: InkWell(
@@ -76,28 +80,31 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const SizedBox(height: 50),
+                        spacer(height: 50),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width,
+                          width: Get.width,
                           child: ElevatedButton(
-                            onPressed: () {},
-                            child: Text(
+                            onPressed: () async {
+                              await authController.login();
+                            },
+                            style: acceptButtonStyle,
+                            child: const Text(
                               'Continue',
                               style: UITextStyle.normalMeduim,
                             ),
-                            style: acceptButtonStyle,
                           ),
                         ),
-                        const SizedBox(height: 10),
+                        spacer(),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width,
+                          width: Get.width,
                           child: ElevatedButton(
                             onPressed: () {},
+                            style: normalButtonWithBorderStyle,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Image.asset('assets/icons/google.png'),
-                                SizedBox(width: 8),
+                                const SizedBox(width: 8),
                                 Text(
                                   'Continue With Google',
                                   style: UITextStyle.normalMeduim
@@ -105,7 +112,6 @@ class LoginScreen extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            style: normalButtonWithBorderStyle,
                           ),
                         ),
                         const SizedBox(height: 15),
@@ -119,7 +125,9 @@ class LoginScreen extends StatelessWidget {
                               ),
                             ),
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                authController.goToRegister();
+                              },
                               child: Text(
                                 'Create One',
                                 style: UITextStyle.normalMeduim.copyWith(
