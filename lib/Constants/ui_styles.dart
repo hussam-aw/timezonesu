@@ -9,6 +9,9 @@ final acceptButtonStyle = ButtonStyle(
       borderRadius: BorderRadius.circular(17),
     ),
   ),
+  minimumSize: const MaterialStatePropertyAll<Size>(
+    Size(double.infinity, 56),
+  ),
 );
 
 final acceptButtonWithBorderStyle = acceptButtonStyle.copyWith(
@@ -17,6 +20,9 @@ final acceptButtonWithBorderStyle = acceptButtonStyle.copyWith(
       borderRadius: BorderRadius.circular(17),
       side: const BorderSide(width: 1, color: UIColors.white),
     ),
+  ),
+  minimumSize: const MaterialStatePropertyAll<Size>(
+    Size(double.infinity, 56),
   ),
 );
 
@@ -27,6 +33,9 @@ final normalButtonStyle = ButtonStyle(
       borderRadius: BorderRadius.circular(17),
     ),
   ),
+  minimumSize: const MaterialStatePropertyAll<Size>(
+    Size(double.infinity, 56),
+  ),
 );
 
 final normalButtonWithBorderStyle = normalButtonStyle.copyWith(
@@ -36,11 +45,15 @@ final normalButtonWithBorderStyle = normalButtonStyle.copyWith(
       side: const BorderSide(width: 1, color: UIColors.buttonBorder),
     ),
   ),
+  minimumSize: const MaterialStatePropertyAll<Size>(
+    Size(double.infinity, 56),
+  ),
 );
 
 //Input Styles
 final authInputsStyle = InputDecoration(
   fillColor: UIColors.textFieldBackground,
+  contentPadding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
   border: OutlineInputBorder(
     borderSide: const BorderSide(
       width: 1,
@@ -66,6 +79,7 @@ final authInputsStyle = InputDecoration(
 
 final profileInputsStyle = InputDecoration(
   fillColor: UIColors.white,
+  contentPadding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
   border: OutlineInputBorder(
     borderSide: const BorderSide(
       width: 1,
