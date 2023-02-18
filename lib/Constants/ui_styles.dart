@@ -3,6 +3,7 @@ import 'package:timezonesu/Constants/ui_colors.dart';
 
 // ElevatedButton Styles
 final acceptButtonStyle = ButtonStyle(
+  elevation: const MaterialStatePropertyAll(0),
   backgroundColor: const MaterialStatePropertyAll<Color>(UIColors.primary),
   shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
     RoundedRectangleBorder(
@@ -15,6 +16,7 @@ final acceptButtonStyle = ButtonStyle(
 );
 
 final acceptButtonWithBorderStyle = acceptButtonStyle.copyWith(
+  elevation: const MaterialStatePropertyAll(0),
   shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
     RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(17),
@@ -27,6 +29,7 @@ final acceptButtonWithBorderStyle = acceptButtonStyle.copyWith(
 );
 
 final normalButtonStyle = ButtonStyle(
+  elevation: const MaterialStatePropertyAll(0),
   backgroundColor: const MaterialStatePropertyAll<Color>(UIColors.white),
   shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
     RoundedRectangleBorder(
@@ -39,6 +42,7 @@ final normalButtonStyle = ButtonStyle(
 );
 
 final normalButtonWithBorderStyle = normalButtonStyle.copyWith(
+  elevation: const MaterialStatePropertyAll(0),
   shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
     RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(17),
