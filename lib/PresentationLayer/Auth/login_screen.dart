@@ -21,20 +21,20 @@ class LoginScreen extends StatelessWidget {
                   clipper: HeaderClipPath(),
                   child: Container(
                     height: 200,
-                    width: MediaQuery.of(context).size.width,
+                    width: Get.width,
                     decoration: const BoxDecoration(
                       color: UIColors.primary,
                     ),
                     child: Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text(
+                        children: [
+                          const Text(
                             'Welcome Back',
                             style: UITextStyle.boldHeading,
                           ),
-                          SizedBox(height: 16),
-                          Text(
+                          spacer(height: 16),
+                          const Text(
                             'Please Sign In To Your Account',
                             style: UITextStyle.normalHeading,
                           )
@@ -104,7 +104,7 @@ class LoginScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Image.asset('assets/icons/google.png'),
-                                const SizedBox(width: 8),
+                                spacer(height: 8),
                                 Text(
                                   'Continue With Google',
                                   style: UITextStyle.normalMeduim
@@ -114,7 +114,7 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const SizedBox(height: 15),
+                        spacer(height: 15),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
