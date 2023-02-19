@@ -11,7 +11,7 @@ import 'get_routes.dart';
 List<GetPage<dynamic>> getPages = [
   GetPage(name: AppRoutes.splashscreen, page: () => SplashScreen()),
   GetPage(name: AppRoutes.loginscreen, page: () => LoginScreen()),
-  GetPage(name: AppRoutes.registerscreen, page: () => const RegisterScreen()),
+  GetPage(name: AppRoutes.registerscreen, page: () => RegisterScreen()),
   GetPage(
       name: AppRoutes.homepage,
       page: () => const HomeScreen(),
