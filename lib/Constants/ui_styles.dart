@@ -56,6 +56,7 @@ final normalButtonWithBorderStyle = normalButtonStyle.copyWith(
 
 //Input Styles
 final authInputsStyle = InputDecoration(
+  filled: true,
   fillColor: UIColors.textFieldBackground,
   contentPadding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
   border: OutlineInputBorder(
@@ -82,6 +83,7 @@ final authInputsStyle = InputDecoration(
 );
 
 final profileInputsStyle = InputDecoration(
+  filled: true,
   fillColor: UIColors.white,
   contentPadding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
   border: OutlineInputBorder(
