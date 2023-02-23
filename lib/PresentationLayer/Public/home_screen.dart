@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/Home/images_slider.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/bottom_navigation_bar.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/drawer.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/timezome_appbar.dart';
@@ -34,7 +35,26 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         drawer: const TzDrawer(),
-        body: const SizedBox(),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  child: ImagesSlider(
+                    height: 120,
+                    images: const [
+                      'assets/images/slider1.jpg',
+                      'assets/images/slider2.png',
+                      'assets/images/slider3.jpg',
+                      'assets/images/slider4.jpg',
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
         bottomNavigationBar: const TZBottomNavigationBar(),
       ),
     );
