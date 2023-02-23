@@ -20,20 +20,12 @@ class ImagesSlider extends StatelessWidget {
         aspectRatio: 5.0,
       ),
       itemBuilder: (context, index, id) {
-        return Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            border: Border.all(
-              color: Colors.white,
-            ),
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Image.asset(
-              images[index],
-              width: 280,
-              fit: BoxFit.cover,
-            ),
+        return ClipRRect(
+          borderRadius: BorderRadius.circular(15),
+          child: Image.asset(
+            images[index],
+            width: 280,
+            fit: BoxFit.cover,
           ),
         );
       },
