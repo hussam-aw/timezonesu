@@ -2,24 +2,41 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class ImagesSlider extends StatelessWidget {
-  ImagesSlider({items});
+  ImagesSlider({this.height = 100, required this.images});
 
-  List<Widget>? items;
+  double height;
+  List<String> images;
 
   @override
   Widget build(BuildContext context) {
-    return CarouselSlider(
-      items: items,
+    return CarouselSlider.builder(
+      itemCount: images.length,
       options: CarouselOptions(
-        height: 180.0,
         enlargeCenterPage: true,
+        height: height,
         autoPlay: true,
-        aspectRatio: 16 / 9,
-        autoPlayCurve: Curves.fastOutSlowIn,
-        enableInfiniteScroll: true,
-        autoPlayAnimationDuration: Duration(milliseconds: 800),
-        viewportFraction: 0.8,
+        autoPlayInterval: const Duration(seconds: 3),
+        reverse: false,
+        aspectRatio: 5.0,
       ),
+      itemBuilder: (context, index, id) {
+        return Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(
+              color: Colors.white,
+            ),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: Image.asset(
+              images[index],
+              width: 280,
+              fit: BoxFit.cover,
+            ),
+          ),
+        );
+      },
     );
   }
 }
