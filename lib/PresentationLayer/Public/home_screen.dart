@@ -4,6 +4,7 @@ import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/category_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/images_slider.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/Home/product_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/bottom_navigation_bar.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/drawer.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/timezome_appbar.dart';
@@ -23,6 +24,12 @@ List<String> brands = [
   'assets/images/brand4.png',
   'assets/images/brand5.png',
   'assets/images/brand6.png',
+];
+
+List<Map<String, String>> featuredProducts = [
+  {'name': 'Casio', 'price': '480', 'image': 'assets/images/product1.png'},
+  {'name': 'Casio', 'price': '480', 'image': 'assets/images/product2.png'},
+  {'name': 'Casio', 'price': '480', 'image': 'assets/images/product3.png'},
 ];
 
 class HomeScreen extends StatelessWidget {
@@ -64,9 +71,8 @@ class HomeScreen extends StatelessWidget {
                   child: ImagesSlider(
                     height: 120,
                     images: const [
-                      'assets/images/slider1.jpg',
-                      'assets/images/slider3.jpg',
-                      'assets/images/slider4.jpg',
+                      'assets/images/slider1.png',
+                      'assets/images/slider2.png',
                     ],
                   ),
                 ),
@@ -163,6 +169,28 @@ class HomeScreen extends StatelessWidget {
                                 style: UITextStyle.boldHeading.copyWith(
                                   color: UIColors.lightNormalText,
                                 ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 160,
+                              child: ListView.separated(
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, index) {
+                                  return ProductBox(
+                                    productName: featuredProducts[index]['name']
+                                        .toString(),
+                                    productImage: featuredProducts[index]
+                                            ['image']
+                                        .toString(),
+                                    productPrice: featuredProducts[index]
+                                            ['price']
+                                        .toString(),
+                                  );
+                                },
+                                separatorBuilder: (context, index) {
+                                  return const SizedBox(width: 18);
+                                },
+                                itemCount: featuredProducts.length,
                               ),
                             ),
                           ],
