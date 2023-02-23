@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/auth_controller.dart';
+import 'package:timezonesu/Constants/get_routes.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_styles.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
@@ -98,15 +99,15 @@ class LoginScreen extends StatelessWidget {
                         SizedBox(
                           width: Get.width,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.toNamed(AppRoutes.homepage);
+                            },
                             style: normalButtonWithBorderStyle,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Image.asset('assets/icons/google.png'),
-                                spacer(height: 8),
                                 Text(
-                                  'Continue With Google',
+                                  'Skip',
                                   style: UITextStyle.normalMeduim
                                       .copyWith(color: UIColors.darknormalText),
                                 ),
