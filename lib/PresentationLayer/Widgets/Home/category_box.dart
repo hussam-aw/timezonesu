@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
 
 class CategoryBox extends StatelessWidget {
@@ -20,13 +21,19 @@ class CategoryBox extends StatelessWidget {
           Container(
             width: 85,
             height: 85,
-            decoration: BoxDecoration(
+            child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
+              child: Image.asset(
+                categoryIcon,
+                fit: BoxFit.fill,
+              ),
             ),
-            child: Image.asset(categoryIcon),
           ),
           spacer(),
-          Text(categoryName),
+          Text(
+            categoryName,
+            style: UITextStyle.normalBody,
+          ),
         ],
       ),
     );
