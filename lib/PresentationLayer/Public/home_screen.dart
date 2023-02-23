@@ -16,6 +16,15 @@ List<Map<String, String>> categories = [
   {'name': 'Women', 'icon': 'assets/images/category5.png'},
 ];
 
+List<String> brands = [
+  'assets/images/brand1.png',
+  'assets/images/brand2.png',
+  'assets/images/brand3.png',
+  'assets/images/brand4.png',
+  'assets/images/brand5.png',
+  'assets/images/brand6.png',
+];
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -56,7 +65,6 @@ class HomeScreen extends StatelessWidget {
                     height: 120,
                     images: const [
                       'assets/images/slider1.jpg',
-                      'assets/images/slider2.png',
                       'assets/images/slider3.jpg',
                       'assets/images/slider4.jpg',
                     ],
@@ -64,8 +72,8 @@ class HomeScreen extends StatelessWidget {
                 ),
                 Container(
                   width: Get.width,
-                  padding: EdgeInsets.only(left: 25),
-                  decoration: BoxDecoration(
+                  padding: const EdgeInsets.only(left: 25),
+                  decoration: const BoxDecoration(
                     color: UIColors.primary,
                     borderRadius:
                         BorderRadius.only(topRight: Radius.circular(45)),
@@ -74,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsets.symmetric(vertical: 25),
+                        padding: const EdgeInsets.symmetric(vertical: 25),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -87,7 +95,7 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Container(
+                            SizedBox(
                               height: 112,
                               child: ListView.separated(
                                 scrollDirection: Axis.horizontal,
@@ -100,9 +108,61 @@ class HomeScreen extends StatelessWidget {
                                   );
                                 },
                                 separatorBuilder: (context, index) {
-                                  return const SizedBox(width: 10);
+                                  return const SizedBox(width: 20);
                                 },
-                                itemCount: 5,
+                                itemCount: categories.length,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 25),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 18),
+                              child: Text(
+                                'Brands',
+                                style: UITextStyle.boldHeading.copyWith(
+                                  color: UIColors.lightNormalText,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 62,
+                              child: ListView.separated(
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, index) {
+                                  return CircleAvatar(
+                                    minRadius: 30.0,
+                                    backgroundImage: AssetImage(
+                                      brands[index].toString(),
+                                    ),
+                                  );
+                                },
+                                separatorBuilder: (context, index) {
+                                  return const SizedBox(width: 18);
+                                },
+                                itemCount: brands.length,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 25),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 18),
+                              child: Text(
+                                'Featured Products',
+                                style: UITextStyle.boldHeading.copyWith(
+                                  color: UIColors.lightNormalText,
+                                ),
                               ),
                             ),
                           ],
