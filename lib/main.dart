@@ -4,7 +4,7 @@ import 'package:timezonesu/BussinessLayer/Helpers/local_notification_service.dar
 import 'package:timezonesu/Constants/get_pages.dart';
 
 void main() async {
-  LocalNotificationService.initialize();
+  //LocalNotificationService.initialize();
   runApp(const MyApp());
 }
 
