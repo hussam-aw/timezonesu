@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/Home/advertisement_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/category_box.dart';
-import 'package:timezonesu/PresentationLayer/Widgets/Home/images_slider.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/Public/custom_slider.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/product_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/bottom_navigation_bar.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/drawer.dart';
@@ -68,11 +69,19 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: ImagesSlider(
+                  child: CustomSlider(
                     height: 120,
-                    images: const [
-                      'assets/images/slider1.png',
-                      'assets/images/slider2.png',
+                    widgets: [
+                      AdvertisementBox(
+                        title: 'Flash Sales',
+                        subtitle: 'Under 500',
+                        image: 'assets/images/slider1.png',
+                      ),
+                      AdvertisementBox(
+                        title: 'Flash Sales',
+                        subtitle: 'Under 500',
+                        image: 'assets/images/slider2.png',
+                      ),
                     ],
                   ),
                 ),
