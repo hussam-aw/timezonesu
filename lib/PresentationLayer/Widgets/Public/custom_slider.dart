@@ -1,16 +1,16 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-class ImagesSlider extends StatelessWidget {
-  ImagesSlider({this.height = 100, required this.images});
+class CustomSlider extends StatelessWidget {
+  CustomSlider({this.height = 100, required this.widgets});
 
   double height;
-  List<String> images;
+  List<Widget> widgets;
 
   @override
   Widget build(BuildContext context) {
     return CarouselSlider.builder(
-      itemCount: images.length,
+      itemCount: widgets.length,
       options: CarouselOptions(
         enlargeCenterPage: true,
         height: height,
@@ -20,14 +20,7 @@ class ImagesSlider extends StatelessWidget {
         aspectRatio: 5.0,
       ),
       itemBuilder: (context, index, id) {
-        return ClipRRect(
-          borderRadius: BorderRadius.circular(15),
-          child: Image.asset(
-            images[index],
-            width: 280,
-            fit: BoxFit.cover,
-          ),
-        );
+        return widgets[index];
       },
     );
   }
