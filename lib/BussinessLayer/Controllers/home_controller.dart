@@ -20,6 +20,7 @@ class HomeController extends GetxController {
   Future<void> getBrands() async {
     brands = await brandsRepo.myBrands();
     print(brands);
+    update();
   }
 
   @override
