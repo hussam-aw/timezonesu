@@ -42,6 +42,7 @@ class HomeScreen extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Scaffold(
+        backgroundColor: UIColors.mainBackground,
         appBar: tzAppBar(
           actions: [
             IconButton(
