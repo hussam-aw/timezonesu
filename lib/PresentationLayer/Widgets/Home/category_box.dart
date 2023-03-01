@@ -23,7 +23,7 @@ class CategoryBox extends StatelessWidget {
             height: 85,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: Image.asset(
+              child: Image.network(
                 categoryIcon,
                 fit: BoxFit.fill,
               ),
