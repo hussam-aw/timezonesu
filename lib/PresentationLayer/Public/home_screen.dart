@@ -184,11 +184,13 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                height: 160,
+                                height: 200,
                                 child: ListView.separated(
                                   scrollDirection: Axis.horizontal,
                                   itemBuilder: (context, index) {
                                     return ProductBox(
+                                      productBrand: controller
+                                          .featuredProducts[index].brand,
                                       productName: controller
                                           .featuredProducts[index].name,
                                       productImage: controller
