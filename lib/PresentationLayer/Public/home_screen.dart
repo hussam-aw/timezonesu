@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:timezonesu/BussinessLayer/Controllers/home_controller.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/advertisement_box.dart';
@@ -65,150 +66,154 @@ class HomeScreen extends StatelessWidget {
         drawer: const TzDrawer(),
         body: SafeArea(
           child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: CustomSlider(
-                    height: 120,
-                    widgets: [
-                      AdvertisementBox(
-                        title: 'Flash Sales',
-                        subtitle: 'Under 500',
-                        image: 'assets/images/slider1.png',
-                      ),
-                      AdvertisementBox(
-                        title: 'Flash Sales',
-                        subtitle: 'Under 500',
-                        image: 'assets/images/slider2.png',
-                      ),
-                    ],
+            child: GetBuilder(
+              init: Get.find<HomeController>(),
+              builder: (controller) => Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: CustomSlider(
+                      height: 120,
+                      widgets: [
+                        AdvertisementBox(
+                          title: 'Flash Sales',
+                          subtitle: 'Under 500',
+                          image: 'assets/images/slider1.png',
+                        ),
+                        AdvertisementBox(
+                          title: 'Flash Sales',
+                          subtitle: 'Under 500',
+                          image: 'assets/images/slider2.png',
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Container(
-                  width: Get.width,
-                  padding: const EdgeInsets.only(left: 25),
-                  decoration: const BoxDecoration(
-                    color: UIColors.primary,
-                    borderRadius:
-                        BorderRadius.only(topRight: Radius.circular(45)),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 25),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 18),
-                              child: Text(
-                                'Categories',
-                                style: UITextStyle.boldHeading.copyWith(
-                                  color: UIColors.lightNormalText,
+                  Container(
+                    width: Get.width,
+                    padding: const EdgeInsets.only(left: 25),
+                    decoration: const BoxDecoration(
+                      color: UIColors.primary,
+                      borderRadius:
+                          BorderRadius.only(topRight: Radius.circular(45)),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 25),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 18),
+                                child: Text(
+                                  'Categories',
+                                  style: UITextStyle.boldHeading.copyWith(
+                                    color: UIColors.lightNormalText,
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 112,
-                              child: ListView.separated(
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (context, index) {
-                                  return CategoryBox(
-                                    categoryName:
-                                        categories[index]['name'].toString(),
-                                    categoryIcon:
-                                        categories[index]['icon'].toString(),
-                                  );
-                                },
-                                separatorBuilder: (context, index) {
-                                  return const SizedBox(width: 20);
-                                },
-                                itemCount: categories.length,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 25),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 18),
-                              child: Text(
-                                'Brands',
-                                style: UITextStyle.boldHeading.copyWith(
-                                  color: UIColors.lightNormalText,
+                              SizedBox(
+                                height: 112,
+                                child: ListView.separated(
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) {
+                                    return CategoryBox(
+                                      categoryName:
+                                          controller.categories[index].name,
+                                      categoryIcon:
+                                          controller.categories[index].image,
+                                    );
+                                  },
+                                  separatorBuilder: (context, index) {
+                                    return const SizedBox(width: 20);
+                                  },
+                                  itemCount: controller.categories.length,
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 62,
-                              child: ListView.separated(
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (context, index) {
-                                  return CircleAvatar(
-                                    minRadius: 30.0,
-                                    backgroundImage: AssetImage(
-                                      brands[index].toString(),
-                                    ),
-                                  );
-                                },
-                                separatorBuilder: (context, index) {
-                                  return const SizedBox(width: 18);
-                                },
-                                itemCount: brands.length,
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 25),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 18),
-                              child: Text(
-                                'Featured Products',
-                                style: UITextStyle.boldHeading.copyWith(
-                                  color: UIColors.lightNormalText,
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 25),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 18),
+                                child: Text(
+                                  'Brands',
+                                  style: UITextStyle.boldHeading.copyWith(
+                                    color: UIColors.lightNormalText,
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 160,
-                              child: ListView.separated(
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (context, index) {
-                                  return ProductBox(
-                                    productName: featuredProducts[index]['name']
-                                        .toString(),
-                                    productImage: featuredProducts[index]
-                                            ['image']
-                                        .toString(),
-                                    productPrice: featuredProducts[index]
-                                            ['price']
-                                        .toString(),
-                                  );
-                                },
-                                separatorBuilder: (context, index) {
-                                  return const SizedBox(width: 18);
-                                },
-                                itemCount: featuredProducts.length,
+                              SizedBox(
+                                height: 62,
+                                child: ListView.separated(
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) {
+                                    return CircleAvatar(
+                                      minRadius: 30.0,
+                                      backgroundImage: AssetImage(
+                                        brands[index].toString(),
+                                      ),
+                                    );
+                                  },
+                                  separatorBuilder: (context, index) {
+                                    return const SizedBox(width: 18);
+                                  },
+                                  itemCount: brands.length,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 25),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 18),
+                                child: Text(
+                                  'Featured Products',
+                                  style: UITextStyle.boldHeading.copyWith(
+                                    color: UIColors.lightNormalText,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 160,
+                                child: ListView.separated(
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) {
+                                    return ProductBox(
+                                      productName: featuredProducts[index]
+                                              ['name']
+                                          .toString(),
+                                      productImage: featuredProducts[index]
+                                              ['image']
+                                          .toString(),
+                                      productPrice: featuredProducts[index]
+                                              ['price']
+                                          .toString(),
+                                    );
+                                  },
+                                  separatorBuilder: (context, index) {
+                                    return const SizedBox(width: 18);
+                                  },
+                                  itemCount: featuredProducts.length,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
