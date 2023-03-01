@@ -154,16 +154,16 @@ class HomeScreen extends StatelessWidget {
                                   scrollDirection: Axis.horizontal,
                                   itemBuilder: (context, index) {
                                     return CircleAvatar(
-                                      minRadius: 30.0,
-                                      backgroundImage: AssetImage(
-                                        brands[index].toString(),
+                                      minRadius: 32.0,
+                                      backgroundImage: NetworkImage(
+                                        controller.brands[index].image,
                                       ),
                                     );
                                   },
                                   separatorBuilder: (context, index) {
                                     return const SizedBox(width: 18);
                                   },
-                                  itemCount: brands.length,
+                                  itemCount: controller.brands.length,
                                 ),
                               ),
                             ],
