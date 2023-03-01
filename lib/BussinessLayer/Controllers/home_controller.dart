@@ -31,6 +31,7 @@ class HomeController extends GetxController {
   Future<void> getFeaturedProducts() async {
     featuredProducts = await featuredRepo.myFeaturedProducts();
     print(featuredProducts);
+    update();
   }
 
   @override
