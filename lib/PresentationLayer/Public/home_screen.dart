@@ -155,6 +155,8 @@ class HomeScreen extends StatelessWidget {
                                   itemBuilder: (context, index) {
                                     return CircleAvatar(
                                       minRadius: 32.0,
+                                      backgroundColor:
+                                          UIColors.circleAvatarBackground,
                                       backgroundImage: NetworkImage(
                                         controller.brands[index].image,
                                       ),
