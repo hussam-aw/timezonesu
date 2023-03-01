@@ -189,21 +189,18 @@ class HomeScreen extends StatelessWidget {
                                   scrollDirection: Axis.horizontal,
                                   itemBuilder: (context, index) {
                                     return ProductBox(
-                                      productName: featuredProducts[index]
-                                              ['name']
-                                          .toString(),
-                                      productImage: featuredProducts[index]
-                                              ['image']
-                                          .toString(),
-                                      productPrice: featuredProducts[index]
-                                              ['price']
-                                          .toString(),
+                                      productName: controller
+                                          .featuredProducts[index].name,
+                                      productImage: controller
+                                          .featuredProducts[index].images[0],
+                                      productPrice: controller
+                                          .featuredProducts[index].price,
                                     );
                                   },
                                   separatorBuilder: (context, index) {
                                     return const SizedBox(width: 18);
                                   },
-                                  itemCount: featuredProducts.length,
+                                  itemCount: controller.featuredProducts.length,
                                 ),
                               ),
                             ],
