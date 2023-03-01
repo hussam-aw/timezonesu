@@ -5,3 +5,4 @@ const exampleLink = "examples";
 const loginLink = "login";
 const categoriesLink = "/categories";
 const brandsLink = "/brands";
+const featuredProductsLink = "/featureProducts";
