@@ -31,6 +31,7 @@ class UIColors {
   static const updateTextFieldBorder = Color(0xff3D404A);
 
   // Background Colors
+  static const mainBackground = Color(0xffF6F6F6);
   static const containerBackground = Color(0xffD5D5D5);
   static const circleAvatarBackground = Color(0xffD5D5D5);
   static const textFieldBackground = Color(0xffF6F6F6);
