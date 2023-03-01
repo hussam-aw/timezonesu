@@ -6,11 +6,13 @@ import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
 class ProductBox extends StatelessWidget {
   ProductBox({
     super.key,
+    required this.productBrand,
     required this.productName,
     required this.productImage,
     required this.productPrice,
   });
 
+  String productBrand;
   String productName;
   String productImage;
   String productPrice;
@@ -19,37 +21,55 @@ class ProductBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {},
-      child: Column(
-        children: [
-          Container(
-            width: 150,
-            height: 130,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image.network(
-                productImage,
-                fit: BoxFit.fill,
-              ),
-            ),
-          ),
-          spacer(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                productName,
-                style: UITextStyle.boldMeduim.copyWith(
-                  color: UIColors.lightNormalText,
+      child: SizedBox(
+        width: 150,
+        child: Column(
+          children: [
+            SizedBox(
+              width: 150,
+              height: 130,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.network(
+                  productImage,
+                  fit: BoxFit.fill,
                 ),
               ),
-              const SizedBox(width: 25),
-              Text(
-                productPrice,
-                style: UITextStyle.normalBody,
+            ),
+            spacer(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        productBrand,
+                        style: UITextStyle.boldMeduim.copyWith(
+                          color: UIColors.lightNormalText,
+                        ),
+                      ),
+                      Text(
+                        productPrice,
+                        style: UITextStyle.normalBody,
+                      ),
+                    ],
+                  ),
+                  spacer(height: 8),
+                  Text(
+                    productName,
+                    style: UITextStyle.boldBody,
+                    softWrap: true,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                  ),
+                ],
               ),
-            ],
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }
