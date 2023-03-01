@@ -4,3 +4,4 @@ const baseUrlV1 = "http://timezone.brain.sy/api/v1";
 const exampleLink = "examples";
 const loginLink = "login";
 const categoriesLink = "/categories";
+const brandsLink = "/brands";
