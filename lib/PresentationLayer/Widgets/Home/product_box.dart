@@ -27,11 +27,14 @@ class ProductBox extends StatelessWidget {
           children: [
             Expanded(
               flex: 5,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.network(
-                  productImage,
-                  fit: BoxFit.fill,
+              child: SizedBox(
+                width: 150,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.network(
+                    productImage,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
             ),
