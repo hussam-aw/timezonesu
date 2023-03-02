@@ -16,26 +16,57 @@ class CategoryBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {},
-      child: Column(
-        children: [
-          Container(
-            width: 85,
-            height: 85,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image.network(
-                categoryIcon,
-                fit: BoxFit.fill,
+      child: SizedBox(
+        width: 85,
+        height: 110,
+        child: Column(
+          children: [
+            Expanded(
+              flex: 4,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.network(
+                  categoryIcon,
+                  fit: BoxFit.fill,
+                ),
               ),
             ),
-          ),
-          spacer(),
-          Text(
-            categoryName,
-            style: UITextStyle.normalBody,
-          ),
-        ],
+            spacer(height: 7),
+            Expanded(
+              flex: 1,
+              child: Text(
+                categoryName,
+                style: UITextStyle.normalBody,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
+
+// Container(
+//     width: 85,
+//     height: 110,
+//     child: Column(
+//       children: [
+//        Expanded(
+//         flex: 5,
+//         child: ClipRRect(
+//          borderRadius: BorderRadius.circular(20),
+//           child: Container(
+//            color: UIColors.white,
+//           ),
+//         ),
+//        ),
+//        spacer(),
+//        Expanded(
+//         flex: 1,
+//         child: Container(
+//          color: UIColors.containerBackground,
+//         ),
+//        ),
+//       ],
+//      ),
+//    );
