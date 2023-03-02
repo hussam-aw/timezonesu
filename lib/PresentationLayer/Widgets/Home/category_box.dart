@@ -45,28 +45,3 @@ class CategoryBox extends StatelessWidget {
     );
   }
 }
-
-// Container(
-//     width: 85,
-//     height: 110,
-//     child: Column(
-//       children: [
-//        Expanded(
-//         flex: 5,
-//         child: ClipRRect(
-//          borderRadius: BorderRadius.circular(20),
-//           child: Container(
-//            color: UIColors.white,
-//           ),
-//         ),
-//        ),
-//        spacer(),
-//        Expanded(
-//         flex: 1,
-//         child: Container(
-//          color: UIColors.containerBackground,
-//         ),
-//        ),
-//       ],
-//      ),
-//    );
