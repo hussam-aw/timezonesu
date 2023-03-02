@@ -25,9 +25,8 @@ class ProductBox extends StatelessWidget {
         width: 150,
         child: Column(
           children: [
-            SizedBox(
-              width: 150,
-              height: 130,
+            Expanded(
+              flex: 5,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.network(
