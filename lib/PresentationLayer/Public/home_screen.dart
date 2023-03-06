@@ -5,6 +5,7 @@ import 'package:timezonesu/BussinessLayer/Controllers/home_controller.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/advertisement_box.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/Home/brand_icon.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/category_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/empty_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/custom_slider.dart';
@@ -161,11 +162,7 @@ class HomeScreen extends StatelessWidget {
                                         child: ListView.separated(
                                           scrollDirection: Axis.horizontal,
                                           itemBuilder: (context, index) {
-                                            return const CircleAvatar(
-                                              minRadius: 32.0,
-                                              backgroundColor: UIColors
-                                                  .circleAvatarBackground,
-                                            );
+                                            return BrandIcon();
                                           },
                                           separatorBuilder: (context, index) {
                                             return const SizedBox(width: 18);
@@ -179,14 +176,9 @@ class HomeScreen extends StatelessWidget {
                                       child: ListView.separated(
                                         scrollDirection: Axis.horizontal,
                                         itemBuilder: (context, index) {
-                                          return CircleAvatar(
-                                            minRadius: 32.0,
-                                            backgroundColor:
-                                                UIColors.circleAvatarBackground,
-                                            backgroundImage: NetworkImage(
-                                              homeController
-                                                  .brands[index].image,
-                                            ),
+                                          return BrandIcon(
+                                            brandImage: homeController
+                                                .brands[index].image,
                                           );
                                         },
                                         separatorBuilder: (context, index) {
