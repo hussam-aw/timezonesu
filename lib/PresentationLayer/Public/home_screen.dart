@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/home_controller.dart';
+import 'package:timezonesu/Constants/get_routes.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
+import 'package:timezonesu/PresentationLayer/Public/product_screen.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/advertisement_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/brand_icon.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/category_box.dart';
@@ -230,6 +232,12 @@ class HomeScreen extends StatelessWidget {
                                         scrollDirection: Axis.horizontal,
                                         itemBuilder: (context, index) {
                                           return ProductBox(
+                                            onTap: () => Get.toNamed(
+                                                AppRoutes.productScreen,
+                                                arguments: {
+                                                  'product': homeController
+                                                      .featuredProducts[index]
+                                                }),
                                             productBrand: homeController
                                                 .featuredProducts[index].brand,
                                             productName: homeController
