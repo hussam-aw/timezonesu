@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/home_controller.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
@@ -9,33 +10,13 @@ import 'package:timezonesu/PresentationLayer/Widgets/Public/custom_slider.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/product_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/bottom_navigation_bar.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/drawer.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/timezome_appbar.dart';
 
-List<Map<String, String>> categories = [
-  {'name': 'Watches', 'icon': 'assets/images/category1.png'},
-  {'name': 'Accessories', 'icon': 'assets/images/category2.png'},
-  {'name': 'Calculators', 'icon': 'assets/images/category3.png'},
-  {'name': 'Musical Instruments', 'icon': 'assets/images/category4.png'},
-  {'name': 'Women', 'icon': 'assets/images/category5.png'},
-];
-
-List<String> brands = [
-  'assets/images/brand1.png',
-  'assets/images/brand2.png',
-  'assets/images/brand3.png',
-  'assets/images/brand4.png',
-  'assets/images/brand5.png',
-  'assets/images/brand6.png',
-];
-
-List<Map<String, String>> featuredProducts = [
-  {'name': 'Casio', 'price': '480', 'image': 'assets/images/product1.png'},
-  {'name': 'Casio', 'price': '480', 'image': 'assets/images/product2.png'},
-  {'name': 'Casio', 'price': '480', 'image': 'assets/images/product3.png'},
-];
-
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  final homeController = Get.find<HomeController>();
 
   @override
   Widget build(BuildContext context) {
@@ -67,9 +48,8 @@ class HomeScreen extends StatelessWidget {
         drawer: const TzDrawer(),
         body: SafeArea(
           child: SingleChildScrollView(
-            child: GetBuilder(
-              init: Get.find<HomeController>(),
-              builder: (controller) => Column(
+            child: Obx(
+              () => Column(
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 20),
@@ -114,24 +94,70 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(
-                                height: 112,
-                                child: ListView.separated(
-                                  scrollDirection: Axis.horizontal,
-                                  itemBuilder: (context, index) {
-                                    return CategoryBox(
-                                      categoryName:
-                                          controller.categories[index].name,
-                                      categoryIcon:
-                                          controller.categories[index].image,
-                                    );
-                                  },
-                                  separatorBuilder: (context, index) {
-                                    return const SizedBox(width: 20);
-                                  },
-                                  itemCount: controller.categories.length,
-                                ),
-                              ),
+                              homeController.isLoading.value
+                                  ? Shimmer.fromColors(
+                                      baseColor: UIColors.containerBackground,
+                                      highlightColor: UIColors.mainBackground,
+                                      enabled: homeController.isLoading.value,
+                                      child: SizedBox(
+                                        height: 112,
+                                        child: ListView.separated(
+                                          scrollDirection: Axis.horizontal,
+                                          itemBuilder: (context, index) {
+                                            return SizedBox(
+                                              width: 85,
+                                              height: 110,
+                                              child: Column(
+                                                children: [
+                                                  Expanded(
+                                                    flex: 4,
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20),
+                                                      child: Container(
+                                                        color: UIColors.white,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  spacer(height: 7),
+                                                  Expanded(
+                                                    flex: 1,
+                                                    child: Container(
+                                                      color: UIColors
+                                                          .containerBackground,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                          separatorBuilder: (context, index) {
+                                            return const SizedBox(width: 20);
+                                          },
+                                          itemCount: 7,
+                                        ),
+                                      ),
+                                    )
+                                  : SizedBox(
+                                      height: 112,
+                                      child: ListView.separated(
+                                        scrollDirection: Axis.horizontal,
+                                        itemBuilder: (context, index) {
+                                          return CategoryBox(
+                                            categoryName: homeController
+                                                .categories[index].name,
+                                            categoryIcon: homeController
+                                                .categories[index].image,
+                                          );
+                                        },
+                                        separatorBuilder: (context, index) {
+                                          return const SizedBox(width: 20);
+                                        },
+                                        itemCount:
+                                            homeController.categories.length,
+                                      ),
+                                    ),
                             ],
                           ),
                         ),
@@ -149,26 +175,50 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(
-                                height: 62,
-                                child: ListView.separated(
-                                  scrollDirection: Axis.horizontal,
-                                  itemBuilder: (context, index) {
-                                    return CircleAvatar(
-                                      minRadius: 32.0,
-                                      backgroundColor:
-                                          UIColors.circleAvatarBackground,
-                                      backgroundImage: NetworkImage(
-                                        controller.brands[index].image,
+                              homeController.isLoading.value
+                                  ? Shimmer.fromColors(
+                                      baseColor: UIColors.containerBackground,
+                                      highlightColor: UIColors.mainBackground,
+                                      enabled: homeController.isLoading.value,
+                                      child: SizedBox(
+                                        height: 62,
+                                        child: ListView.separated(
+                                          scrollDirection: Axis.horizontal,
+                                          itemBuilder: (context, index) {
+                                            return const CircleAvatar(
+                                              minRadius: 32.0,
+                                              backgroundColor: UIColors
+                                                  .circleAvatarBackground,
+                                            );
+                                          },
+                                          separatorBuilder: (context, index) {
+                                            return const SizedBox(width: 18);
+                                          },
+                                          itemCount: 7,
+                                        ),
                                       ),
-                                    );
-                                  },
-                                  separatorBuilder: (context, index) {
-                                    return const SizedBox(width: 18);
-                                  },
-                                  itemCount: controller.brands.length,
-                                ),
-                              ),
+                                    )
+                                  : SizedBox(
+                                      height: 62,
+                                      child: ListView.separated(
+                                        scrollDirection: Axis.horizontal,
+                                        itemBuilder: (context, index) {
+                                          return CircleAvatar(
+                                            minRadius: 32.0,
+                                            backgroundColor:
+                                                UIColors.circleAvatarBackground,
+                                            backgroundImage: NetworkImage(
+                                              homeController
+                                                  .brands[index].image,
+                                            ),
+                                          );
+                                        },
+                                        separatorBuilder: (context, index) {
+                                          return const SizedBox(width: 18);
+                                        },
+                                        itemCount: homeController.brands.length,
+                                      ),
+                                    ),
                             ],
                           ),
                         ),
@@ -186,28 +236,75 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(
-                                height: 200,
-                                child: ListView.separated(
-                                  scrollDirection: Axis.horizontal,
-                                  itemBuilder: (context, index) {
-                                    return ProductBox(
-                                      productBrand: controller
-                                          .featuredProducts[index].brand,
-                                      productName: controller
-                                          .featuredProducts[index].name,
-                                      productImage: controller
-                                          .featuredProducts[index].images[0],
-                                      productPrice: controller
-                                          .featuredProducts[index].price,
-                                    );
-                                  },
-                                  separatorBuilder: (context, index) {
-                                    return const SizedBox(width: 18);
-                                  },
-                                  itemCount: controller.featuredProducts.length,
-                                ),
-                              ),
+                              homeController.isLoading.value
+                                  ? Shimmer.fromColors(
+                                      baseColor: UIColors.containerBackground,
+                                      highlightColor: UIColors.mainBackground,
+                                      enabled: homeController.isLoading.value,
+                                      child: SizedBox(
+                                        height: 200,
+                                        child: ListView.separated(
+                                          scrollDirection: Axis.horizontal,
+                                          itemBuilder: (context, index) {
+                                            return SizedBox(
+                                              width: 150,
+                                              height: 110,
+                                              child: Column(
+                                                children: [
+                                                  Expanded(
+                                                    flex: 5,
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20),
+                                                      child: Container(
+                                                        color: UIColors.white,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  spacer(),
+                                                  Expanded(
+                                                    flex: 1,
+                                                    child: Container(
+                                                      color: UIColors
+                                                          .containerBackground,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                          separatorBuilder: (context, index) {
+                                            return const SizedBox(width: 20);
+                                          },
+                                          itemCount: 7,
+                                        ),
+                                      ),
+                                    )
+                                  : SizedBox(
+                                      height: 200,
+                                      child: ListView.separated(
+                                        scrollDirection: Axis.horizontal,
+                                        itemBuilder: (context, index) {
+                                          return ProductBox(
+                                            productBrand: homeController
+                                                .featuredProducts[index].brand,
+                                            productName: homeController
+                                                .featuredProducts[index].name,
+                                            productImage: homeController
+                                                .featuredProducts[index]
+                                                .images[0],
+                                            productPrice: homeController
+                                                .featuredProducts[index].price,
+                                          );
+                                        },
+                                        separatorBuilder: (context, index) {
+                                          return const SizedBox(width: 18);
+                                        },
+                                        itemCount: homeController
+                                            .featuredProducts.length,
+                                      ),
+                                    ),
                             ],
                           ),
                         ),
