@@ -10,17 +10,19 @@ class ProductBox extends StatelessWidget {
     required this.productName,
     required this.productImage,
     required this.productPrice,
+    required this.onTap,
   });
 
   String productBrand;
   String productName;
   String productImage;
   String productPrice;
+  Function() onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onTap,
       child: SizedBox(
         width: 150,
         child: Column(
