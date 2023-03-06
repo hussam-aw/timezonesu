@@ -6,6 +6,7 @@ import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/advertisement_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/category_box.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/Home/empty_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/custom_slider.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/product_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/bottom_navigation_bar.dart';
@@ -104,33 +105,8 @@ class HomeScreen extends StatelessWidget {
                                         child: ListView.separated(
                                           scrollDirection: Axis.horizontal,
                                           itemBuilder: (context, index) {
-                                            return SizedBox(
-                                              width: 85,
-                                              height: 110,
-                                              child: Column(
-                                                children: [
-                                                  Expanded(
-                                                    flex: 4,
-                                                    child: ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              20),
-                                                      child: Container(
-                                                        color: UIColors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  spacer(height: 7),
-                                                  Expanded(
-                                                    flex: 1,
-                                                    child: Container(
-                                                      color: UIColors
-                                                          .containerBackground,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
+                                            return EmptyBox(
+                                                width: 85, height: 110);
                                           },
                                           separatorBuilder: (context, index) {
                                             return const SizedBox(width: 20);
@@ -246,33 +222,8 @@ class HomeScreen extends StatelessWidget {
                                         child: ListView.separated(
                                           scrollDirection: Axis.horizontal,
                                           itemBuilder: (context, index) {
-                                            return SizedBox(
-                                              width: 150,
-                                              height: 110,
-                                              child: Column(
-                                                children: [
-                                                  Expanded(
-                                                    flex: 5,
-                                                    child: ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              20),
-                                                      child: Container(
-                                                        color: UIColors.white,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  spacer(),
-                                                  Expanded(
-                                                    flex: 1,
-                                                    child: Container(
-                                                      color: UIColors
-                                                          .containerBackground,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
+                                            return EmptyBox(
+                                                width: 150, height: 110);
                                           },
                                           separatorBuilder: (context, index) {
                                             return const SizedBox(width: 20);
