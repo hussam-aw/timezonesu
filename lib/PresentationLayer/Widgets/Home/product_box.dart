@@ -31,9 +31,16 @@ class ProductBox extends StatelessWidget {
                 width: 150,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
-                  child: Image.network(
-                    productImage,
-                    fit: BoxFit.fill,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: UIColors.containerBackground,
+                      image: DecorationImage(
+                        image: NetworkImage(
+                          productImage,
+                        ),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
                   ),
                 ),
               ),
