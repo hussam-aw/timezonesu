@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
 
@@ -25,9 +26,16 @@ class CategoryBox extends StatelessWidget {
               flex: 4,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Image.network(
-                  categoryIcon,
-                  fit: BoxFit.fill,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: UIColors.containerBackground,
+                    image: DecorationImage(
+                      image: NetworkImage(
+                        categoryIcon,
+                      ),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
               ),
             ),
