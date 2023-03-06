@@ -4,7 +4,9 @@ class UIColors {
   static const blue = Color(0xff1A3281);
   static const white = Color(0xffffffff);
   static const red = Color(0xffff0000);
+  static const lightprimary = Color(0xff5961B9);
   static const primary = Color(0xff2D358E);
+  static const darkGrey = Color(0xff707070);
   static const lightGrey = Color(0xff9C9C9C);
   static const defaultProgress = Color(0xffEC272E);
 
