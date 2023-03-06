@@ -8,11 +8,21 @@ class BrandIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      minRadius: 32.0,
-      backgroundColor: UIColors.circleAvatarBackground,
-      backgroundImage: NetworkImage(
-        brandImage ?? '',
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(50),
+      child: Container(
+        width: 60,
+        height: 65,
+        decoration: BoxDecoration(
+          color: UIColors.circleAvatarBackground,
+          image: brandImage != null
+              ? DecorationImage(
+                  image: NetworkImage(
+                    brandImage!,
+                  ),
+                  fit: BoxFit.fill)
+              : null,
+        ),
       ),
     );
   }
