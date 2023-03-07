@@ -117,24 +117,24 @@ class ProductScreen extends StatelessWidget {
                             color: UIColors.lightGrey,
                           ),
                         ),
-                        const SizedBox(width: 10),
+                        const SizedBox(width: 14),
                         const Text(
                           'R.Number: ',
                           style: UITextStyle.boldBody,
                         ),
                         Text(
-                          product.name,
+                          product.referenceNumber,
                           style: UITextStyle.normalBody.copyWith(
                             color: UIColors.lightGrey,
                           ),
                         ),
-                        const SizedBox(width: 10),
+                        const SizedBox(width: 14),
                         const Text(
                           'Gender: ',
                           style: UITextStyle.boldBody,
                         ),
                         Text(
-                          'Men',
+                          product.gender,
                           style: UITextStyle.normalBody.copyWith(
                             color: UIColors.lightGrey,
                           ),
@@ -149,18 +149,18 @@ class ProductScreen extends StatelessWidget {
                           style: UITextStyle.boldMeduim,
                         ),
                         Text(
-                          'Quartz',
+                          product.movement,
                           style: UITextStyle.normalBody.copyWith(
                             color: UIColors.lightGrey,
                           ),
                         ),
-                        const SizedBox(width: 10),
+                        const SizedBox(width: 14),
                         const Text(
                           'Case size: ',
                           style: UITextStyle.boldMeduim,
                         ),
                         Text(
-                          '15.0 mm',
+                          product.caseSize,
                           style: UITextStyle.normalBody.copyWith(
                             color: UIColors.lightGrey,
                           ),
