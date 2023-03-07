@@ -6,7 +6,7 @@ class CategoryController extends GetxController {
   ProductsByCategoryRepo productsByCategoryRepo = ProductsByCategoryRepo();
   List<Product> products = [];
 
-  void getCategoryProducts(int categoryId) async {
+  Future<void> getCategoryProducts(int categoryId) async {
     products = await productsByCategoryRepo.products(categoryId);
   }
 

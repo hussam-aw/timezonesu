@@ -14,11 +14,10 @@ import '../../Constants/ui_colors.dart';
 class CategoryScreen extends StatelessWidget {
   CategoryScreen({super.key});
 
-  final categoryController = Get.find<CategoryController>();
-
   @override
   Widget build(BuildContext context) {
     final Category category = Get.arguments['category'];
+    final categoryProducts = Get.arguments['categoryProducts'];
     return Scaffold(
       backgroundColor: UIColors.white,
       body: SafeArea(
@@ -69,28 +68,23 @@ class CategoryScreen extends StatelessWidget {
                       ),
                     ),
                     GetBuilder<CategoryController>(builder: (context) {
-                      categoryController.getCategoryProducts(category.id);
-
                       return Container(
                         height: 360,
                         padding: const EdgeInsets.only(bottom: 10),
                         child: ListView.separated(
                           itemBuilder: (context, index) {
                             return CategoryProductBox(
-                              brandName:
-                                  categoryController.products[index].brand,
-                              productName:
-                                  categoryController.products[index].name,
-                              price: categoryController.products[index].price,
-                              offer: categoryController.products[index].offer,
-                              image:
-                                  categoryController.products[index].images[0],
+                              brandName: categoryProducts[index].brand,
+                              productName: categoryProducts[index].name,
+                              price: categoryProducts[index].price,
+                              offer: categoryProducts[index].offer,
+                              image: categoryProducts[index].images[0],
                             );
                           },
                           separatorBuilder: (context, index) {
                             return spacer(height: 20);
                           },
-                          itemCount: 7,
+                          itemCount: categoryProducts.length,
                         ),
                       );
                     }),
