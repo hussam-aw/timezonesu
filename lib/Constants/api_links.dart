@@ -7,3 +7,4 @@ const advertsLink = "/adverts";
 const categoriesLink = "/categories";
 const brandsLink = "/brands";
 const featuredProductsLink = "/featureProducts";
+const productsLink = "/products";
