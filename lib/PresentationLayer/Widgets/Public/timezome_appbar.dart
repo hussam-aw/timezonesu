@@ -16,7 +16,10 @@ PreferredSizeWidget tzAppBar(
         bottomRight: Radius.circular(24),
       ),
     ),
-    leading: leading,
+    leading: Padding(
+      padding: const EdgeInsets.only(left: 16),
+      child: leading,
+    ),
     actions: actions,
   );
 }
