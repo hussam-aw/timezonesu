@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:timezonesu/PresentationLayer/Public/category_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/home_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/product_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/splash_screen.dart';
@@ -16,5 +17,6 @@ List<GetPage<dynamic>> getPages = [
       name: AppRoutes.homepage,
       page: () => HomeScreen(),
       binding: HomeBindings()),
+  GetPage(name: AppRoutes.categoryScreen, page: () => const CategoryScreen()),
   GetPage(name: AppRoutes.productScreen, page: () => const ProductScreen()),
 ];
