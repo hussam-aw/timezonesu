@@ -71,6 +71,9 @@ class CategoryProductBox extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         productName,
+                        softWrap: true,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
                         style: UITextStyle.boldMeduim,
                       ),
                     ),
