@@ -124,6 +124,12 @@ class HomeScreen extends StatelessWidget {
                                         scrollDirection: Axis.horizontal,
                                         itemBuilder: (context, index) {
                                           return CategoryBox(
+                                            onTap: () => Get.toNamed(
+                                                AppRoutes.categoryScreen,
+                                                arguments: {
+                                                  'category': homeController
+                                                      .categories[index],
+                                                }),
                                             categoryName: homeController
                                                 .categories[index].name,
                                             categoryIcon: homeController
