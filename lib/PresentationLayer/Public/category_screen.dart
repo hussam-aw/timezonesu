@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:timezonesu/BussinessLayer/Controllers/category_controller.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/DataAccesslayer/Models/category.dart';
+import 'package:timezonesu/DataAccesslayer/Models/product.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Category/category_product_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/bottom_navigation_bar.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
@@ -10,7 +12,9 @@ import 'package:timezonesu/PresentationLayer/Widgets/Public/transparent_header.d
 import '../../Constants/ui_colors.dart';
 
 class CategoryScreen extends StatelessWidget {
-  const CategoryScreen({super.key});
+  CategoryScreen({super.key});
+
+  final categoryController = Get.find<CategoryController>();
 
   @override
   Widget build(BuildContext context) {
@@ -58,31 +62,38 @@ class CategoryScreen extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 20),
                       child: Text(
-                        'Watches',
+                        category.name,
                         style: UITextStyle.boldHeading.copyWith(
                           color: UIColors.subTitle,
                         ),
                       ),
                     ),
-                    Container(
-                      height: 360,
-                      padding: const EdgeInsets.only(bottom: 10),
-                      child: ListView.separated(
-                        itemBuilder: (context, index) {
-                          return CategoryProductBox(
-                            brandName: 'Casio',
-                            productName: 'wwrr88',
-                            price: '50.000',
-                            offer: '40.000',
-                            image: category.image,
-                          );
-                        },
-                        separatorBuilder: (context, index) {
-                          return spacer(height: 20);
-                        },
-                        itemCount: 7,
-                      ),
-                    ),
+                    GetBuilder<CategoryController>(builder: (context) {
+                      categoryController.getCategoryProducts(category.id);
+
+                      return Container(
+                        height: 360,
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: ListView.separated(
+                          itemBuilder: (context, index) {
+                            return CategoryProductBox(
+                              brandName:
+                                  categoryController.products[index].brand,
+                              productName:
+                                  categoryController.products[index].name,
+                              price: categoryController.products[index].price,
+                              offer: categoryController.products[index].offer,
+                              image:
+                                  categoryController.products[index].images[0],
+                            );
+                          },
+                          separatorBuilder: (context, index) {
+                            return spacer(height: 20);
+                          },
+                          itemCount: 7,
+                        ),
+                      );
+                    }),
                   ],
                 ),
               ),
