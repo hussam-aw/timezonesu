@@ -6,6 +6,7 @@ import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/DataAccesslayer/Models/featured_product.dart';
 import 'package:timezonesu/DataAccesslayer/Models/product.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/Public/transparent_header.dart';
 
 class ProductScreen extends StatelessWidget {
   const ProductScreen({super.key});
@@ -16,53 +17,31 @@ class ProductScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: UIColors.lightprimary,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(18),
-                      bottomRight: Radius.circular(18),
-                    ),
-                    child: Container(
-                      height: 400,
-                      width: Get.width,
-                      child: Image.network(
-                        product.images[0],
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 90,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          UIColors.darkGrey,
-                          UIColors.white.withOpacity(0.4),
-                        ],
-                        stops: [0.0, 1.0],
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.arrow_back_ios,
-                              size: 30,
-                              color: UIColors.activeIcon,
+        child: Column(
+          children: [
+            Expanded(
+              flex: 9,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(18),
+                            bottomRight: Radius.circular(18),
+                          ),
+                          child: SizedBox(
+                            height: 400,
+                            width: Get.width,
+                            child: Image.network(
+                              product.images[0],
+                              fit: BoxFit.cover,
                             ),
                           ),
-                          IconButton(
+                        ),
+                        TransparentHeader(
+                          trailling: IconButton(
                             onPressed: () {},
                             icon: const Icon(
                               Icons.shopping_cart,
@@ -70,154 +49,152 @@ class ProductScreen extends StatelessWidget {
                               color: UIColors.activeIcon,
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
                     Padding(
-                      padding: EdgeInsets.only(right: 80),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 30, vertical: 30),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          Padding(
+                            padding: const EdgeInsets.only(right: 80),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      product.brand.toUpperCase(),
+                                      style: UITextStyle.boldHeading,
+                                    ),
+                                    spacer(height: 15),
+                                    Text(
+                                      product.name,
+                                      style: UITextStyle.boldHeading.copyWith(
+                                        color: UIColors.lightGrey,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text(
+                                      product.price,
+                                      style: UITextStyle.boldMeduim.copyWith(
+                                        color: UIColors.lightGrey,
+                                        decoration: TextDecoration.lineThrough,
+                                      ),
+                                    ),
+                                    spacer(height: 7),
+                                    Text(
+                                      product.offer,
+                                      style: UITextStyle.boldHeading.copyWith(
+                                        color: UIColors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          spacer(),
+                          Text(
+                            product.description,
+                            style: UITextStyle.normalBody.copyWith(
+                              color: UIColors.lightNormalText,
+                            ),
+                          ),
+                          const Divider(color: UIColors.lightGrey),
+                          spacer(),
+                          Row(
                             children: [
-                              Text(
-                                product.brand.toUpperCase(),
-                                style: UITextStyle.boldHeading,
+                              const Text(
+                                'Brand: ',
+                                style: UITextStyle.boldBody,
                               ),
-                              spacer(height: 15),
                               Text(
-                                product.name,
-                                style: UITextStyle.boldHeading.copyWith(
+                                product.brand,
+                                style: UITextStyle.normalBody.copyWith(
+                                  color: UIColors.lightGrey,
+                                ),
+                              ),
+                              const SizedBox(width: 14),
+                              const Text(
+                                'R.Number: ',
+                                style: UITextStyle.boldBody,
+                              ),
+                              Text(
+                                product.referenceNumber,
+                                style: UITextStyle.normalBody.copyWith(
+                                  color: UIColors.lightGrey,
+                                ),
+                              ),
+                              const SizedBox(width: 14),
+                              const Text(
+                                'Gender: ',
+                                style: UITextStyle.boldBody,
+                              ),
+                              Text(
+                                product.gender,
+                                style: UITextStyle.normalBody.copyWith(
                                   color: UIColors.lightGrey,
                                 ),
                               ),
                             ],
                           ),
-                          Column(
+                          spacer(height: 10),
+                          Row(
                             children: [
+                              const Text(
+                                'Movement: ',
+                                style: UITextStyle.boldMeduim,
+                              ),
                               Text(
-                                product.price,
-                                style: UITextStyle.boldMeduim.copyWith(
+                                product.movement,
+                                style: UITextStyle.normalBody.copyWith(
                                   color: UIColors.lightGrey,
-                                  decoration: TextDecoration.lineThrough,
                                 ),
                               ),
-                              spacer(height: 7),
+                              const SizedBox(width: 14),
+                              const Text(
+                                'Case size: ',
+                                style: UITextStyle.boldMeduim,
+                              ),
                               Text(
-                                product.offer,
-                                style: UITextStyle.boldHeading.copyWith(
-                                  color: UIColors.white,
+                                product.caseSize,
+                                style: UITextStyle.normalBody.copyWith(
+                                  color: UIColors.lightGrey,
                                 ),
                               ),
                             ],
                           ),
+                          spacer(),
+                          const Divider(color: UIColors.lightGrey),
                         ],
-                      ),
-                    ),
-                    spacer(),
-                    Text(
-                      product.description,
-                      style: UITextStyle.normalBody.copyWith(
-                        color: UIColors.lightNormalText,
-                      ),
-                    ),
-                    Divider(
-                      color: UIColors.lightGrey,
-                    ),
-                    spacer(),
-                    Row(
-                      children: [
-                        Text(
-                          'Brand: ',
-                          style: UITextStyle.boldBody,
-                        ),
-                        Text(
-                          product.brand,
-                          style: UITextStyle.normalBody.copyWith(
-                            color: UIColors.lightGrey,
-                          ),
-                        ),
-                        SizedBox(width: 10),
-                        Text(
-                          'R.Number: ',
-                          style: UITextStyle.boldBody,
-                        ),
-                        Text(
-                          product.name,
-                          style: UITextStyle.normalBody.copyWith(
-                            color: UIColors.lightGrey,
-                          ),
-                        ),
-                        SizedBox(width: 10),
-                        Text(
-                          'Gender: ',
-                          style: UITextStyle.boldBody,
-                        ),
-                        Text(
-                          'Men',
-                          style: UITextStyle.normalBody.copyWith(
-                            color: UIColors.lightGrey,
-                          ),
-                        ),
-                      ],
-                    ),
-                    spacer(height: 10),
-                    Row(
-                      children: [
-                        Text(
-                          'Movement: ',
-                          style: UITextStyle.boldMeduim,
-                        ),
-                        Text(
-                          'Quartz',
-                          style: UITextStyle.normalBody.copyWith(
-                            color: UIColors.lightGrey,
-                          ),
-                        ),
-                        SizedBox(width: 10),
-                        Text(
-                          'Case size: ',
-                          style: UITextStyle.boldMeduim,
-                        ),
-                        Text(
-                          '15.0 mm',
-                          style: UITextStyle.normalBody.copyWith(
-                            color: UIColors.lightGrey,
-                          ),
-                        ),
-                      ],
-                    ),
-                    spacer(),
-                    Divider(
-                      color: UIColors.lightGrey,
-                    ),
-                    spacer(height: 85),
-                    SizedBox(
-                      width: Get.width,
-                      child: ElevatedButton(
-                        onPressed: () async {},
-                        style: acceptButtonStyle,
-                        child: const Text(
-                          'Add to cart',
-                          style: UITextStyle.normalHeading,
-                        ),
                       ),
                     ),
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+            Expanded(
+              child: Container(
+                width: Get.width,
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                child: ElevatedButton(
+                  onPressed: () async {},
+                  style: acceptButtonStyle,
+                  child: const Text(
+                    'Add to cart',
+                    style: UITextStyle.normalHeading,
+                  ),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );

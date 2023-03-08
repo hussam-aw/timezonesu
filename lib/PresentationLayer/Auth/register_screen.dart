@@ -14,12 +14,13 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
+        child: Column(
+          children: [
+            Expanded(
+              flex: 9,
+              child: Padding(
                 padding: const EdgeInsets.only(
-                    top: 55, right: 20, bottom: 20, left: 20),
+                    top: 75, right: 20, bottom: 20, left: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -109,7 +110,10 @@ class RegisterScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              ClipPath(
+            ),
+            Expanded(
+              flex: 2,
+              child: ClipPath(
                 clipper: FooterClipPath(),
                 child: Container(
                   height: 150,
@@ -125,8 +129,8 @@ class RegisterScreen extends StatelessWidget {
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

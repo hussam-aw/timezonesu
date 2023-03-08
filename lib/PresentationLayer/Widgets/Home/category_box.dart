@@ -8,15 +8,17 @@ class CategoryBox extends StatelessWidget {
     super.key,
     required this.categoryName,
     required this.categoryIcon,
+    required this.onTap,
   });
 
   String categoryName;
   String categoryIcon;
+  Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onTap,
       child: SizedBox(
         width: 85,
         height: 110,
@@ -44,7 +46,7 @@ class CategoryBox extends StatelessWidget {
               flex: 1,
               child: Text(
                 categoryName,
-                style: UITextStyle.normalBody,
+                style: UITextStyle.boldSmall,
               ),
             ),
           ],

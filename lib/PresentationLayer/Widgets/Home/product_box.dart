@@ -74,7 +74,7 @@ class ProductBox extends StatelessWidget {
                     style: UITextStyle.boldBody,
                     softWrap: true,
                     overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
+                    maxLines: 1,
                   ),
                 ],
               ),

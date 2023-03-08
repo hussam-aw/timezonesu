@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:timezonesu/BussinessLayer/Controllers/category_controller.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/home_controller.dart';
 import 'package:timezonesu/Constants/get_routes.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
@@ -21,6 +22,7 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
   final homeController = Get.find<HomeController>();
+  final categoryController = Get.find<CategoryController>();
 
   @override
   Widget build(BuildContext context) {
@@ -124,6 +126,25 @@ class HomeScreen extends StatelessWidget {
                                         scrollDirection: Axis.horizontal,
                                         itemBuilder: (context, index) {
                                           return CategoryBox(
+                                            onTap: () async {
+                                              await categoryController
+                                                  .getCategoryProducts(
+                                                      homeController
+                                                          .categories[index]
+                                                          .id);
+                                              print(
+                                                  categoryController.products);
+                                              Get.toNamed(
+                                                AppRoutes.categoryScreen,
+                                                arguments: {
+                                                  'category': homeController
+                                                      .categories[index],
+                                                  'categoryProducts':
+                                                      categoryController
+                                                          .products
+                                                },
+                                              );
+                                            },
                                             categoryName: homeController
                                                 .categories[index].name,
                                             categoryIcon: homeController
