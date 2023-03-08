@@ -7,7 +7,7 @@ class TZBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      backgroundColor: UIColors.primary,
+      backgroundColor: const Color.fromARGB(255, 224, 48, 48),
       selectedItemColor: UIColors.activeIcon,
       selectedFontSize: 12,
       unselectedItemColor: UIColors.inActiveIcon.withOpacity(0.5),
