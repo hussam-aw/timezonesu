@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:timezonesu/BussinessLayer/Controllers/product_controller.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_styles.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
@@ -9,7 +10,9 @@ import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/transparent_header.dart';
 
 class ProductScreen extends StatelessWidget {
-  const ProductScreen({super.key});
+  ProductScreen({super.key});
+
+  final productController = Get.find<ProductController>();
 
   @override
   Widget build(BuildContext context) {
@@ -138,7 +141,8 @@ class ProductScreen extends StatelessWidget {
                                 style: UITextStyle.boldBody,
                               ),
                               Text(
-                                product.gender,
+                                productController
+                                    .getGender(int.parse(product.gender)),
                                 style: UITextStyle.normalBody.copyWith(
                                   color: UIColors.lightGrey,
                                 ),
