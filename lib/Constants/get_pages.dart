@@ -19,6 +19,6 @@ List<GetPage<dynamic>> getPages = [
       page: () => HomeScreen(),
       binding: HomeBindings()),
   GetPage(name: AppRoutes.categoryScreen, page: () => CategoryScreen()),
-  GetPage(name: AppRoutes.productScreen, page: () => const ProductScreen()),
+  GetPage(name: AppRoutes.productScreen, page: () => ProductScreen()),
   GetPage(name: AppRoutes.ProfileScreen, page: () => const ProfileScreen()),
 ];
