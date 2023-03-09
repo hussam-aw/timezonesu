@@ -59,44 +59,61 @@ class CategoryScreen extends StatelessWidget {
                       ],
                     ),
                     Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 20),
-                              child: Text(
-                                category.name,
-                                style: UITextStyle.boldHeading.copyWith(
-                                  color: UIColors.subTitle,
+                      child: Stack(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 30, vertical: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 20),
+                                  child: Text(
+                                    category.name,
+                                    style: UITextStyle.boldHeading.copyWith(
+                                      color: UIColors.subTitle,
+                                    ),
+                                  ),
                                 ),
-                              ),
+                                Expanded(
+                                  child: ListView.separated(
+                                    itemBuilder: (context, index) {
+                                      return CategoryProductBox(
+                                        brandName:
+                                            categoryProducts[index].brand,
+                                        productName:
+                                            categoryProducts[index].name,
+                                        price: categoryProducts[index].price,
+                                        offer: categoryProducts[index].offer,
+                                        image:
+                                            categoryProducts[index].images[0],
+                                      );
+                                    },
+                                    separatorBuilder: (context, index) {
+                                      return spacer(height: 20);
+                                    },
+                                    itemCount: categoryProducts.length,
+                                  ),
+                                ),
+                              ],
                             ),
-                            GetBuilder<CategoryController>(builder: (context) {
-                              return Container(
-                                height: 300,
-                                padding: const EdgeInsets.only(bottom: 10),
-                                child: ListView.separated(
-                                  itemBuilder: (context, index) {
-                                    return CategoryProductBox(
-                                      brandName: categoryProducts[index].brand,
-                                      productName: categoryProducts[index].name,
-                                      price: categoryProducts[index].price,
-                                      offer: categoryProducts[index].offer,
-                                      image: categoryProducts[index].images[0],
-                                    );
-                                  },
-                                  separatorBuilder: (context, index) {
-                                    return spacer(height: 20);
-                                  },
-                                  itemCount: categoryProducts.length,
-                                ),
-                              );
-                            }),
-                          ],
-                        ),
+                          ),
+                          Container(
+                            height: 100,
+                            decoration: const BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: UIColors.white,
+                                  blurRadius: 25.0,
+                                  spreadRadius: 25,
+                                  offset: Offset(0, 400),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
