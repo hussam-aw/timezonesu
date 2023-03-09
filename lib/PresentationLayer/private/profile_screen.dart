@@ -11,6 +11,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: UIColors.primary,
       appBar: tzAppBar(
@@ -24,88 +25,91 @@ class ProfileScreen extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-                child: Text(
-                  'My Profile',
-                  style: UITextStyle.boldHeading,
-                ),
-              ),
-              Expanded(
-                flex: 4,
-                child: Container(
-                  width: Get.width,
-                  padding: EdgeInsets.symmetric(vertical: 15),
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        minRadius: 68,
-                        backgroundColor: UIColors.circleAvatarBorder,
-                        child: CircleAvatar(
-                          minRadius: 63,
-                          backgroundColor: UIColors.circleAvatarBackground,
-                        ),
-                      ),
-                      spacer(height: 25),
-                      Text(
-                        'Ali Alsaeed',
-                        style: UITextStyle.boldMeduim.copyWith(
-                          color: UIColors.normalText,
-                        ),
-                      ),
-                    ],
+        child: SizedBox(
+          width: width,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+                  child: Text(
+                    'My Profile',
+                    style: UITextStyle.boldHeading,
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 7,
-                child: Form(
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          children: [
-                            TextFormField(
-                              keyboardType: TextInputType.name,
-                              decoration: profileInputsStyle,
-                            ),
-                            spacer(height: 14),
-                            TextFormField(
-                              decoration: profileInputsStyle,
-                            ),
-                            spacer(height: 14),
-                            TextFormField(
-                              decoration: profileInputsStyle,
-                            ),
-                            spacer(height: 14),
-                            TextFormField(
-                              keyboardType: TextInputType.emailAddress,
-                              decoration: profileInputsStyle,
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: Get.width,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          style: acceptButtonWithBorderStyle,
-                          child: const Text(
-                            'Update Profile Info',
-                            style: UITextStyle.boldMeduim,
+                Expanded(
+                  flex: 4,
+                  child: Container(
+                    width: Get.width,
+                    padding: EdgeInsets.symmetric(vertical: 15),
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          minRadius: 68,
+                          backgroundColor: UIColors.circleAvatarBorder,
+                          child: CircleAvatar(
+                            minRadius: 63,
+                            backgroundColor: UIColors.circleAvatarBackground,
                           ),
                         ),
-                      )
-                    ],
+                        spacer(height: 25),
+                        Text(
+                          'Ali Alsaeed',
+                          style: UITextStyle.boldMeduim.copyWith(
+                            color: UIColors.normalText,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+                Expanded(
+                  flex: 7,
+                  child: Form(
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            children: [
+                              TextFormField(
+                                keyboardType: TextInputType.name,
+                                decoration: profileInputsStyle,
+                              ),
+                              spacer(height: 14),
+                              TextFormField(
+                                decoration: profileInputsStyle,
+                              ),
+                              spacer(height: 14),
+                              TextFormField(
+                                decoration: profileInputsStyle,
+                              ),
+                              spacer(height: 14),
+                              TextFormField(
+                                keyboardType: TextInputType.emailAddress,
+                                decoration: profileInputsStyle,
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: Get.width,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: acceptButtonWithBorderStyle,
+                            child: const Text(
+                              'Update Profile Info',
+                              style: UITextStyle.boldMeduim,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
