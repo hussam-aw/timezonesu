@@ -22,7 +22,6 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
   final homeController = Get.find<HomeController>();
-  final categoryController = Get.find<CategoryController>();
 
   @override
   Widget build(BuildContext context) {
@@ -130,6 +129,8 @@ class HomeScreen extends StatelessWidget {
                                           itemBuilder: (context, index) {
                                             return CategoryBox(
                                               onTap: () async {
+                                                final categoryController = Get
+                                                    .find<CategoryController>();
                                                 await categoryController
                                                     .getCategoryProducts(
                                                         homeController
