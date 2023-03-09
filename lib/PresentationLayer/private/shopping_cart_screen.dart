@@ -13,6 +13,7 @@ class ShoppingCartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: UIColors.primary,
       appBar: tzAppBar(
@@ -45,102 +46,105 @@ class ShoppingCartScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                flex: 9,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 20, horizontal: 12),
-                      child: Text(
-                        'Shopping Cart',
-                        style: UITextStyle.boldHeading,
+        child: SizedBox(
+          width: width,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  flex: 9,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Padding(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 20, horizontal: 12),
+                        child: Text(
+                          'Shopping Cart',
+                          style: UITextStyle.boldHeading,
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 450,
-                      child: ListView.separated(
-                        itemBuilder: (context, index) {
-                          return CartProductBox(
-                            brandName: '',
-                            productName: '',
-                            productImage: '',
-                            quantity: '',
-                            price: '',
-                          );
-                        },
-                        separatorBuilder: (context, index) {
-                          return spacer(height: 20);
-                        },
-                        itemCount: 8,
+                      SizedBox(
+                        height: 450,
+                        child: ListView.separated(
+                          itemBuilder: (context, index) {
+                            return CartProductBox(
+                              brandName: '',
+                              productName: '',
+                              productImage: '',
+                              quantity: '',
+                              price: '',
+                            );
+                          },
+                          separatorBuilder: (context, index) {
+                            return spacer(height: 20);
+                          },
+                          itemCount: 8,
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 20, horizontal: 12),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Text(
-                                'Discount:',
-                                style: UITextStyle.normalMeduim.copyWith(
-                                  color: UIColors.specialText,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 20, horizontal: 12),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  'Discount:',
+                                  style: UITextStyle.normalMeduim.copyWith(
+                                    color: UIColors.specialText,
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(width: 35),
-                              Text(
-                                '200.000 sp',
-                                style: UITextStyle.normalMeduim.copyWith(
-                                  color: UIColors.specialText,
-                                  decoration: TextDecoration.lineThrough,
+                                const SizedBox(width: 35),
+                                Text(
+                                  '200.000 sp',
+                                  style: UITextStyle.normalMeduim.copyWith(
+                                    color: UIColors.specialText,
+                                    decoration: TextDecoration.lineThrough,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          spacer(),
-                          Row(
-                            children: const [
-                              Text(
-                                'Net Value:',
-                                style: UITextStyle.normalMeduim,
-                              ),
-                              SizedBox(width: 30),
-                              Text(
-                                '200.000 sp',
-                                style: UITextStyle.normalMeduim,
-                              ),
-                            ],
-                          ),
-                        ],
+                              ],
+                            ),
+                            spacer(),
+                            Row(
+                              children: const [
+                                Text(
+                                  'Net Value:',
+                                  style: UITextStyle.normalMeduim,
+                                ),
+                                SizedBox(width: 30),
+                                Text(
+                                  '200.000 sp',
+                                  style: UITextStyle.normalMeduim,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Expanded(
-                flex: 1,
-                child: SizedBox(
-                  width: Get.width,
-                  child: ElevatedButton(
-                    onPressed: () async {},
-                    style: normalButtonStyle,
-                    child: Text(
-                      'Check Out',
-                      style: UITextStyle.boldMeduim.copyWith(
-                        color: UIColors.primary,
+                Expanded(
+                  flex: 1,
+                  child: SizedBox(
+                    width: Get.width,
+                    child: ElevatedButton(
+                      onPressed: () async {},
+                      style: normalButtonStyle,
+                      child: Text(
+                        'Check Out',
+                        style: UITextStyle.boldMeduim.copyWith(
+                          color: UIColors.primary,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
