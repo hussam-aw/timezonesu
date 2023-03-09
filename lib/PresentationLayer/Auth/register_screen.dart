@@ -12,125 +12,129 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              flex: 9,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    top: 75, right: 20, bottom: 20, left: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 4),
-                      child: Text(
-                        'Create Account',
-                        style: UITextStyle.boldHeading
-                            .copyWith(color: UIColors.primary),
+        child: SizedBox(
+          width: width,
+          child: Column(
+            children: [
+              Expanded(
+                flex: 9,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                      top: 75, right: 20, bottom: 20, left: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4),
+                        child: Text(
+                          'Create Account',
+                          style: UITextStyle.boldHeading
+                              .copyWith(color: UIColors.primary),
+                        ),
                       ),
-                    ),
-                    spacer(height: 30),
-                    Form(
-                      child: Column(
-                        children: [
-                          TextFormField(
-                            controller: authController.registerNameController,
-                            keyboardType: TextInputType.name,
-                            decoration: authInputsStyle.copyWith(
-                              hintText: "Enter Your Name",
-                            ),
-                          ),
-                          spacer(height: 15),
-                          TextFormField(
-                            controller: authController.registerEmailController,
-                            keyboardType: TextInputType.emailAddress,
-                            decoration: authInputsStyle.copyWith(
-                              hintText: "Enter Your Email",
-                            ),
-                          ),
-                          spacer(height: 25),
-                          TextFormField(
-                            controller:
-                                authController.registerPasswordController,
-                            keyboardType: TextInputType.visiblePassword,
-                            decoration: authInputsStyle.copyWith(
-                              hintText: 'Enter Your Password',
-                              suffixIcon: const Icon(Icons.visibility),
-                            ),
-                          ),
-                          spacer(height: 25),
-                          TextFormField(
-                            controller:
-                                authController.registerRepasswordController,
-                            keyboardType: TextInputType.visiblePassword,
-                            decoration: authInputsStyle.copyWith(
-                              hintText: 'Confirm Your Password',
-                              suffixIcon: const Icon(Icons.visibility),
-                            ),
-                          ),
-                          spacer(height: 25),
-                          SizedBox(
-                            width: Get.width,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: acceptButtonStyle,
-                              child: const Text(
-                                'Create Account',
-                                style: UITextStyle.normalMeduim,
+                      spacer(height: 30),
+                      Form(
+                        child: Column(
+                          children: [
+                            TextFormField(
+                              controller: authController.registerNameController,
+                              keyboardType: TextInputType.name,
+                              decoration: authInputsStyle.copyWith(
+                                hintText: "Enter Your Name",
                               ),
                             ),
-                          ),
-                          spacer(height: 15),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Have an account ? ',
-                                style: UITextStyle.normalMeduim.copyWith(
-                                  color: UIColors.darknormalText,
+                            spacer(height: 15),
+                            TextFormField(
+                              controller:
+                                  authController.registerEmailController,
+                              keyboardType: TextInputType.emailAddress,
+                              decoration: authInputsStyle.copyWith(
+                                hintText: "Enter Your Email",
+                              ),
+                            ),
+                            spacer(height: 25),
+                            TextFormField(
+                              controller:
+                                  authController.registerPasswordController,
+                              keyboardType: TextInputType.visiblePassword,
+                              decoration: authInputsStyle.copyWith(
+                                hintText: 'Enter Your Password',
+                                suffixIcon: const Icon(Icons.visibility),
+                              ),
+                            ),
+                            spacer(height: 25),
+                            TextFormField(
+                              controller:
+                                  authController.registerRepasswordController,
+                              keyboardType: TextInputType.visiblePassword,
+                              decoration: authInputsStyle.copyWith(
+                                hintText: 'Confirm Your Password',
+                                suffixIcon: const Icon(Icons.visibility),
+                              ),
+                            ),
+                            spacer(height: 25),
+                            SizedBox(
+                              width: Get.width,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                style: acceptButtonStyle,
+                                child: const Text(
+                                  'Create Account',
+                                  style: UITextStyle.normalMeduim,
                                 ),
                               ),
-                              InkWell(
-                                onTap: () {},
-                                child: Text(
-                                  'Login',
+                            ),
+                            spacer(height: 15),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Have an account ? ',
                                   style: UITextStyle.normalMeduim.copyWith(
                                     color: UIColors.darknormalText,
                                   ),
                                 ),
-                              )
-                            ],
-                          ),
-                        ],
+                                InkWell(
+                                  onTap: () {},
+                                  child: Text(
+                                    'Login',
+                                    style: UITextStyle.normalMeduim.copyWith(
+                                      color: UIColors.darknormalText,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 2,
+                child: ClipPath(
+                  clipper: FooterClipPath(),
+                  child: Container(
+                    height: 150,
+                    decoration: const BoxDecoration(
+                      color: UIColors.lightGrey,
+                    ),
+                    child: const Center(
+                      child: Text(
+                        'Get Full Aceess',
+                        style: UITextStyle.boldHeading,
                       ),
                     ),
-                  ],
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 2,
-              child: ClipPath(
-                clipper: FooterClipPath(),
-                child: Container(
-                  height: 150,
-                  width: Get.width,
-                  decoration: const BoxDecoration(
-                    color: UIColors.lightGrey,
-                  ),
-                  child: const Center(
-                    child: Text(
-                      'Get Full Aceess',
-                      style: UITextStyle.boldHeading,
-                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
