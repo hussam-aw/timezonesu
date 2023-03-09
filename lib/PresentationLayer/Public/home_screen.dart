@@ -26,6 +26,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Scaffold(
@@ -55,235 +56,241 @@ class HomeScreen extends StatelessWidget {
         body: SafeArea(
           child: SingleChildScrollView(
             child: Obx(
-              () => Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    child: CustomSlider(
-                      height: 120,
-                      widgets: [
-                        AdvertisementBox(
-                          title: 'Flash Sales',
-                          subtitle: 'Under 500',
-                          image: 'assets/images/slider1.png',
-                        ),
-                        AdvertisementBox(
-                          title: 'Flash Sales',
-                          subtitle: 'Under 500',
-                          image: 'assets/images/slider2.png',
-                        ),
-                      ],
+              () => SizedBox(
+                width: width,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      child: CustomSlider(
+                        height: 120,
+                        widgets: [
+                          AdvertisementBox(
+                            title: 'Flash Sales',
+                            subtitle: 'Under 500',
+                            image: 'assets/images/slider1.png',
+                          ),
+                          AdvertisementBox(
+                            title: 'Flash Sales',
+                            subtitle: 'Under 500',
+                            image: 'assets/images/slider2.png',
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  Container(
-                    width: Get.width,
-                    padding: const EdgeInsets.only(left: 25),
-                    decoration: const BoxDecoration(
-                      color: UIColors.primary,
-                      borderRadius:
-                          BorderRadius.only(topRight: Radius.circular(45)),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 25),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 18),
-                                child: Text(
-                                  'Categories',
-                                  style: UITextStyle.boldHeading.copyWith(
-                                    color: UIColors.lightNormalText,
+                    Container(
+                      width: Get.width,
+                      padding: const EdgeInsets.only(left: 25),
+                      decoration: const BoxDecoration(
+                        color: UIColors.primary,
+                        borderRadius:
+                            BorderRadius.only(topRight: Radius.circular(45)),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 25),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 18),
+                                  child: Text(
+                                    'Categories',
+                                    style: UITextStyle.boldHeading.copyWith(
+                                      color: UIColors.lightNormalText,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              homeController.isLoading.value
-                                  ? Shimmer.fromColors(
-                                      baseColor: UIColors.containerBackground,
-                                      highlightColor: UIColors.mainBackground,
-                                      enabled: homeController.isLoading.value,
-                                      child: SizedBox(
+                                homeController.isLoading.value
+                                    ? Shimmer.fromColors(
+                                        baseColor: UIColors.containerBackground,
+                                        highlightColor: UIColors.mainBackground,
+                                        enabled: homeController.isLoading.value,
+                                        child: SizedBox(
+                                          height: 112,
+                                          child: ListView.separated(
+                                            scrollDirection: Axis.horizontal,
+                                            itemBuilder: (context, index) {
+                                              return EmptyBox(
+                                                  width: 85, height: 110);
+                                            },
+                                            separatorBuilder: (context, index) {
+                                              return const SizedBox(width: 20);
+                                            },
+                                            itemCount: 7,
+                                          ),
+                                        ),
+                                      )
+                                    : SizedBox(
                                         height: 112,
                                         child: ListView.separated(
                                           scrollDirection: Axis.horizontal,
                                           itemBuilder: (context, index) {
-                                            return EmptyBox(
-                                                width: 85, height: 110);
+                                            return CategoryBox(
+                                              onTap: () async {
+                                                await categoryController
+                                                    .getCategoryProducts(
+                                                        homeController
+                                                            .categories[index]
+                                                            .id);
+                                                print(categoryController
+                                                    .products);
+                                                Get.toNamed(
+                                                  AppRoutes.categoryScreen,
+                                                  arguments: {
+                                                    'category': homeController
+                                                        .categories[index],
+                                                    'categoryProducts':
+                                                        categoryController
+                                                            .products
+                                                  },
+                                                );
+                                              },
+                                              categoryName: homeController
+                                                  .categories[index].name,
+                                              categoryIcon: homeController
+                                                  .categories[index].image,
+                                            );
                                           },
                                           separatorBuilder: (context, index) {
                                             return const SizedBox(width: 20);
                                           },
-                                          itemCount: 7,
+                                          itemCount:
+                                              homeController.categories.length,
                                         ),
                                       ),
-                                    )
-                                  : SizedBox(
-                                      height: 112,
-                                      child: ListView.separated(
-                                        scrollDirection: Axis.horizontal,
-                                        itemBuilder: (context, index) {
-                                          return CategoryBox(
-                                            onTap: () async {
-                                              await categoryController
-                                                  .getCategoryProducts(
-                                                      homeController
-                                                          .categories[index]
-                                                          .id);
-                                              print(
-                                                  categoryController.products);
-                                              Get.toNamed(
-                                                AppRoutes.categoryScreen,
-                                                arguments: {
-                                                  'category': homeController
-                                                      .categories[index],
-                                                  'categoryProducts':
-                                                      categoryController
-                                                          .products
-                                                },
-                                              );
-                                            },
-                                            categoryName: homeController
-                                                .categories[index].name,
-                                            categoryIcon: homeController
-                                                .categories[index].image,
-                                          );
-                                        },
-                                        separatorBuilder: (context, index) {
-                                          return const SizedBox(width: 20);
-                                        },
-                                        itemCount:
-                                            homeController.categories.length,
-                                      ),
-                                    ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 25),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 18),
-                                child: Text(
-                                  'Brands',
-                                  style: UITextStyle.boldHeading.copyWith(
-                                    color: UIColors.lightNormalText,
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 25),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 18),
+                                  child: Text(
+                                    'Brands',
+                                    style: UITextStyle.boldHeading.copyWith(
+                                      color: UIColors.lightNormalText,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              homeController.isLoading.value
-                                  ? Shimmer.fromColors(
-                                      baseColor: UIColors.containerBackground,
-                                      highlightColor: UIColors.mainBackground,
-                                      enabled: homeController.isLoading.value,
-                                      child: SizedBox(
+                                homeController.isLoading.value
+                                    ? Shimmer.fromColors(
+                                        baseColor: UIColors.containerBackground,
+                                        highlightColor: UIColors.mainBackground,
+                                        enabled: homeController.isLoading.value,
+                                        child: SizedBox(
+                                          height: 62,
+                                          child: ListView.separated(
+                                            scrollDirection: Axis.horizontal,
+                                            itemBuilder: (context, index) {
+                                              return BrandIcon();
+                                            },
+                                            separatorBuilder: (context, index) {
+                                              return const SizedBox(width: 18);
+                                            },
+                                            itemCount: 7,
+                                          ),
+                                        ),
+                                      )
+                                    : SizedBox(
                                         height: 62,
                                         child: ListView.separated(
                                           scrollDirection: Axis.horizontal,
                                           itemBuilder: (context, index) {
-                                            return BrandIcon();
+                                            return BrandIcon(
+                                              brandImage: homeController
+                                                  .brands[index].image,
+                                            );
                                           },
                                           separatorBuilder: (context, index) {
                                             return const SizedBox(width: 18);
                                           },
-                                          itemCount: 7,
+                                          itemCount:
+                                              homeController.brands.length,
                                         ),
                                       ),
-                                    )
-                                  : SizedBox(
-                                      height: 62,
-                                      child: ListView.separated(
-                                        scrollDirection: Axis.horizontal,
-                                        itemBuilder: (context, index) {
-                                          return BrandIcon(
-                                            brandImage: homeController
-                                                .brands[index].image,
-                                          );
-                                        },
-                                        separatorBuilder: (context, index) {
-                                          return const SizedBox(width: 18);
-                                        },
-                                        itemCount: homeController.brands.length,
-                                      ),
-                                    ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 25),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 18),
-                                child: Text(
-                                  'Featured Products',
-                                  style: UITextStyle.boldHeading.copyWith(
-                                    color: UIColors.lightNormalText,
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 25),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 18),
+                                  child: Text(
+                                    'Featured Products',
+                                    style: UITextStyle.boldHeading.copyWith(
+                                      color: UIColors.lightNormalText,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              homeController.isLoading.value
-                                  ? Shimmer.fromColors(
-                                      baseColor: UIColors.containerBackground,
-                                      highlightColor: UIColors.mainBackground,
-                                      enabled: homeController.isLoading.value,
-                                      child: SizedBox(
+                                homeController.isLoading.value
+                                    ? Shimmer.fromColors(
+                                        baseColor: UIColors.containerBackground,
+                                        highlightColor: UIColors.mainBackground,
+                                        enabled: homeController.isLoading.value,
+                                        child: SizedBox(
+                                          height: 200,
+                                          child: ListView.separated(
+                                            scrollDirection: Axis.horizontal,
+                                            itemBuilder: (context, index) {
+                                              return EmptyBox(
+                                                  width: 150, height: 110);
+                                            },
+                                            separatorBuilder: (context, index) {
+                                              return const SizedBox(width: 20);
+                                            },
+                                            itemCount: 7,
+                                          ),
+                                        ),
+                                      )
+                                    : SizedBox(
                                         height: 200,
                                         child: ListView.separated(
                                           scrollDirection: Axis.horizontal,
                                           itemBuilder: (context, index) {
-                                            return EmptyBox(
-                                                width: 150, height: 110);
+                                            return ProductBox(
+                                              onTap: () => Get.toNamed(
+                                                  AppRoutes.productScreen,
+                                                  arguments: {
+                                                    'product': homeController
+                                                        .featuredProducts[index]
+                                                  }),
+                                              productBrand: homeController
+                                                  .featuredProducts[index]
+                                                  .brand,
+                                              productName: homeController
+                                                  .featuredProducts[index].name,
+                                              productImage: homeController
+                                                  .featuredProducts[index]
+                                                  .images[0],
+                                              productPrice: homeController
+                                                  .featuredProducts[index]
+                                                  .price,
+                                            );
                                           },
                                           separatorBuilder: (context, index) {
-                                            return const SizedBox(width: 20);
+                                            return const SizedBox(width: 18);
                                           },
-                                          itemCount: 7,
+                                          itemCount: homeController
+                                              .featuredProducts.length,
                                         ),
                                       ),
-                                    )
-                                  : SizedBox(
-                                      height: 200,
-                                      child: ListView.separated(
-                                        scrollDirection: Axis.horizontal,
-                                        itemBuilder: (context, index) {
-                                          return ProductBox(
-                                            onTap: () => Get.toNamed(
-                                                AppRoutes.productScreen,
-                                                arguments: {
-                                                  'product': homeController
-                                                      .featuredProducts[index]
-                                                }),
-                                            productBrand: homeController
-                                                .featuredProducts[index].brand,
-                                            productName: homeController
-                                                .featuredProducts[index].name,
-                                            productImage: homeController
-                                                .featuredProducts[index]
-                                                .images[0],
-                                            productPrice: homeController
-                                                .featuredProducts[index].price,
-                                          );
-                                        },
-                                        separatorBuilder: (context, index) {
-                                          return const SizedBox(width: 18);
-                                        },
-                                        itemCount: homeController
-                                            .featuredProducts.length,
-                                      ),
-                                    ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
