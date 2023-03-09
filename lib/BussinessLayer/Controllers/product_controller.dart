@@ -5,10 +5,4 @@ class ProductController extends GetxController {
     if (gender == 1) return 'Woman';
     return 'Men';
   }
-
-  @override
-  void onInit() {
-    // TODO: implement onInit
-    super.onInit();
-  }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:timezonesu/BussinessLayer/Helpers/local_notification_service.dart';
 import 'package:timezonesu/Constants/get_pages.dart';
 
 void main() async {

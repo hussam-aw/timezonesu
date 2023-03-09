@@ -3,10 +3,10 @@ import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
 
 class EmptyBox extends StatelessWidget {
-  EmptyBox({super.key, required this.width, required this.height});
+const  EmptyBox({super.key, required this.width, required this.height});
 
-  double width;
-  double height;
+  final double width;
+ final double height;
 
   @override
   Widget build(BuildContext context) {

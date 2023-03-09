@@ -43,10 +43,10 @@ class ProfileScreen extends StatelessWidget {
                   flex: 4,
                   child: Container(
                     width: Get.width,
-                    padding: EdgeInsets.symmetric(vertical: 15),
+                    padding: const EdgeInsets.symmetric(vertical: 15),
                     child: Column(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           minRadius: 68,
                           backgroundColor: UIColors.circleAvatarBorder,
                           child: CircleAvatar(

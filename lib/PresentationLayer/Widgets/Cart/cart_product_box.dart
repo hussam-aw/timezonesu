@@ -5,7 +5,7 @@ import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
 
 class CartProductBox extends StatelessWidget {
-  CartProductBox({
+  const CartProductBox({
     super.key,
     required this.brandName,
     required this.productName,
@@ -14,11 +14,11 @@ class CartProductBox extends StatelessWidget {
     required this.price,
   });
 
-  String brandName;
-  String productName;
-  String productImage;
-  String quantity;
-  String price;
+  final String brandName;
+  final String productName;
+  final String productImage;
+  final String quantity;
+  final String price;
 
   @override
   Widget build(BuildContext context) {

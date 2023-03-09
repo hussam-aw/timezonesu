@@ -1,5 +1,3 @@
-import 'package:timezonesu/PresentationLayer/private/profile_screen.dart';
-
 class AppRoutes {
   static const splashscreen = "/";
   static const notconnected = "/notconnected";
@@ -8,5 +6,5 @@ class AppRoutes {
   static const homepage = "/homepage";
   static const categoryScreen = "/homepage/category";
   static const productScreen = "/homepage/product";
-  static const ProfileScreen = "/profile";
+  static const profileScreen = "/profile";
 }

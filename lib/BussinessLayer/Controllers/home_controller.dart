@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:timezonesu/Constants/get_routes.dart';
 import 'package:timezonesu/DataAccesslayer/Models/brand.dart';
 import 'package:timezonesu/DataAccesslayer/Models/category.dart';
 import 'package:timezonesu/DataAccesslayer/Models/featured_product.dart';
@@ -7,7 +8,9 @@ import 'package:timezonesu/DataAccesslayer/Repositories/category_repo.dart';
 import 'package:timezonesu/DataAccesslayer/Repositories/featured_repo.dart';
 
 class HomeController extends GetxController {
-  var isLoading = false.obs;
+  var loadingCategories = false.obs;
+  var loadingBrands = false.obs;
+  var loadingProducts = false.obs;
 
   CategoriesRepo categoriesRepo = CategoriesRepo();
   List<Category> categories = [];
@@ -19,38 +22,37 @@ class HomeController extends GetxController {
   List<FeaturedProduct> featuredProducts = [];
 
   Future<void> getCategories() async {
+    loadingCategories.value = true;
     categories = await categoriesRepo.myCategories();
-    print(categories);
+    loadingCategories.value = false;
   }
 
   Future<void> getBrands() async {
+    loadingBrands.value = true;
     brands = await brandsRepo.myBrands();
-    print(brands);
+    loadingBrands.value = false;
   }
 
   Future<void> getFeaturedProducts() async {
+    loadingProducts.value = true;
     featuredProducts = await featuredRepo.myFeaturedProducts();
-    print(featuredProducts);
+    loadingProducts.value = false;
   }
 
   void fetchHomeData() async {
-    isLoading(true);
     await getCategories();
     await getBrands();
     await getFeaturedProducts();
-    if (categories.isNotEmpty &&
-        brands.isNotEmpty &&
-        featuredProducts.isNotEmpty) {
-      update();
-      isLoading(false);
-    }
-
-    print(isLoading.value);
+    update();
   }
 
   @override
   void onInit() {
     fetchHomeData();
     super.onInit();
+  }
+
+  void goToCategortyScreen(Category category) {
+    Get.toNamed(AppRoutes.categoryScreen, arguments: [category]);
   }
 }

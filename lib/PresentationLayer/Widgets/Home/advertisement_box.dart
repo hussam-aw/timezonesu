@@ -3,11 +3,11 @@ import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
 
 class AdvertisementBox extends StatelessWidget {
-  AdvertisementBox({super.key, this.title, this.subtitle, this.image});
+  const AdvertisementBox({super.key, this.title, this.subtitle, this.image});
 
-  String? title;
-  String? subtitle;
-  String? image;
+  final String? title;
+  final String? subtitle;
+  final String? image;
 
   @override
   Widget build(BuildContext context) {

@@ -4,7 +4,6 @@ import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_styles.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Cart/cart_product_box.dart';
-import 'package:timezonesu/PresentationLayer/Widgets/Public/bottom_navigation_bar.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/timezome_appbar.dart';
 
@@ -70,7 +69,7 @@ class ShoppingCartScreen extends StatelessWidget {
                         height: 450,
                         child: ListView.separated(
                           itemBuilder: (context, index) {
-                            return CartProductBox(
+                            return const CartProductBox(
                               brandName: '',
                               productName: '',
                               productImage: '',

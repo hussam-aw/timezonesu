@@ -1,29 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:timezonesu/BussinessLayer/Controllers/category_controller.dart';
-import 'package:timezonesu/Constants/ui_text_style.dart';
-import 'package:timezonesu/DataAccesslayer/Models/category.dart';
-import 'package:timezonesu/DataAccesslayer/Models/product.dart';
-import 'package:timezonesu/PresentationLayer/Widgets/Category/category_product_box.dart';
-import 'package:timezonesu/PresentationLayer/Widgets/Public/bottom_navigation_bar.dart';
-import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
-import 'package:timezonesu/PresentationLayer/Widgets/Public/transparent_header.dart';
+import 'package:timezonesu/BussinessLayer/Controllers/category_screen_controller.dart';
+import 'package:timezonesu/Constants/ui_styles.dart';
 
-import '../../Constants/ui_colors.dart';
+import '../Widgets/Category/category_product_box.dart';
 
 class CategoryScreen extends StatelessWidget {
   CategoryScreen({super.key});
-  final Category category = Get.arguments['category'];
-  final categoryProducts = Get.arguments['categoryProducts'];
-
+  final CategoryScreenController controller =
+      Get.put(CategoryScreenController(Get.arguments[0]));
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    return Scaffold(
+    return SafeArea(
+      child: Scaffold(
+        body: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              backgroundColor: Colors.white,
+              expandedHeight: 350,
+              floating: true,
+              flexibleSpace: FlexibleSpaceBar(
+                  background: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: raduis20bottom,
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image:
+                                  NetworkImage(controller.category.image))))),
+            ),
+            GetBuilder(
+                init: controller,
+                builder: (_) {
+                  return SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                    childCount: controller.products.length,
+                    (context, index) {
+                      return CategoryProductBox(
+                        brandName: controller.products[index].brand,
+                        productName: controller.products[index].name,
+                        price: controller.products[index].price,
+                        offer: controller.products[index].offer,
+                        image: controller.products[index].images[0],
+                      );
+                    },
+                  ));
+                })
+          ],
+        ),
+      ),
+    );
+
+    /*  Scaffold(
       backgroundColor: UIColors.white,
       body: SafeArea(
         child: SizedBox(
-          width: width,
+          width: Get.width,
           child: Column(
             children: [
               Expanded(
@@ -41,7 +72,7 @@ class CategoryScreen extends StatelessWidget {
                             height: 300,
                             width: Get.width,
                             child: Image.network(
-                              category.image,
+                              controller.category.image,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -71,7 +102,7 @@ class CategoryScreen extends StatelessWidget {
                                   padding:
                                       const EdgeInsets.symmetric(vertical: 20),
                                   child: Text(
-                                    category.name,
+                                    controller.category.name,
                                     style: UITextStyle.boldHeading.copyWith(
                                       color: UIColors.subTitle,
                                     ),
@@ -82,19 +113,19 @@ class CategoryScreen extends StatelessWidget {
                                     itemBuilder: (context, index) {
                                       return CategoryProductBox(
                                         brandName:
-                                            categoryProducts[index].brand,
+                                            controller.products[index].brand,
                                         productName:
-                                            categoryProducts[index].name,
-                                        price: categoryProducts[index].price,
-                                        offer: categoryProducts[index].offer,
-                                        image:
-                                            categoryProducts[index].images[0],
+                                            controller.products[index].name,
+                                        price: controller.products[index].price,
+                                        offer: controller.products[index].offer,
+                                        image: controller
+                                            .products[index].images[0],
                                       );
                                     },
                                     separatorBuilder: (context, index) {
                                       return spacer(height: 20);
                                     },
-                                    itemCount: categoryProducts.length,
+                                    itemCount: controller.products.length,
                                   ),
                                 ),
                               ],
@@ -123,7 +154,8 @@ class CategoryScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: TZBottomNavigationBar(),
+      bottomNavigationBar: const TZBottomNavigationBar(),
     );
+   */
   }
 }

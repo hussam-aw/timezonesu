@@ -4,16 +4,16 @@ import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
 
 class CategoryBox extends StatelessWidget {
-  CategoryBox({
+  const CategoryBox({
     super.key,
     required this.categoryName,
     required this.categoryIcon,
     required this.onTap,
   });
 
-  String categoryName;
-  String categoryIcon;
-  Function()? onTap;
+  final String categoryName;
+ final String categoryIcon;
+ final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {

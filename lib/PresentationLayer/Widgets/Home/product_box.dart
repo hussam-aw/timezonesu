@@ -4,7 +4,7 @@ import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
 
 class ProductBox extends StatelessWidget {
-  ProductBox({
+  const ProductBox({
     super.key,
     required this.productBrand,
     required this.productName,
@@ -13,11 +13,11 @@ class ProductBox extends StatelessWidget {
     required this.onTap,
   });
 
-  String productBrand;
-  String productName;
-  String productImage;
-  String productPrice;
-  Function() onTap;
+  final String productBrand;
+  final String productName;
+  final String productImage;
+  final String productPrice;
+ final Function() onTap;
 
   @override
   Widget build(BuildContext context) {

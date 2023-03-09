@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 
 class BrandIcon extends StatelessWidget {
-  BrandIcon({super.key, this.brandImage});
+  const BrandIcon({super.key, this.brandImage});
 
-  String? brandImage;
+  final String? brandImage;
 
   @override
   Widget build(BuildContext context) {

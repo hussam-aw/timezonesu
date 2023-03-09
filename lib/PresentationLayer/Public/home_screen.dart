@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
@@ -6,17 +8,16 @@ import 'package:timezonesu/BussinessLayer/Controllers/home_controller.dart';
 import 'package:timezonesu/Constants/get_routes.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
-import 'package:timezonesu/PresentationLayer/Public/product_screen.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/advertisement_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/brand_icon.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/category_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/empty_box.dart';
-import 'package:timezonesu/PresentationLayer/Widgets/Public/custom_slider.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/product_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/bottom_navigation_bar.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/Public/custom_slider.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/drawer.dart';
-import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/timezome_appbar.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/shimmers/home_category_shimmer.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -25,7 +26,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
+    var width = Get.width;
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Scaffold(
@@ -59,8 +60,8 @@ class HomeScreen extends StatelessWidget {
                 width: width,
                 child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 20),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 20),
                       child: CustomSlider(
                         height: 120,
                         widgets: [
@@ -79,7 +80,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     Container(
                       width: Get.width,
-                      padding: const EdgeInsets.only(left: 25),
+                      padding: const EdgeInsets.only(left: 10),
                       decoration: const BoxDecoration(
                         color: UIColors.primary,
                         borderRadius:
@@ -102,24 +103,22 @@ class HomeScreen extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                homeController.isLoading.value
-                                    ? Shimmer.fromColors(
-                                        baseColor: UIColors.containerBackground,
-                                        highlightColor: UIColors.mainBackground,
-                                        enabled: homeController.isLoading.value,
-                                        child: SizedBox(
-                                          height: 112,
-                                          child: ListView.separated(
-                                            scrollDirection: Axis.horizontal,
-                                            itemBuilder: (context, index) {
-                                              return EmptyBox(
-                                                  width: 85, height: 110);
-                                            },
-                                            separatorBuilder: (context, index) {
-                                              return const SizedBox(width: 20);
-                                            },
-                                            itemCount: 7,
-                                          ),
+                                homeController.loadingCategories.value
+                                    ? SizedBox(
+                                        height: 112,
+                                        width: double.infinity,
+                                        child: ListView.builder(
+                                          itemCount: 7,
+                                          scrollDirection: Axis.horizontal,
+                                          itemBuilder: (BuildContext context,
+                                              int index) {
+                                            return Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 5),
+                                              child: homeCategoryShimmer(),
+                                            );
+                                          },
                                         ),
                                       )
                                     : SizedBox(
@@ -129,25 +128,12 @@ class HomeScreen extends StatelessWidget {
                                           itemBuilder: (context, index) {
                                             return CategoryBox(
                                               onTap: () async {
-                                                final categoryController = Get
-                                                    .find<CategoryController>();
-                                                await categoryController
-                                                    .getCategoryProducts(
+                                                homeController
+                                                    .goToCategortyScreen(
                                                         homeController
                                                             .categories[index]
-                                                            .id);
-                                                print(categoryController
-                                                    .products);
-                                                Get.toNamed(
-                                                  AppRoutes.categoryScreen,
-                                                  arguments: {
-                                                    'category': homeController
-                                                        .categories[index],
-                                                    'categoryProducts':
-                                                        categoryController
-                                                            .products
-                                                  },
-                                                );
+                                                            );
+                                                
                                               },
                                               categoryName: homeController
                                                   .categories[index].name,
@@ -179,17 +165,18 @@ class HomeScreen extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                homeController.isLoading.value
+                                homeController.loadingBrands.value
                                     ? Shimmer.fromColors(
                                         baseColor: UIColors.containerBackground,
                                         highlightColor: UIColors.mainBackground,
-                                        enabled: homeController.isLoading.value,
+                                        enabled:
+                                            homeController.loadingBrands.value,
                                         child: SizedBox(
                                           height: 62,
                                           child: ListView.separated(
                                             scrollDirection: Axis.horizontal,
                                             itemBuilder: (context, index) {
-                                              return BrandIcon();
+                                              return const BrandIcon();
                                             },
                                             separatorBuilder: (context, index) {
                                               return const SizedBox(width: 18);
@@ -232,17 +219,18 @@ class HomeScreen extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                homeController.isLoading.value
+                                homeController.loadingProducts.value
                                     ? Shimmer.fromColors(
                                         baseColor: UIColors.containerBackground,
                                         highlightColor: UIColors.mainBackground,
-                                        enabled: homeController.isLoading.value,
+                                        enabled: homeController
+                                            .loadingProducts.value,
                                         child: SizedBox(
                                           height: 200,
                                           child: ListView.separated(
                                             scrollDirection: Axis.horizontal,
                                             itemBuilder: (context, index) {
-                                              return EmptyBox(
+                                              return const EmptyBox(
                                                   width: 150, height: 110);
                                             },
                                             separatorBuilder: (context, index) {

@@ -5,7 +5,6 @@ import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_styles.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/DataAccesslayer/Models/featured_product.dart';
-import 'package:timezonesu/DataAccesslayer/Models/product.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/transparent_header.dart';
 
@@ -193,7 +192,8 @@ class ProductScreen extends StatelessWidget {
               Expanded(
                 child: Container(
                   width: Get.width,
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
                   child: ElevatedButton(
                     onPressed: () async {},
                     style: acceptButtonStyle,

@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 
 class TransparentHeader extends StatelessWidget {
-  TransparentHeader({super.key, this.trailling});
+  const TransparentHeader({super.key, this.trailling});
 
-  Widget? trailling;
+  final Widget? trailling;
 
   @override
   Widget build(BuildContext context) {
