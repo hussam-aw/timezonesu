@@ -13,93 +13,97 @@ import '../../Constants/ui_colors.dart';
 
 class CategoryScreen extends StatelessWidget {
   CategoryScreen({super.key});
+  final Category category = Get.arguments['category'];
+  final categoryProducts = Get.arguments['categoryProducts'];
 
   @override
   Widget build(BuildContext context) {
-    final Category category = Get.arguments['category'];
-    final categoryProducts = Get.arguments['categoryProducts'];
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: UIColors.white,
       body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              flex: 9,
-              child: Column(
-                children: [
-                  Stack(
-                    children: [
-                      ClipRRect(
-                        borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(18),
-                          bottomRight: Radius.circular(18),
-                        ),
-                        child: SizedBox(
-                          height: 300,
-                          width: Get.width,
-                          child: Image.network(
-                            category.image,
-                            fit: BoxFit.cover,
+        child: SizedBox(
+          width: width,
+          child: Column(
+            children: [
+              Expanded(
+                flex: 9,
+                child: Column(
+                  children: [
+                    Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(18),
+                            bottomRight: Radius.circular(18),
                           ),
-                        ),
-                      ),
-                      TransparentHeader(
-                        trailling: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.shopping_cart,
-                            size: 30,
-                            color: UIColors.activeIcon,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 20),
-                            child: Text(
-                              category.name,
-                              style: UITextStyle.boldHeading.copyWith(
-                                color: UIColors.subTitle,
-                              ),
+                          child: SizedBox(
+                            height: 300,
+                            width: Get.width,
+                            child: Image.network(
+                              category.image,
+                              fit: BoxFit.cover,
                             ),
                           ),
-                          GetBuilder<CategoryController>(builder: (context) {
-                            return Container(
-                              height: 300,
-                              padding: const EdgeInsets.only(bottom: 10),
-                              child: ListView.separated(
-                                itemBuilder: (context, index) {
-                                  return CategoryProductBox(
-                                    brandName: categoryProducts[index].brand,
-                                    productName: categoryProducts[index].name,
-                                    price: categoryProducts[index].price,
-                                    offer: categoryProducts[index].offer,
-                                    image: categoryProducts[index].images[0],
-                                  );
-                                },
-                                separatorBuilder: (context, index) {
-                                  return spacer(height: 20);
-                                },
-                                itemCount: categoryProducts.length,
+                        ),
+                        TransparentHeader(
+                          trailling: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.shopping_cart,
+                              size: 30,
+                              color: UIColors.activeIcon,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 30, vertical: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 20),
+                              child: Text(
+                                category.name,
+                                style: UITextStyle.boldHeading.copyWith(
+                                  color: UIColors.subTitle,
+                                ),
                               ),
-                            );
-                          }),
-                        ],
+                            ),
+                            GetBuilder<CategoryController>(builder: (context) {
+                              return Container(
+                                height: 300,
+                                padding: const EdgeInsets.only(bottom: 10),
+                                child: ListView.separated(
+                                  itemBuilder: (context, index) {
+                                    return CategoryProductBox(
+                                      brandName: categoryProducts[index].brand,
+                                      productName: categoryProducts[index].name,
+                                      price: categoryProducts[index].price,
+                                      offer: categoryProducts[index].offer,
+                                      image: categoryProducts[index].images[0],
+                                    );
+                                  },
+                                  separatorBuilder: (context, index) {
+                                    return spacer(height: 20);
+                                  },
+                                  itemCount: categoryProducts.length,
+                                ),
+                              );
+                            }),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: TZBottomNavigationBar(),
