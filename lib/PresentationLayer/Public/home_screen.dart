@@ -19,6 +19,7 @@ import 'package:timezonesu/PresentationLayer/Widgets/Public/drawer.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/timezome_appbar.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/shimmers/home_brand_shimmer.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/shimmers/home_category_shimmer.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/shimmers/home_featured_shimmer.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -219,8 +220,7 @@ class HomeScreen extends StatelessWidget {
                                           child: ListView.separated(
                                             scrollDirection: Axis.horizontal,
                                             itemBuilder: (context, index) {
-                                              return const EmptyBox(
-                                                  width: 150, height: 110);
+                                              return homeFeaturedShimmer();
                                             },
                                             separatorBuilder: (context, index) {
                                               return const SizedBox(width: 20);
