@@ -10,11 +10,14 @@ class CategoryController extends GetxController {
   ProductsByCategoryRepo productsByCategoryRepo = ProductsByCategoryRepo();
   List<Product> products = [];
 
+  var isProductsLoading = false.obs;
+
   CategoryController(this.category);
 
   Future<void> getCategoryProducts(int categoryId) async {
+    isProductsLoading.value = true;
     products = await productsByCategoryRepo.products(categoryId);
-    update();
+    isProductsLoading.value = false;
   }
 
   @override
