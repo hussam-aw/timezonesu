@@ -40,9 +40,9 @@ class HomeController extends GetxController {
   }
 
   void fetchHomeData() async {
-    await getCategories();
-    await getBrands();
-    await getFeaturedProducts();
+    getCategories();
+    getBrands();
+    getFeaturedProducts();
     update();
   }
 
