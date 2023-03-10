@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 /* import 'package:realestateapp/constants/CustomStyles.dart'; */
 import 'package:shimmer/shimmer.dart';
+import 'package:timezonesu/Constants/ui_colors.dart';
 
 import '../../../Constants/ui_styles.dart';
 
@@ -29,15 +30,16 @@ class Shimmerwidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-        baseColor: const Color.fromARGB(255, 184, 184, 184),
-        highlightColor: const Color.fromARGB(255, 231, 231, 231),
-        child: Container(
-          width: width,
-          height: height,
-          decoration: ShapeDecoration(
-            shape: shapeBorder,
-            color: const Color.fromARGB(255, 151, 151, 151),
-          ),
-        ));
+      baseColor: UIColors.shimmersBase,
+      highlightColor: UIColors.shimmersHighlight,
+      child: Container(
+        width: width,
+        height: height,
+        decoration: ShapeDecoration(
+          shape: shapeBorder,
+          color: UIColors.shimmersContainer,
+        ),
+      ),
+    );
   }
 }
