@@ -106,18 +106,14 @@ class HomeScreen extends StatelessWidget {
                                 homeController.loadingCategories.value
                                     ? SizedBox(
                                         height: 112,
-                                        width: double.infinity,
-                                        child: ListView.builder(
+                                        child: ListView.separated(
                                           itemCount: 7,
                                           scrollDirection: Axis.horizontal,
-                                          itemBuilder: (BuildContext context,
-                                              int index) {
-                                            return Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 5),
-                                              child: homeCategoryShimmer(),
-                                            );
+                                          itemBuilder: (context, index) {
+                                            return homeCategoryShimmer();
+                                          },
+                                          separatorBuilder: (context, index) {
+                                            return const SizedBox(width: 20);
                                           },
                                         ),
                                       )
@@ -131,9 +127,7 @@ class HomeScreen extends StatelessWidget {
                                                 homeController
                                                     .goToCategortyScreen(
                                                         homeController
-                                                            .categories[index]
-                                                            );
-                                                
+                                                            .categories[index]);
                                               },
                                               categoryName: homeController
                                                   .categories[index].name,
