@@ -37,4 +37,9 @@ class UIColors {
   static const containerBackground = Color(0xffD5D5D5);
   static const circleAvatarBackground = Color(0xffD5D5D5);
   static const textFieldBackground = Color(0xffF6F6F6);
+
+  // Shimmers Colors
+  static const shimmersBase = Color.fromARGB(255, 184, 184, 184);
+  static const shimmersHighlight = Color.fromARGB(255, 231, 231, 231);
+  static const shimmersContainer = const Color.fromARGB(255, 151, 151, 151);
 }
