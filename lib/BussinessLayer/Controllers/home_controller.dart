@@ -3,6 +3,7 @@ import 'package:timezonesu/Constants/get_routes.dart';
 import 'package:timezonesu/DataAccesslayer/Models/brand.dart';
 import 'package:timezonesu/DataAccesslayer/Models/category.dart';
 import 'package:timezonesu/DataAccesslayer/Models/featured_product.dart';
+import 'package:timezonesu/DataAccesslayer/Models/product.dart';
 import 'package:timezonesu/DataAccesslayer/Repositories/brand_repo.dart';
 import 'package:timezonesu/DataAccesslayer/Repositories/category_repo.dart';
 import 'package:timezonesu/DataAccesslayer/Repositories/featured_repo.dart';
@@ -56,6 +57,13 @@ class HomeController extends GetxController {
     Get.toNamed(
       AppRoutes.categoryScreen,
       arguments: {'category': category},
+    );
+  }
+
+  void goToProductScreen(FeaturedProduct product) {
+    Get.toNamed(
+      AppRoutes.productScreen,
+      arguments: {'product': product},
     );
   }
 }
