@@ -53,6 +53,9 @@ class HomeController extends GetxController {
   }
 
   void goToCategortyScreen(Category category) {
-    Get.toNamed(AppRoutes.categoryScreen, arguments: [category]);
+    Get.toNamed(
+      AppRoutes.categoryScreen,
+      arguments: {'category': category},
+    );
   }
 }
