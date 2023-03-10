@@ -17,6 +17,7 @@ import 'package:timezonesu/PresentationLayer/Widgets/Public/bottom_navigation_ba
 import 'package:timezonesu/PresentationLayer/Widgets/Public/custom_slider.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/drawer.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/timezome_appbar.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/shimmers/home_brand_shimmer.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/shimmers/home_category_shimmer.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -160,23 +161,17 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                 ),
                                 homeController.loadingBrands.value
-                                    ? Shimmer.fromColors(
-                                        baseColor: UIColors.containerBackground,
-                                        highlightColor: UIColors.mainBackground,
-                                        enabled:
-                                            homeController.loadingBrands.value,
-                                        child: SizedBox(
-                                          height: 62,
-                                          child: ListView.separated(
-                                            scrollDirection: Axis.horizontal,
-                                            itemBuilder: (context, index) {
-                                              return const BrandIcon();
-                                            },
-                                            separatorBuilder: (context, index) {
-                                              return const SizedBox(width: 18);
-                                            },
-                                            itemCount: 7,
-                                          ),
+                                    ? SizedBox(
+                                        height: 62,
+                                        child: ListView.separated(
+                                          scrollDirection: Axis.horizontal,
+                                          itemBuilder: (context, index) {
+                                            return homeBrandShimmer();
+                                          },
+                                          separatorBuilder: (context, index) {
+                                            return const SizedBox(width: 18);
+                                          },
+                                          itemCount: 7,
                                         ),
                                       )
                                     : SizedBox(
