@@ -7,7 +7,6 @@ class HomeBindings extends Bindings {
   @override
   void dependencies() {
     Get.put(HomeController());
-    Get.lazyPut(() => CategoryController(), fenix: true);
     Get.lazyPut(() => ProductController(), fenix: true);
   }
 }
