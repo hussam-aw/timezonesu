@@ -9,7 +9,7 @@ Widget homeFeaturedShimmer() {
     width: 150,
     child: Column(
       children: [
-        Expanded(
+        const Expanded(
           flex: 5,
           child: Shimmerwidget.roundedrectangler(
             width: 150,
@@ -24,7 +24,7 @@ Widget homeFeaturedShimmer() {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: const [
                   Shimmerwidget.rectangler(
                     height: 15,
                     width: 60,
@@ -36,9 +36,9 @@ Widget homeFeaturedShimmer() {
                 ],
               ),
               spacer(height: 8),
-              Shimmerwidget.rectangler(
+              const Shimmerwidget.rectangler(
                 height: 15,
-                width: 60,
+                width: 90,
               ),
             ],
           ),
