@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:timezonesu/BussinessLayer/Controllers/category_screen_controller.dart';
+import 'package:timezonesu/BussinessLayer/Controllers/category_controller.dart';
 import 'package:timezonesu/Constants/ui_styles.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/shimmers/category_product_shimmer.dart';
 
 import '../Widgets/Category/category_product_box.dart';
 
 class CategoryScreen extends StatelessWidget {
   CategoryScreen({super.key});
-  final CategoryScreenController controller =
-      Get.put(CategoryScreenController(Get.arguments[0]));
+  final CategoryController categoryController = Get.put(
+    CategoryController(Get.arguments['category']),
+  );
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -20,31 +22,43 @@ class CategoryScreen extends StatelessWidget {
               expandedHeight: 350,
               floating: true,
               flexibleSpace: FlexibleSpaceBar(
-                  background: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: raduis20bottom,
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image:
-                                  NetworkImage(controller.category.image))))),
+                background: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: raduis20bottom,
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(categoryController.category.image),
+                    ),
+                  ),
+                ),
+              ),
             ),
-            GetBuilder(
-                init: controller,
-                builder: (_) {
-                  return SliverList(
+            Obx(
+              () => categoryController.isProductsLoading.value
+                  ? SliverList(
                       delegate: SliverChildBuilderDelegate(
-                    childCount: controller.products.length,
-                    (context, index) {
-                      return CategoryProductBox(
-                        brandName: controller.products[index].brand,
-                        productName: controller.products[index].name,
-                        price: controller.products[index].price,
-                        offer: controller.products[index].offer,
-                        image: controller.products[index].images[0],
-                      );
-                    },
-                  ));
-                })
+                        childCount: 8,
+                        (context, index) {
+                          return categoryProducrShimmer();
+                        },
+                      ),
+                    )
+                  : SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        childCount: categoryController.products.length,
+                        (context, index) {
+                          return CategoryProductBox(
+                            brandName: categoryController.products[index].brand,
+                            productName:
+                                categoryController.products[index].name,
+                            price: categoryController.products[index].price,
+                            offer: categoryController.products[index].offer,
+                            image: categoryController.products[index].images[0],
+                          );
+                        },
+                      ),
+                    ),
+            ),
           ],
         ),
       ),
