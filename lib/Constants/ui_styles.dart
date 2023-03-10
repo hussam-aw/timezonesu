@@ -102,10 +102,13 @@ final profileInputsStyle = InputDecoration(
   ),
 );
 
+//Border Radius
 const raduis10 = BorderRadius.all(Radius.circular(10));
 const raduis20 = BorderRadius.all(Radius.circular(20));
 const raduis20bottom = BorderRadius.only(
-    bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20));
+  bottomLeft: Radius.circular(20),
+  bottomRight: Radius.circular(20),
+);
 const raduis30 = BorderRadius.all(Radius.circular(30));
 const raduis40 = BorderRadius.all(Radius.circular(40));
 const raduis50 = BorderRadius.all(Radius.circular(50));
