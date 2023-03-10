@@ -11,7 +11,6 @@ import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/advertisement_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/brand_icon.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/category_box.dart';
-import 'package:timezonesu/PresentationLayer/Widgets/Home/empty_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/product_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/bottom_navigation_bar.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/custom_slider.dart';
@@ -235,12 +234,11 @@ class HomeScreen extends StatelessWidget {
                                           scrollDirection: Axis.horizontal,
                                           itemBuilder: (context, index) {
                                             return ProductBox(
-                                              onTap: () => Get.toNamed(
-                                                  AppRoutes.productScreen,
-                                                  arguments: {
-                                                    'product': homeController
-                                                        .featuredProducts[index]
-                                                  }),
+                                              onTap: () => homeController
+                                                  .goToProductScreen(
+                                                      homeController
+                                                              .featuredProducts[
+                                                          index]),
                                               productBrand: homeController
                                                   .featuredProducts[index]
                                                   .brand,
