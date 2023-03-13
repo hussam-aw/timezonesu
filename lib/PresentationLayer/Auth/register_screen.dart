@@ -23,7 +23,7 @@ class RegisterScreen extends StatelessWidget {
                 flex: 9,
                 child: Padding(
                   padding: const EdgeInsets.only(
-                      top: 75, right: 20, bottom: 20, left: 20),
+                      top: 55, right: 20, bottom: 20, left: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
