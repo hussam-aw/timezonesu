@@ -65,22 +65,24 @@ class ShoppingCartScreen extends StatelessWidget {
                           style: UITextStyle.boldHeading,
                         ),
                       ),
-                      SizedBox(
-                        height: 450,
-                        child: ListView.separated(
-                          itemBuilder: (context, index) {
-                            return const CartProductBox(
-                              brandName: '',
-                              productName: '',
-                              productImage: '',
-                              quantity: '',
-                              price: '',
-                            );
-                          },
-                          separatorBuilder: (context, index) {
-                            return spacer(height: 20);
-                          },
-                          itemCount: 8,
+                      Expanded(
+                        child: SizedBox(
+                          height: 450,
+                          child: ListView.separated(
+                            itemBuilder: (context, index) {
+                              return const CartProductBox(
+                                brandName: '',
+                                productName: '',
+                                productImage: '',
+                                quantity: '',
+                                price: '',
+                              );
+                            },
+                            separatorBuilder: (context, index) {
+                              return spacer(height: 20);
+                            },
+                            itemCount: 8,
+                          ),
                         ),
                       ),
                       Padding(

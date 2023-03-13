@@ -25,7 +25,7 @@ class CartProductBox extends StatelessWidget {
     return Container(
       width: Get.width,
       //height: 100,
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: UIColors.lightprimary,
         borderRadius: BorderRadius.circular(15),
@@ -34,124 +34,135 @@ class CartProductBox extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Row(
-            children: [
-              Container(
-                width: 70,
-                height: 70,
-                decoration: BoxDecoration(
-                  color: UIColors.white,
-                  border: Border.all(
-                    color: UIColors.lightGrey,
-                    width: 2,
+          Expanded(
+            flex: 9,
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    height: 80,
+                    decoration: BoxDecoration(
+                      color: UIColors.white,
+                      border: Border.all(
+                        color: UIColors.lightGrey,
+                        width: 2,
+                      ),
+                      borderRadius: BorderRadius.circular(15),
+                      // image: DecorationImage(
+                      //   image: NetworkImage(
+                      //     '',
+                      //   ),
+                      //   fit: BoxFit.fill,
+                      // ),
+                    ),
                   ),
-                  borderRadius: BorderRadius.circular(15),
-                  // image: DecorationImage(
-                  //   image: NetworkImage(
-                  //     '',
-                  //   ),
-                  //   fit: BoxFit.fill,
-                  // ),
                 ),
-              ),
-              const SizedBox(width: 20),
-              SizedBox(
-                width: 160,
-                child: Column(
-                  children: [
-                    const Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Casio',
-                        style: UITextStyle.boldHeading,
-                      ),
-                    ),
-                    spacer(height: 4),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'wwrr88',
-                        softWrap: true,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                        style: UITextStyle.boldMeduim.copyWith(
-                          color: UIColors.lightGrey,
-                        ),
-                      ),
-                    ),
-                    spacer(height: 4),
-                    Row(
+                const SizedBox(width: 15),
+                Expanded(
+                  flex: 4,
+                  child: SizedBox(
+                    width: 10,
+                    child: Column(
                       children: [
-                        Text(
-                          'Qyt: ',
-                          style: UITextStyle.boldMeduim.copyWith(
-                            color: UIColors.lightGrey,
+                        const Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Casio',
+                            style: UITextStyle.boldMeduim,
                           ),
                         ),
-                        Text(
-                          '5',
-                          style: UITextStyle.boldMeduim.copyWith(
-                            color: UIColors.lightGrey,
+                        spacer(height: 4),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'wwrr88',
+                            softWrap: true,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                            style: UITextStyle.boldSmall.copyWith(
+                              color: UIColors.lightGrey,
+                            ),
                           ),
                         ),
-                        const SizedBox(width: 10),
-                        Text(
-                          'Price: ',
-                          style: UITextStyle.boldMeduim.copyWith(
-                            color: UIColors.lightGrey,
-                          ),
+                        spacer(height: 4),
+                        Row(
+                          children: [
+                            Text(
+                              'Qyt: ',
+                              style: UITextStyle.boldSmall.copyWith(
+                                color: UIColors.lightGrey,
+                              ),
+                            ),
+                            Text(
+                              '5',
+                              style: UITextStyle.boldSmall.copyWith(
+                                color: UIColors.lightGrey,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            Text(
+                              'Price: ',
+                              style: UITextStyle.boldSmall.copyWith(
+                                color: UIColors.lightGrey,
+                              ),
+                            ),
+                            Text(
+                              '40.000',
+                              style: UITextStyle.boldSmall.copyWith(
+                                color: UIColors.lightGrey,
+                              ),
+                            ),
+                          ],
                         ),
-                        Text(
-                          '40.000',
-                          style: UITextStyle.boldMeduim.copyWith(
-                            color: UIColors.lightGrey,
-                          ),
+                        spacer(height: 4),
+                        Row(
+                          children: [
+                            Text(
+                              'Total: ',
+                              style: UITextStyle.boldSmall.copyWith(
+                                color: UIColors.lightGrey,
+                              ),
+                            ),
+                            Text(
+                              '200.000',
+                              style: UITextStyle.boldSmall.copyWith(
+                                color: UIColors.lightGrey,
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                    spacer(height: 4),
-                    Row(
-                      children: [
-                        Text(
-                          'Total: ',
-                          style: UITextStyle.boldMeduim.copyWith(
-                            color: UIColors.lightGrey,
-                          ),
-                        ),
-                        Text(
-                          '200.000',
-                          style: UITextStyle.boldMeduim.copyWith(
-                            color: UIColors.lightGrey,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              InkWell(
-                onTap: () {},
-                child: const Icon(
-                  Icons.edit_note,
-                  color: UIColors.white,
-                  size: 32,
+          Expanded(
+            flex: 2,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                InkWell(
+                  onTap: () {},
+                  child: const Icon(
+                    Icons.edit_note,
+                    color: UIColors.white,
+                    size: 32,
+                  ),
                 ),
-              ),
-              spacer(height: 5),
-              InkWell(
-                onTap: () {},
-                child: const Icon(
-                  Icons.remove_circle,
-                  color: UIColors.white,
-                  size: 26,
+                spacer(height: 5),
+                InkWell(
+                  onTap: () {},
+                  child: const Icon(
+                    Icons.remove_circle,
+                    color: UIColors.white,
+                    size: 26,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),

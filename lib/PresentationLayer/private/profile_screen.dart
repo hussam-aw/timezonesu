@@ -28,12 +28,12 @@ class ProfileScreen extends StatelessWidget {
         child: SizedBox(
           width: width,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
                   child: Text(
                     'My Profile',
                     style: UITextStyle.boldHeading,
@@ -46,19 +46,25 @@ class ProfileScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 15),
                     child: Column(
                       children: [
-                        const CircleAvatar(
-                          minRadius: 68,
-                          backgroundColor: UIColors.circleAvatarBorder,
+                        const Expanded(
+                          flex: 4,
                           child: CircleAvatar(
-                            minRadius: 63,
-                            backgroundColor: UIColors.circleAvatarBackground,
+                            minRadius: 68,
+                            backgroundColor: UIColors.circleAvatarBorder,
+                            child: CircleAvatar(
+                              minRadius: 63,
+                              backgroundColor: UIColors.circleAvatarBackground,
+                            ),
                           ),
                         ),
-                        spacer(height: 25),
-                        Text(
-                          'Ali Alsaeed',
-                          style: UITextStyle.boldMeduim.copyWith(
-                            color: UIColors.normalText,
+                        spacer(height: 20),
+                        Expanded(
+                          flex: 1,
+                          child: Text(
+                            'Ali Alsaeed',
+                            style: UITextStyle.boldMeduim.copyWith(
+                              color: UIColors.normalText,
+                            ),
                           ),
                         ),
                       ],
@@ -71,6 +77,7 @@ class ProfileScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         Expanded(
+                          flex: 10,
                           child: Column(
                             children: [
                               TextFormField(
@@ -93,14 +100,17 @@ class ProfileScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(
-                          width: Get.width,
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: acceptButtonWithBorderStyle,
-                            child: const Text(
-                              'Update Profile Info',
-                              style: UITextStyle.boldMeduim,
+                        Expanded(
+                          flex: 2,
+                          child: SizedBox(
+                            width: Get.width,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: acceptButtonWithBorderStyle,
+                              child: const Text(
+                                'Update Profile Info',
+                                style: UITextStyle.boldMeduim,
+                              ),
                             ),
                           ),
                         )
