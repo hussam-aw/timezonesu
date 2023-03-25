@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'color.dart';
 
+import 'color.dart';
 
 class Product {
   final int id;
@@ -27,43 +27,46 @@ class Product {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'id': id,
-      'name' : name,
-      'price' : price,
-      'offer' : offer,
+      'name': name,
+      'price': price,
+      'offer': offer,
       'description': description,
-      'brand' : brand,
-      'images' : images,
-      'category' : category,
-      'colors' : colors,
+      'brand': brand,
+      'images': images,
+      'category': category,
+      'colors': colors,
     };
   }
 
   factory Product.fromMap(Map<String, dynamic> map) {
     return Product(
       id: map['id'] as int,
-      name: map['name'] as String,
+      name: map['name'] ?? "",
       price: map['price'].toString(),
       offer: map['offer'].toString(),
-      description: map['description'] as String,
-      brand: map['brand'] as String,
-      images: getImages(map['images']) ,
+      description: map['description'] ?? "",
+      brand: map['brand'] ?? "",
+      images: getImages(map['images']),
       //category: Category.fromMap(map['category']),
-      category: map['category'] as String,
+      category: map['category'] ?? "",
       colors: null,
       //map['colors'] !=null ? colorsfromJson(map['colors'].toString()) : ,
     );
   }
 
-  static List<String> getImages(List<dynamic> ls){
-    List<String> result =[] ;
-    for(int i=0;i<ls.length;i++){
+  static List<String> getImages(List<dynamic> ls) {
+    List<String> result = [];
+    for (int i = 0; i < ls.length; i++) {
       result.add(ls[i].toString());
     }
     return result;
   }
+
   static List<ProductColor> colorsfromJson(String json) {
     final parsed = jsonDecode(jsonEncode(json)).cast<Map<String, dynamic>>();
-    return parsed.map<ProductColor>((json) => ProductColor.fromMap(json)).toList();
+    return parsed
+        .map<ProductColor>((json) => ProductColor.fromMap(json))
+        .toList();
   }
 
   String toJson() => json.encode(toMap());

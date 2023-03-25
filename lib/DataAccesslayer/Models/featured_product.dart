@@ -1,4 +1,4 @@
-import 'dart:convert';
+/* import 'dart:convert';
 
 class FeaturedProduct {
   final int id;
@@ -75,3 +75,4 @@ class FeaturedProduct {
   factory FeaturedProduct.fromJson(String source) =>
       FeaturedProduct.fromMap(json.decode(source) as Map<String, dynamic>);
 }
+ */

@@ -16,7 +16,24 @@ PreferredSizeWidget tzAppBar(
         bottomRight: Radius.circular(24),
       ),
     ),
-    leading: leading,
-    actions: actions,
+    actions: [
+      IconButton(
+        onPressed: () {},
+        icon: const Icon(
+          Icons.shopping_cart,
+          size: 30,
+          color: UIColors.activeIcon,
+        ),
+      ),
+      IconButton(
+        onPressed: () {},
+        icon: const Icon(
+          Icons.search,
+          size: 30,
+          color: UIColors.activeIcon,
+        ),
+      ),
+      const SizedBox(width: 8),
+    ],
   );
 }

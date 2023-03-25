@@ -1,9 +1,11 @@
 import 'package:get/get.dart';
 import 'package:timezonesu/PresentationLayer/Public/category_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/home_screen.dart';
+import 'package:timezonesu/PresentationLayer/Public/notifications_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/product_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/splash_screen.dart';
 import 'package:timezonesu/PresentationLayer/private/profile_screen.dart';
+import 'package:timezonesu/PresentationLayer/private/shopping_cart_screen.dart';
 
 import '../BussinessLayer/bindings/home_binding.dart';
 import '../PresentationLayer/Auth/login_screen.dart';
@@ -21,4 +23,7 @@ List<GetPage<dynamic>> getPages = [
   GetPage(name: AppRoutes.categoryScreen, page: () => CategoryScreen()),
   GetPage(name: AppRoutes.productScreen, page: () => ProductScreen()),
   GetPage(name: AppRoutes.profileScreen, page: () => const ProfileScreen()),
+  GetPage(name: AppRoutes.cartScreen, page: () => ShoppingCartScreen()),
+  GetPage(
+      name: AppRoutes.notificationsScreen, page: () => NotificationsScreen()),
 ];

@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
-import 'package:timezonesu/BussinessLayer/Controllers/category_controller.dart';
+import 'package:timezonesu/BussinessLayer/Controllers/cart_controller.dart';
+import 'package:timezonesu/BussinessLayer/Controllers/favorites_controller.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/home_controller.dart';
+import 'package:timezonesu/BussinessLayer/Controllers/notification_controller.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/product_controller.dart';
 
 class HomeBindings extends Bindings {
@@ -8,5 +10,8 @@ class HomeBindings extends Bindings {
   void dependencies() {
     Get.put(HomeController());
     Get.lazyPut(() => ProductController(), fenix: true);
+    Get.put(CartController());
+    Get.put(FavouriteController());
+    Get.put(BackNotificationController());
   }
 }

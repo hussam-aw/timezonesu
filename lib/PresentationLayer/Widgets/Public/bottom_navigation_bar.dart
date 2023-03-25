@@ -1,5 +1,10 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:timezonesu/Constants/get_routes.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
+import 'package:timezonesu/main.dart';
 
 class TZBottomNavigationBar extends StatelessWidget {
   const TZBottomNavigationBar({super.key});
@@ -7,13 +12,36 @@ class TZBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      backgroundColor: const Color.fromARGB(255, 224, 48, 48),
+      backgroundColor: UIColors.red,
       selectedItemColor: UIColors.activeIcon,
       selectedFontSize: 12,
-      unselectedItemColor: UIColors.inActiveIcon.withOpacity(0.5),
+      unselectedItemColor: Colors.white.withOpacity(.5),
       unselectedFontSize: 12,
-      currentIndex: 0,
+      currentIndex: MyApp.bottomSelectedItem,
       type: BottomNavigationBarType.fixed,
+      onTap: ((value) {
+        MyApp.bottomSelectedItem = value;
+        print(MyApp.bottomSelectedItem);
+        switch (value) {
+          case 0:
+            Get.toNamed(AppRoutes.homepage);
+            break;
+
+          case 1:
+            Get.toNamed(AppRoutes.notificationsScreen);
+            break;
+
+          case 2:
+            Get.toNamed(AppRoutes.cartScreen);
+            break;
+          case 3:
+            Get.toNamed(AppRoutes.cartScreen);
+            break;
+          case 4:
+            Get.toNamed(AppRoutes.profileScreen);
+            break;
+        }
+      }),
       items: const [
         BottomNavigationBarItem(
           icon: Icon(

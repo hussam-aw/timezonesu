@@ -36,9 +36,6 @@ final normalButtonStyle = ButtonStyle(
       borderRadius: BorderRadius.circular(17),
     ),
   ),
-  minimumSize: const MaterialStatePropertyAll<Size>(
-    Size(double.infinity, 56),
-  ),
 );
 
 final normalButtonWithBorderStyle = normalButtonStyle.copyWith(

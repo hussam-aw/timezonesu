@@ -7,4 +7,6 @@ class AppRoutes {
   static const categoryScreen = "/homepage/category";
   static const productScreen = "/homepage/product";
   static const profileScreen = "/profile";
+  static const notificationsScreen = "/homepage/notifications";
+  static const cartScreen = "/homepage/cart-screen";
 }

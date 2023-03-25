@@ -1,26 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:timezonesu/BussinessLayer/Controllers/cart_controller.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_styles.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
+import 'package:timezonesu/DataAccesslayer/Models/product.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
 
-class CategoryProductBox extends StatelessWidget {
-  const CategoryProductBox({
-    super.key,
-    required this.brandName,
-    required this.productName,
-    required this.price,
-    required this.offer,
-    required this.image,
-  });
+class ProductBox extends StatelessWidget {
+  const ProductBox(
+      {super.key, required this.product, required this.cartController});
 
-  final String brandName;
-  final String productName;
-  final String price;
-  final String offer;
-  final String image;
-
+  final Product product;
+  final CartController cartController;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -51,7 +43,7 @@ class CategoryProductBox extends StatelessWidget {
                         borderRadius: raduis10,
                         image: DecorationImage(
                           image: NetworkImage(
-                            image,
+                            product.images[0],
                           ),
                           fit: BoxFit.cover,
                         ),
@@ -67,7 +59,7 @@ class CategoryProductBox extends StatelessWidget {
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              brandName,
+                              product.brand,
                               style: UITextStyle.boldHeading,
                             ),
                           ),
@@ -75,7 +67,7 @@ class CategoryProductBox extends StatelessWidget {
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              productName,
+                              product.name,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
                               style: UITextStyle.normalMeduim
@@ -86,21 +78,21 @@ class CategoryProductBox extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                                price,
+                                product.price,
                                 style: UITextStyle.boldMeduim.copyWith(
-                                  color: num.parse(offer) != 0
+                                  color: num.parse(product.offer) != 0
                                       ? UIColors.lightGrey
                                       : UIColors.white,
-                                  decoration: num.parse(offer) != 0
+                                  decoration: num.parse(product.offer) != 0
                                       ? TextDecoration.lineThrough
                                       : null,
                                 ),
                               ),
-                              if (num.parse(offer) != 0)
+                              if (num.parse(product.offer) != 0)
                                 const SizedBox(width: 10),
-                              if (num.parse(offer) != 0)
+                              if (num.parse(product.offer) != 0)
                                 Text(
-                                  offer,
+                                  product.offer,
                                   style: UITextStyle.boldMeduim.copyWith(
                                     color: UIColors.white,
                                   ),
@@ -117,7 +109,9 @@ class CategoryProductBox extends StatelessWidget {
             Expanded(
               flex: 1,
               child: IconButton(
-                onPressed: () {},
+                onPressed: () async {
+                  cartController.addToCart(product);
+                },
                 icon: const Icon(
                   Icons.add_shopping_cart_sharp,
                   color: UIColors.white,

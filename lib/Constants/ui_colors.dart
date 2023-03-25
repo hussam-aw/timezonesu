@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class UIColors {
   static const blue = Color(0xff1A3281);
   static const white = Color(0xffffffff);
-  static const red = Color(0xffff0000);
+  static const red = Color.fromARGB(255, 187, 38, 38);
   static const lightprimary = Color(0xff5961B9);
   static const primary = Color(0xff2D358E);
   static const darkGrey = Color(0xff707070);
@@ -41,5 +41,10 @@ class UIColors {
   // Shimmers Colors
   static const shimmersBase = Color.fromARGB(255, 184, 184, 184);
   static const shimmersHighlight = Color.fromARGB(255, 231, 231, 231);
-  static const shimmersContainer = const Color.fromARGB(255, 151, 151, 151);
+  static const shimmersContainer = Color.fromARGB(255, 151, 151, 151);
+
+//Snackbars Colors
+  static const success = Color.fromARGB(255, 99, 184, 91);
+  static const warning = Color.fromARGB(255, 233, 196, 73);
+  static const error = Color.fromARGB(255, 226, 102, 102);
 }

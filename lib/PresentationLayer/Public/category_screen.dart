@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:timezonesu/BussinessLayer/Controllers/cart_controller.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/category_controller.dart';
 import 'package:timezonesu/Constants/ui_styles.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/shimmers/category_product_shimmer.dart';
 
-import '../Widgets/Category/category_product_box.dart';
+import '../Widgets/Category/product_box.dart';
 
 class CategoryScreen extends StatelessWidget {
   CategoryScreen({super.key});
   final CategoryController categoryController = Get.put(
     CategoryController(Get.arguments['category']),
   );
+  final CartController cartController = Get.find();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -47,13 +49,9 @@ class CategoryScreen extends StatelessWidget {
                       delegate: SliverChildBuilderDelegate(
                         childCount: categoryController.products.length,
                         (context, index) {
-                          return CategoryProductBox(
-                            brandName: categoryController.products[index].brand,
-                            productName:
-                                categoryController.products[index].name,
-                            price: categoryController.products[index].price,
-                            offer: categoryController.products[index].offer,
-                            image: categoryController.products[index].images[0],
+                          return ProductBox(
+                            product: categoryController.products[index],
+                            cartController: cartController,
                           );
                         },
                       ),

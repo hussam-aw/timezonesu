@@ -1,13 +1,13 @@
 import 'package:get/get.dart';
 import 'package:timezonesu/DataAccesslayer/Models/product.dart';
-import 'package:timezonesu/DataAccesslayer/Repositories/products_bycategory_repo.dart';
+import 'package:timezonesu/DataAccesslayer/Repositories/products_repo.dart';
 
 import '../../DataAccesslayer/Models/category.dart';
 
 class CategoryController extends GetxController {
   final Category category;
 
-  ProductsByCategoryRepo productsByCategoryRepo = ProductsByCategoryRepo();
+  ProductsRepo productsByCategoryRepo = ProductsRepo();
   List<Product> products = [];
 
   var isProductsLoading = false.obs;

@@ -3,9 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:timezonesu/BussinessLayer/Controllers/category_controller.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/home_controller.dart';
-import 'package:timezonesu/Constants/get_routes.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/advertisement_box.dart';
@@ -27,33 +25,14 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(homeController.arrowAnimation.value);
     var width = Get.width;
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Scaffold(
         backgroundColor: UIColors.mainBackground,
-        appBar: tzAppBar(
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.shopping_cart,
-                size: 30,
-                color: UIColors.activeIcon,
-              ),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.search,
-                size: 30,
-                color: UIColors.activeIcon,
-              ),
-            ),
-            const SizedBox(width: 8),
-          ],
-        ),
-        drawer: const TzDrawer(),
+        appBar: tzAppBar(),
+        drawer: TzDrawer(),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Obx(
@@ -96,12 +75,23 @@ class HomeScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(bottom: 18),
-                                  child: Text(
-                                    'Categories',
-                                    style: UITextStyle.boldHeading.copyWith(
-                                      color: UIColors.lightNormalText,
-                                    ),
+                                  padding: const EdgeInsets.all(10),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Categories',
+                                        style: UITextStyle.boldHeading.copyWith(
+                                          color: UIColors.lightNormalText,
+                                        ),
+                                      ),
+                                      Icon(
+                                        Icons.arrow_forward,
+                                        color: UIColors.white.withOpacity(
+                                            homeController.animationVal.value),
+                                      )
+                                    ],
                                   ),
                                 ),
                                 homeController.loadingCategories.value
@@ -147,17 +137,28 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(bottom: 25),
+                            padding: const EdgeInsets.all(10),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.only(bottom: 18),
-                                  child: Text(
-                                    'Brands',
-                                    style: UITextStyle.boldHeading.copyWith(
-                                      color: UIColors.lightNormalText,
-                                    ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Brands',
+                                        style: UITextStyle.boldHeading.copyWith(
+                                          color: UIColors.lightNormalText,
+                                        ),
+                                      ),
+                                      Icon(
+                                        Icons.arrow_forward,
+                                        color: UIColors.white.withOpacity(
+                                            homeController.animationVal.value),
+                                      )
+                                    ],
                                   ),
                                 ),
                                 homeController.loadingBrands.value
@@ -195,17 +196,28 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(bottom: 25),
+                            padding: const EdgeInsets.all(10),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.only(bottom: 18),
-                                  child: Text(
-                                    'Featured Products',
-                                    style: UITextStyle.boldHeading.copyWith(
-                                      color: UIColors.lightNormalText,
-                                    ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Featured Products',
+                                        style: UITextStyle.boldHeading.copyWith(
+                                          color: UIColors.lightNormalText,
+                                        ),
+                                      ),
+                                      Icon(
+                                        Icons.arrow_forward,
+                                        color: UIColors.white.withOpacity(
+                                            homeController.animationVal.value),
+                                      )
+                                    ],
                                   ),
                                 ),
                                 homeController.loadingProducts.value

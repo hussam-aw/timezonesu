@@ -6,28 +6,28 @@ class UITextStyle {
       fontFamily: "Red Hat Display",
       height: 1,
       fontWeight: FontWeight.bold,
-      fontSize: 20.0);
+      fontSize: 18.0);
 
   static const normalHeading = TextStyle(
       color: Colors.white,
       fontFamily: "Red Hat Display",
       height: 1,
       fontWeight: FontWeight.normal,
-      fontSize: 20.0);
+      fontSize: 18.0);
 
   static const boldMeduim = TextStyle(
       color: Colors.white,
       fontFamily: "Red Hat Display",
       height: 1,
       fontWeight: FontWeight.bold,
-      fontSize: 16.0);
+      fontSize: 15.0);
 
   static const normalMeduim = TextStyle(
       color: Colors.white,
       fontFamily: "Red Hat Display",
       height: 1,
       fontWeight: FontWeight.normal,
-      fontSize: 16.0);
+      fontSize: 15.0);
 
   static const boldBody = TextStyle(
       color: Colors.white,
