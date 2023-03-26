@@ -22,7 +22,7 @@ List<GetPage<dynamic>> getPages = [
       binding: HomeBindings()),
   GetPage(name: AppRoutes.categoryScreen, page: () => CategoryScreen()),
   GetPage(name: AppRoutes.productScreen, page: () => ProductScreen()),
-  GetPage(name: AppRoutes.profileScreen, page: () => const ProfileScreen()),
+  GetPage(name: AppRoutes.profileScreen, page: () => ProfileScreen()),
   GetPage(name: AppRoutes.cartScreen, page: () => ShoppingCartScreen()),
   GetPage(
       name: AppRoutes.notificationsScreen, page: () => NotificationsScreen()),
