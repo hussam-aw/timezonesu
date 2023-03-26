@@ -22,22 +22,21 @@ class UserClient {
     }
   }
 
-  /*Future<dynamic> updateInfo(id, name, email, password, mobileNumber) async {
-    var response = await http.post(Uri.parse(baseLink + updateInfoLink),
+  Future<dynamic> updateInfo(id, name, email, mobileNumber) async {
+    var response = await http.post(Uri.parse('$baseUrlV1$updateProfileLink'),
         body: jsonEncode(<String, dynamic>{
           "id": id.toString(),
           "name": name,
           "email": email,
-          "password": password,
           "mobile_number": mobileNumber,
         }),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         });
-    if (response.statusCode == 201) {
+    if (response.statusCode == 200) {
       return response.body;
     } else {
       return null;
     }
-  }*/
+  }
 }
