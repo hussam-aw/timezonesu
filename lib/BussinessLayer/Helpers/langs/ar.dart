@@ -19,5 +19,10 @@ const Map<String, String> ar = {
   //Home
   'categoriesTitle': ' الفئات',
   'brandsTitle': 'العلامات التجارية',
-  'featuredProductsTitle': 'المنتجات المميزة'
+  'featuredProductsTitle': 'المنتجات المميزة',
+  'homeTitle': 'الرئيسية',
+  'notificationsTitle': 'الاشعارات',
+  'myBagTitle': 'سلتي',
+  'favouritesTitle': 'المنتجات المفضلة',
+  'profileTitle': 'الحساب',
 };

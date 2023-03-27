@@ -19,5 +19,10 @@ const Map<String, String> en = {
   //Home
   'categoriesTitle': 'Categories',
   'brandsTitle': 'Brands',
-  'featuredProductsTitle': 'Featured Products'
+  'featuredProductsTitle': 'Featured Products',
+  'homeTitle': 'Home',
+  'notificationsTitle': 'Notifications',
+  'myBagTitle': 'My Bag',
+  'favouritesTitle': 'Favourites',
+  'profileTitle': 'Profile',
 };
