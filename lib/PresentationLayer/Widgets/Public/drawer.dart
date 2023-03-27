@@ -32,16 +32,18 @@ class TzDrawer extends StatelessWidget {
                           backgroundImage:
                               AssetImage("assets/images/user-default.png"),
                         ),
-                        accountName: Text(MyApp.appUser != null
-                            ? MyApp.appUser!.name
-                            : "Timezone User"),
+                        accountName: Text(
+                          MyApp.appUser != null
+                              ? MyApp.appUser!.name
+                              : 'timezoneUserTitle'.tr,
+                        ),
                         accountEmail: Text(
                             MyApp.appUser != null ? MyApp.appUser!.email : "")),
                     if (MyApp.appUser != null)
                       ListTile(
                         onTap: () => Get.toNamed(AppRoutes.profileScreen),
                         title: Text(
-                          "Profile",
+                          'profileTitle'.tr,
                           style:
                               UITextStyle.boldMeduim.apply(fontSizeFactor: .8),
                         ),
@@ -54,7 +56,7 @@ class TzDrawer extends StatelessWidget {
                       ListTile(
                         onTap: () async => userController.gotoLogin(),
                         title: Text(
-                          "Login",
+                          'loginText'.tr,
                           style:
                               UITextStyle.boldMeduim.apply(fontSizeFactor: .8),
                         ),
@@ -65,7 +67,7 @@ class TzDrawer extends StatelessWidget {
                       ),
                     ListTile(
                       title: Text(
-                        "Home",
+                        'homeTitle'.tr,
                         style: UITextStyle.boldMeduim.apply(fontSizeFactor: .8),
                       ),
                       leading: const Icon(
@@ -74,16 +76,18 @@ class TzDrawer extends StatelessWidget {
                       ),
                     ),
                     ListTile(
-                      title: Text("Categories",
-                          style:
-                              UITextStyle.boldMeduim.apply(fontSizeFactor: .8)),
+                      title: Text(
+                        'categoriesTitle'.tr,
+                        style: UITextStyle.boldMeduim.apply(fontSizeFactor: .8),
+                      ),
                       leading: const Icon(Icons.category,
                           color: UIColors.activeIcon),
                     ),
                     ListTile(
-                      title: Text("Top Sales",
-                          style:
-                              UITextStyle.boldMeduim.apply(fontSizeFactor: .8)),
+                      title: Text(
+                        'topSalesTitle'.tr,
+                        style: UITextStyle.boldMeduim.apply(fontSizeFactor: .8),
+                      ),
                       leading: const Icon(Icons.shopping_bag,
                           color: UIColors.activeIcon),
                     ),
@@ -91,7 +95,7 @@ class TzDrawer extends StatelessWidget {
                       ListTile(
                         onTap: () async => userController.logout(),
                         title: Text(
-                          "Logout",
+                          'Logout'.tr,
                           style:
                               UITextStyle.boldMeduim.apply(fontSizeFactor: .8),
                         ),
@@ -101,21 +105,26 @@ class TzDrawer extends StatelessWidget {
                         ),
                       ),
                     ListTile(
-                      title: Text("Language",
-                          style:
-                              UITextStyle.boldMeduim.apply(fontSizeFactor: .8)),
+                      title: Text(
+                        'languageTitle'.tr,
+                        style: UITextStyle.boldMeduim.apply(fontSizeFactor: .8),
+                      ),
                       leading: const Icon(Icons.language,
                           color: UIColors.activeIcon),
                       trailing: DropdownButton(
+                        underline: const SizedBox(),
+                        style: UITextStyle.boldMeduim.copyWith(
+                          color: UIColors.normalText,
+                        ),
                         value: appLanguageController.appLang,
-                        items: const [
+                        items: [
                           DropdownMenuItem(
                             value: 'en',
-                            child: Text('en'),
+                            child: Text('enLanguage'.tr),
                           ),
                           DropdownMenuItem<String>(
                             value: 'ar',
-                            child: Text('ar'),
+                            child: Text('arLanguage'.tr),
                           ),
                         ],
                         onChanged: (value) {
