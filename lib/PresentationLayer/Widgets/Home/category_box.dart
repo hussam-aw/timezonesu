@@ -12,8 +12,8 @@ class CategoryBox extends StatelessWidget {
   });
 
   final String categoryName;
- final String categoryIcon;
- final Function()? onTap;
+  final String categoryIcon;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +46,7 @@ class CategoryBox extends StatelessWidget {
               flex: 1,
               child: Text(
                 categoryName,
+                textAlign: TextAlign.center,
                 style: UITextStyle.boldSmall,
               ),
             ),
