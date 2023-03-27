@@ -38,42 +38,42 @@ class TZBottomNavigationBar extends StatelessWidget {
             Get.toNamed(AppRoutes.cartScreen);
             break;
           case 4:
-            //if (MyApp.appUser != null) Get.toNamed(AppRoutes.profileScreen);
-            Get.toNamed(AppRoutes.profileScreen);
+            if (MyApp.appUser != null) Get.toNamed(AppRoutes.profileScreen);
+            Get.toNamed(AppRoutes.loginscreen);
             break;
         }
       }),
-      items: const [
+      items: [
         BottomNavigationBarItem(
-          icon: Icon(
+          icon: const Icon(
             Icons.home,
             size: 32,
           ),
-          label: 'Home',
+          label: 'homeTitle'.tr,
         ),
         BottomNavigationBarItem(
-          icon: Icon(
+          icon: const Icon(
             Icons.notifications,
           ),
-          label: 'Notifications',
+          label: 'notificationsTitle'.tr,
         ),
         BottomNavigationBarItem(
-          icon: Icon(
+          icon: const Icon(
             Icons.shopping_cart_outlined,
           ),
-          label: 'My Bag',
+          label: 'myBagTitle'.tr,
         ),
         BottomNavigationBarItem(
-          icon: Icon(
+          icon: const Icon(
             Icons.star_border,
           ),
-          label: 'Favourites',
+          label: 'favouritesTitle'.tr,
         ),
         BottomNavigationBarItem(
-          icon: Icon(
+          icon: const Icon(
             Icons.person,
           ),
-          label: 'Profile',
+          label: 'profileTitle'.tr,
         ),
       ],
     );
