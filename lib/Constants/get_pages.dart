@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:timezonesu/BussinessLayer/bindings/init_binding.dart';
 import 'package:timezonesu/PresentationLayer/Public/category_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/home_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/notifications_screen.dart';
@@ -13,7 +14,11 @@ import '../PresentationLayer/Auth/register_screen.dart';
 import 'get_routes.dart';
 
 List<GetPage<dynamic>> getPages = [
-  GetPage(name: AppRoutes.splashscreen, page: () => SplashScreen()),
+  GetPage(
+    name: AppRoutes.splashscreen,
+    page: () => SplashScreen(),
+    binding: InitBinding(),
+  ),
   GetPage(name: AppRoutes.loginscreen, page: () => LoginScreen()),
   GetPage(name: AppRoutes.registerscreen, page: () => RegisterScreen()),
   GetPage(
