@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:timezonesu/BussinessLayer/Controllers/app_language_controller.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/user_controller.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
@@ -10,6 +11,8 @@ import '../../../Constants/get_routes.dart';
 class TzDrawer extends StatelessWidget {
   TzDrawer({super.key});
   final UserController userController = Get.put(UserController());
+  final AppLanguageController appLanguageController =
+      Get.find<AppLanguageController>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -97,6 +100,29 @@ class TzDrawer extends StatelessWidget {
                           color: UIColors.activeIcon,
                         ),
                       ),
+                    ListTile(
+                      title: Text("Language",
+                          style:
+                              UITextStyle.boldMeduim.apply(fontSizeFactor: .8)),
+                      leading: const Icon(Icons.language,
+                          color: UIColors.activeIcon),
+                      trailing: DropdownButton(
+                        value: appLanguageController.appLang,
+                        items: const [
+                          DropdownMenuItem(
+                            value: 'en',
+                            child: Text('en'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'ar',
+                            child: Text('ar'),
+                          ),
+                        ],
+                        onChanged: (value) {
+                          appLanguageController.changeLanguage(value);
+                        },
+                      ),
+                    ),
                   ],
                 ),
               );
