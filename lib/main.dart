@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:timezonesu/BussinessLayer/Helpers/translations_helper.dart';
 import 'package:timezonesu/Constants/get_pages.dart';
-
 import 'DataAccesslayer/Models/user.dart';
 
 void main() async {
@@ -15,10 +15,14 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   static User? appUser;
   static int bottomSelectedItem = 0;
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      //locale: const Locale('ar'),
+      translations: TranslationsHelper(),
+      fallbackLocale: const Locale('en'),
       title: 'TimeZone',
       getPages: getPages,
     );
