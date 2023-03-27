@@ -3,8 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:timezonesu/BussinessLayer/Controllers/app_language_controller.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/home_controller.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
+import 'package:timezonesu/Constants/ui_styles.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/advertisement_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/brand_icon.dart';
@@ -22,13 +24,16 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
   final homeController = Get.find<HomeController>();
+  final appLanguageController = Get.find<AppLanguageController>();
 
   @override
   Widget build(BuildContext context) {
     print(homeController.arrowAnimation.value);
     var width = Get.width;
     return Directionality(
-      textDirection: TextDirection.ltr,
+      textDirection: appLanguageController.appLang == 'en'
+          ? TextDirection.ltr
+          : TextDirection.rtl,
       child: Scaffold(
         backgroundColor: UIColors.mainBackground,
         appBar: tzAppBar(),
@@ -61,10 +66,11 @@ class HomeScreen extends StatelessWidget {
                     Container(
                       width: Get.width,
                       padding: const EdgeInsets.only(left: 10),
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: UIColors.primary,
-                        borderRadius:
-                            BorderRadius.only(topRight: Radius.circular(45)),
+                        borderRadius: appLanguageController.appLang == 'en'
+                            ? radius45topright
+                            : radius45topleft,
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,7 +87,7 @@ class HomeScreen extends StatelessWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        'Categories',
+                                        'categoriesTitle'.tr,
                                         style: UITextStyle.boldHeading.copyWith(
                                           color: UIColors.lightNormalText,
                                         ),
@@ -148,7 +154,7 @@ class HomeScreen extends StatelessWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        'Brands',
+                                        'brandsTitle'.tr,
                                         style: UITextStyle.boldHeading.copyWith(
                                           color: UIColors.lightNormalText,
                                         ),
@@ -207,7 +213,7 @@ class HomeScreen extends StatelessWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        'Featured Products',
+                                        'featuredProductsTitle'.tr,
                                         style: UITextStyle.boldHeading.copyWith(
                                           color: UIColors.lightNormalText,
                                         ),
