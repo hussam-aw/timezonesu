@@ -36,26 +36,15 @@ Widget categoryProducrShimmer() {
                 Expanded(
                   flex: 5,
                   child: Container(
-                    padding: const EdgeInsets.only(left: 8, top: 5),
+                    padding: const EdgeInsets.only(left: 8, right: 8, top: 5),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Align(
-                          alignment: Alignment.centerLeft,
-                          child:
-                              Shimmerwidget.rectangler(width: 80, height: 20),
-                        ),
+                        Shimmerwidget.rectangler(width: 80, height: 20),
                         spacer(height: 4),
-                        const Align(
-                          alignment: Alignment.centerLeft,
-                          child:
-                              Shimmerwidget.rectangler(width: 140, height: 15),
-                        ),
+                        Shimmerwidget.rectangler(width: 140, height: 15),
                         spacer(),
-                        const Align(
-                          alignment: Alignment.centerLeft,
-                          child:
-                              Shimmerwidget.rectangler(width: 100, height: 15),
-                        ),
+                        Shimmerwidget.rectangler(width: 100, height: 15),
                       ],
                     ),
                   ),

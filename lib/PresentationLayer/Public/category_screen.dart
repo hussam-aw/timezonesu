@@ -15,52 +15,49 @@ class CategoryScreen extends StatelessWidget {
   final CartController cartController = Get.find();
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: SafeArea(
-        child: Scaffold(
-          body: CustomScrollView(
-            slivers: [
-              SliverAppBar(
-                backgroundColor: Colors.white,
-                expandedHeight: 350,
-                floating: true,
-                flexibleSpace: FlexibleSpaceBar(
-                  background: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: raduis20bottom,
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(categoryController.category.image),
-                      ),
+    return SafeArea(
+      child: Scaffold(
+        body: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              backgroundColor: Colors.white,
+              expandedHeight: 350,
+              floating: true,
+              flexibleSpace: FlexibleSpaceBar(
+                background: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: raduis20bottom,
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(categoryController.category.image),
                     ),
                   ),
                 ),
               ),
-              Obx(
-                () => categoryController.isProductsLoading.value
-                    ? SliverList(
-                        delegate: SliverChildBuilderDelegate(
-                          childCount: 8,
-                          (context, index) {
-                            return categoryProducrShimmer();
-                          },
-                        ),
-                      )
-                    : SliverList(
-                        delegate: SliverChildBuilderDelegate(
-                          childCount: categoryController.products.length,
-                          (context, index) {
-                            return ProductBox(
-                              product: categoryController.products[index],
-                              cartController: cartController,
-                            );
-                          },
-                        ),
+            ),
+            Obx(
+              () => categoryController.isProductsLoading.value
+                  ? SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        childCount: 8,
+                        (context, index) {
+                          return categoryProducrShimmer();
+                        },
                       ),
-              ),
-            ],
-          ),
+                    )
+                  : SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        childCount: categoryController.products.length,
+                        (context, index) {
+                          return ProductBox(
+                            product: categoryController.products[index],
+                            cartController: cartController,
+                          );
+                        },
+                      ),
+                    ),
+            ),
+          ],
         ),
       ),
     );

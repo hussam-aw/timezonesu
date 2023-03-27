@@ -53,7 +53,7 @@ class ProductBox extends StatelessWidget {
                   Expanded(
                     flex: 5,
                     child: Container(
-                      padding: const EdgeInsets.only(left: 8, top: 5),
+                      padding: const EdgeInsets.only(left: 8, right: 8, top: 5),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
