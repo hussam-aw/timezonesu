@@ -108,4 +108,6 @@ const raduis20bottom = BorderRadius.only(
 );
 const raduis30 = BorderRadius.all(Radius.circular(30));
 const raduis40 = BorderRadius.all(Radius.circular(40));
+const radius45topright = BorderRadius.only(topRight: Radius.circular(45));
+const radius45topleft = BorderRadius.only(topLeft: Radius.circular(45));
 const raduis50 = BorderRadius.all(Radius.circular(50));
