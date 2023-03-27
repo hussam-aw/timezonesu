@@ -30,7 +30,7 @@ class RegisterScreen extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 4),
                         child: Text(
-                          'Create Account',
+                          'createAccountText'.tr,
                           style: UITextStyle.boldHeading
                               .copyWith(color: UIColors.primary),
                         ),
@@ -43,7 +43,7 @@ class RegisterScreen extends StatelessWidget {
                               controller: authController.registerNameController,
                               keyboardType: TextInputType.name,
                               decoration: authInputsStyle.copyWith(
-                                hintText: "Enter Your Name",
+                                hintText: 'nameHint'.tr,
                               ),
                             ),
                             spacer(height: 15),
@@ -52,7 +52,7 @@ class RegisterScreen extends StatelessWidget {
                                   authController.registerEmailController,
                               keyboardType: TextInputType.emailAddress,
                               decoration: authInputsStyle.copyWith(
-                                hintText: "Enter Your Email",
+                                hintText: 'emailHint'.tr,
                               ),
                             ),
                             spacer(height: 25),
@@ -61,7 +61,7 @@ class RegisterScreen extends StatelessWidget {
                                   authController.registerPasswordController,
                               keyboardType: TextInputType.visiblePassword,
                               decoration: authInputsStyle.copyWith(
-                                hintText: 'Enter Your Password',
+                                hintText: 'passwordHint'.tr,
                                 suffixIcon: const Icon(Icons.visibility),
                               ),
                             ),
@@ -71,7 +71,7 @@ class RegisterScreen extends StatelessWidget {
                                   authController.registerRepasswordController,
                               keyboardType: TextInputType.visiblePassword,
                               decoration: authInputsStyle.copyWith(
-                                hintText: 'Confirm Your Password',
+                                hintText: 'confirmPasswordHint'.tr,
                                 suffixIcon: const Icon(Icons.visibility),
                               ),
                             ),
@@ -81,8 +81,8 @@ class RegisterScreen extends StatelessWidget {
                               child: ElevatedButton(
                                 onPressed: () {},
                                 style: acceptButtonStyle,
-                                child: const Text(
-                                  'Create Account',
+                                child: Text(
+                                  'createAccountText'.tr,
                                   style: UITextStyle.normalMeduim,
                                 ),
                               ),
@@ -92,7 +92,7 @@ class RegisterScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Have an account ? ',
+                                  'haveAnAccountText'.tr,
                                   style: UITextStyle.normalMeduim.copyWith(
                                     color: UIColors.darknormalText,
                                   ),
@@ -100,7 +100,7 @@ class RegisterScreen extends StatelessWidget {
                                 InkWell(
                                   onTap: () {},
                                   child: Text(
-                                    'Login',
+                                    'loginText'.tr,
                                     style: UITextStyle.normalMeduim.copyWith(
                                       color: UIColors.darknormalText,
                                     ),
@@ -124,9 +124,9 @@ class RegisterScreen extends StatelessWidget {
                     decoration: const BoxDecoration(
                       color: UIColors.lightGrey,
                     ),
-                    child: const Center(
+                    child: Center(
                       child: Text(
-                        'Get Full Aceess',
+                        'getFullAccessMessage'.tr,
                         style: UITextStyle.boldHeading,
                       ),
                     ),
