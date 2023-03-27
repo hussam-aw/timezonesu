@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:timezonesu/BussinessLayer/Controllers/app_language_controller.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/auth_controller.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_styles.dart';
@@ -9,6 +10,8 @@ import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});
   final AuthController authController = Get.put(AuthController());
+  final AppLanguageController appLanguageController =
+      Get.find<AppLanguageController>();
 
   @override
   Widget build(BuildContext context) {
