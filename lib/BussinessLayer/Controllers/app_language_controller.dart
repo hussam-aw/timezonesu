@@ -4,19 +4,24 @@ import 'package:timezonesu/BussinessLayer/Helpers/box_client.dart';
 
 class AppLanguageController extends GetxController {
   String? appLang;
-  var appLocale;
+  late Locale? appLocale;
   BoxClient box = BoxClient();
   @override
   void onInit() async {
     super.onInit();
     appLang = await box.getAppLanguage();
-    appLocale = appLang == null ? Get.deviceLocale : Locale(appLang.toString());
+    if (appLang == null) {
+      appLang = Get.deviceLocale!.languageCode;
+      appLocale = Get.deviceLocale;
+    } else {
+      appLocale = Locale(appLang.toString());
+    }
     update();
-    Get.updateLocale(appLocale);
+    Get.updateLocale(appLocale!);
   }
 
   void changeLanguage(String? type) async {
-    if (appLocale == type) {
+    if (appLang == type) {
       return;
     }
     switch (type) {
