@@ -55,24 +55,19 @@ class ProductBox extends StatelessWidget {
                     child: Container(
                       padding: const EdgeInsets.only(left: 8, top: 5),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              product.brand,
-                              style: UITextStyle.boldHeading,
-                            ),
+                          Text(
+                            product.brand,
+                            style: UITextStyle.boldHeading,
                           ),
                           spacer(height: 4),
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              product.name,
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 1,
-                              style: UITextStyle.normalMeduim
-                                  .apply(fontSizeFactor: .8),
-                            ),
+                          Text(
+                            product.name,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                            style: UITextStyle.normalMeduim
+                                .apply(fontSizeFactor: .8),
                           ),
                           spacer(),
                           Row(
