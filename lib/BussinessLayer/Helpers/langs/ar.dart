@@ -25,4 +25,11 @@ const Map<String, String> ar = {
   'myBagTitle': 'سلتي',
   'favouritesTitle': 'المنتجات المفضلة',
   'profileTitle': 'الحساب',
+  //Drawer
+  'timezoneUserTitle': 'مستخدم Timezone',
+  'topSalesTitle': 'أعلى مبيعات',
+  'languageTitle': 'اللغة',
+  'arLanguage': 'العربية',
+  'enLanguage': 'الانكليزية',
+  'logoutText': 'تسجيل خروج'
 };

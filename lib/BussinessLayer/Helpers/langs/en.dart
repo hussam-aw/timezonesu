@@ -20,9 +20,17 @@ const Map<String, String> en = {
   'categoriesTitle': 'Categories',
   'brandsTitle': 'Brands',
   'featuredProductsTitle': 'Featured Products',
+  //Bottom Navigation Bar
   'homeTitle': 'Home',
   'notificationsTitle': 'Notifications',
   'myBagTitle': 'My Bag',
   'favouritesTitle': 'Favourites',
   'profileTitle': 'Profile',
+  //Drawer
+  'timezoneUserTitle': 'Timezone User',
+  'topSalesTitle': 'Top Sales',
+  'languageTitle': 'Language',
+  'arLanguage': 'Arabic',
+  'enLanguage': 'English',
+  'logoutText': 'Logout',
 };
