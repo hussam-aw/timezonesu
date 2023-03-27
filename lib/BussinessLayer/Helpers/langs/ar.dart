@@ -16,4 +16,8 @@ const Map<String, String> ar = {
   'loginText': 'تسجيل دخول',
   'haveAnAccountText': 'لديك حساب؟ ',
   'getFullAccessMessage': 'احصل على وصول كامل',
+  //Home
+  'categoriesTitle': ' الفئات',
+  'brandsTitle': 'العلامات التجارية',
+  'featuredProductsTitle': 'المنتجات المميزة'
 };

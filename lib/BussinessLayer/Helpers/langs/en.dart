@@ -16,4 +16,8 @@ const Map<String, String> en = {
   'loginText': 'Login',
   'haveAnAccountText': 'Have an Account? ',
   'getFullAccessMessage': 'Get Full Access',
+  //Home
+  'categoriesTitle': 'Categories',
+  'brandsTitle': 'Brands',
+  'featuredProductsTitle': 'Featured Products'
 };
