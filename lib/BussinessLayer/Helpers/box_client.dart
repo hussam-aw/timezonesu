@@ -70,4 +70,14 @@ class BoxClient {
     var map = cartProducts.map((e) => e.toMap());
     await box.write('su_favorites', map.toList());
   }
+
+  Future<void> setAppLanguage(String lang) async {
+    await box.write('language', lang);
+  }
+
+  Future<String> getAppLanguage() async {
+    String? lang = box.read('language');
+    if (lang == null) return '';
+    return lang;
+  }
 }
