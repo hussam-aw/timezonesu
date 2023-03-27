@@ -75,9 +75,8 @@ class BoxClient {
     await box.write('language', lang);
   }
 
-  Future<String> getAppLanguage() async {
+  Future<String?> getAppLanguage() async {
     String? lang = box.read('language');
-    if (lang == null) return '';
     return lang;
   }
 }
