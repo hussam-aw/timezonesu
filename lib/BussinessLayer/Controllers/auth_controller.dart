@@ -31,13 +31,13 @@ class AuthController extends GetxController {
       if (user != null) {
         MyApp.appUser = user;
         await client.setAuthedUser(user);
-        SnackBars.showSuccess("Welcome   ${user.name}");
+        SnackBars.showSuccess('welcomeMessage'.tr + "${user.name}");
         Get.toNamed(AppRoutes.homepage);
       } else {
-        SnackBars.showWarning("Your credentials don't match our records");
+        SnackBars.showWarning('notMatchMessage'.tr);
       }
     } else {
-      SnackBars.showWarning(" Please fill required fields to contiune");
+      SnackBars.showWarning('requiredFieldMessage'.tr);
     }
     logging.value = false;
   }
