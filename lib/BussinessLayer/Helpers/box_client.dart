@@ -57,8 +57,7 @@ class BoxClient {
   Future<List<Favourite>> getFavorites() async {
     var favoriteItems = await box.read('su_favorites');
     if (favoriteItems != null) {
-      final data =
-          json.decode(jsonEncode(favoriteItems)).cast<Map<String, dynamic>>();
+      final data = favoriteItems;
       return data.map<Favourite>((json) => Favourite.fromMap(json)).toList();
     }
 
