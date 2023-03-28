@@ -11,36 +11,33 @@ class NotificationsScreen extends StatelessWidget {
   final BackNotificationController controller = Get.find();
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-        textDirection: TextDirection.ltr,
-        child: Scaffold(
-          appBar: tzAppBar(),
-          bottomNavigationBar: const TZBottomNavigationBar(),
-          body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-            child: Column(
-              children: [
-                pageTitle("Shopping Cart"),
-                Flexible(
-                  child: GetBuilder(
-                      init: controller,
-                      builder: (context) {
-                        return RefreshIndicator(
-                          onRefresh: () async =>
-                              controller.getBackNotifications(),
-                          child: ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: controller.userNotifications.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              return const SizedBox();
-                            },
-                          ),
-                        );
-                      }),
-                ),
-              ],
+    return Scaffold(
+      appBar: tzAppBar(),
+      bottomNavigationBar: const TZBottomNavigationBar(),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+        child: Column(
+          children: [
+            pageTitle("Shopping Cart"),
+            Flexible(
+              child: GetBuilder(
+                  init: controller,
+                  builder: (context) {
+                    return RefreshIndicator(
+                      onRefresh: () async => controller.getBackNotifications(),
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: controller.userNotifications.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return const SizedBox();
+                        },
+                      ),
+                    );
+                  }),
             ),
-          ),
-        ));
+          ],
+        ),
+      ),
+    );
   }
 }
