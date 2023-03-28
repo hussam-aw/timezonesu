@@ -31,5 +31,12 @@ const Map<String, String> ar = {
   'languageTitle': 'اللغة',
   'arLanguage': 'العربية',
   'enLanguage': 'الانكليزية',
-  'logoutText': 'تسجيل خروج'
+  'logoutText': 'تسجيل خروج',
+  //Product
+  'brandTitle': 'العلامة التجارية: ',
+  'rNumberTitle': 'الرقم: ',
+  'genderTitle': 'الجنس: ',
+  'movementTitle': 'الحركة: ',
+  'caseSizeTitle': 'الحجم: ',
+  'addToCartButton': 'أضف الى السلة',
 };

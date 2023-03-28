@@ -33,4 +33,11 @@ const Map<String, String> en = {
   'arLanguage': 'Arabic',
   'enLanguage': 'English',
   'logoutText': 'Logout',
+  //Product
+  'brandTitle': 'Brand: ',
+  'rNumberTitle': 'R.Number: ',
+  'genderTitle': 'Gender: ',
+  'movementTitle': 'Movement: ',
+  'caseSizeTitle': 'Case size: ',
+  'addToCartButton': 'Add to Cart: ',
 };
