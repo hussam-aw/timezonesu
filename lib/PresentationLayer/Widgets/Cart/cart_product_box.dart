@@ -83,7 +83,7 @@ class CartProductBox extends StatelessWidget {
                             Row(
                               children: [
                                 Text(
-                                  'Qty : ',
+                                  'qtyTitle'.tr,
                                   style: UITextStyle.boldSmall.copyWith(
                                     color: UIColors.white.withOpacity(.8),
                                   ),
@@ -92,7 +92,7 @@ class CartProductBox extends StatelessWidget {
                                     style: UITextStyle.boldSmall),
                                 const SizedBox(width: 10),
                                 Text(
-                                  'Price: ',
+                                  'priceTitle'.tr,
                                   style: UITextStyle.boldSmall.copyWith(
                                     color: UIColors.white.withOpacity(.8),
                                   ),
@@ -105,7 +105,7 @@ class CartProductBox extends StatelessWidget {
                             Row(
                               children: [
                                 Text(
-                                  'Total: ',
+                                  'totalText'.tr,
                                   style: UITextStyle.boldSmall.copyWith(
                                     color: UIColors.white.withOpacity(.8),
                                   ),
