@@ -76,7 +76,7 @@ class CartController extends GetxController {
     adding.value = false;
     await syncCarts();
     update();
-    SnackBars.showSuccess("Added Successfully");
+    SnackBars.showSuccess('successMessage'.tr);
   }
 
   void showEditDialog(index, oldvalue) {
@@ -92,30 +92,31 @@ class CartController extends GetxController {
         child: Column(
           children: [
             Text(
-              "Please Enter a New Quantity :",
+              'enterQuantityMessage'.tr,
               style: UITextStyle.boldHeading.apply(color: UIColors.blue),
             ),
             const Spacer(),
             SuTextForm(
-              hint: "Enter a New Quantity",
+              hint: "quantityHint".tr,
               obsecure: false,
               controller: newQtyController,
               type: TextInputType.number,
             ),
             const Spacer(),
             ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  minimumSize: Size(Get.width, 50),
-                  backgroundColor: UIColors.blue,
-                  textStyle: UITextStyle.boldMeduim,
-                ),
-                onPressed: () async {
-                  await editCartItemQty(index);
-                  Get.back();
-                },
-                child: const Text("Edit"))
+              style: ElevatedButton.styleFrom(
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                minimumSize: Size(Get.width, 50),
+                backgroundColor: UIColors.blue,
+                textStyle: UITextStyle.boldMeduim,
+              ),
+              onPressed: () async {
+                await editCartItemQty(index);
+                Get.back();
+              },
+              child: Text('editButton'.tr),
+            )
           ],
         ),
       ),
