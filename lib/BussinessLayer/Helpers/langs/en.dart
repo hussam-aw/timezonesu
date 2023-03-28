@@ -60,5 +60,7 @@ const Map<String, String> en = {
   'successMessage': 'Added Successfully',
   'notMatchMessage': 'Your credentials don\'t match our records',
   'requiredFieldMessage': 'Please fill required fields to contiune',
+  'addingSuccessMessage': 'Added Successfull',
   'updateSuccessMessage': 'Information is updated successfully',
+  'removeSuccessMessage': 'Removed Successfull',
 };

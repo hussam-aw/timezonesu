@@ -59,5 +59,7 @@ const Map<String, String> ar = {
   'successMessage': 'تمت الاضافة بنجاح',
   'notMatchMessage': 'بياناتك لا تتطابق مع سجلاتنا',
   'requiredFieldMessage': 'يرجى تعبئة الحقول المطلوبة للمتابعة',
+  'addingSuccessMessage': 'تمت الاضافة بنجاح',
   'updateSuccessMessage': 'تم تحديث المعلومات بنجاح',
+  'removeSuccessMessage': 'تمت الازالة بنجاح',
 };
