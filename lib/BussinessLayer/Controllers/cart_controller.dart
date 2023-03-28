@@ -97,7 +97,7 @@ class CartController extends GetxController {
             ),
             const Spacer(),
             SuTextForm(
-              hint: "quantityHint".tr,
+              hint: 'quantityHint'.tr,
               obsecure: false,
               controller: newQtyController,
               type: TextInputType.number,
