@@ -21,11 +21,11 @@ const Map<String, String> en = {
   'brandsTitle': 'Brands',
   'featuredProductsTitle': 'Featured Products',
   //Bottom Navigation Bar
-  'homeTitle': 'Home',
-  'notificationsTitle': 'Notifications',
-  'myBagTitle': 'My Bag',
-  'favouritesTitle': 'Favourites',
-  'profileTitle': 'Profile',
+  'homeItem': 'Home',
+  'notificationsItem': 'Notifications',
+  'myBagItem': 'My Bag',
+  'favouritesItem': 'Favourites',
+  'profileItem': 'Profile',
   //Drawer
   'timezoneUserTitle': 'Timezone User',
   'topSalesTitle': 'Top Sales',
@@ -49,9 +49,14 @@ const Map<String, String> en = {
   'enterQuantityMessage': 'Please Enter a New Quantity: ',
   'quantityHint': 'Enter a New Quantity',
   'editButton': 'Edit',
+  //Profile
+  'profileTitle': 'My Profile',
+  'leaveEmptyHint': 'Leave It Empty To Avoid Change',
+  'updateProfileInfoButton': 'Update Profile Info',
   //SnackBars
   'welcomeMessage': 'Welcome ',
   'successMessage': 'Added Successfully',
   'notMatchMessage': 'Your credentials don\'t match our records',
   'requiredFieldMessage': 'Please fill required fields to contiune',
+  'updateSuccessMessage': 'Information is updated successfully',
 };
