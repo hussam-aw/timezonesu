@@ -43,7 +43,7 @@ class LoginScreen extends StatelessWidget {
                                 ),
                                 spacer(height: 16),
                                 Text(
-                                  'welcomeMessage'.tr,
+                                  'welcomeText'.tr,
                                   style: UITextStyle.normalHeading,
                                 )
                               ],

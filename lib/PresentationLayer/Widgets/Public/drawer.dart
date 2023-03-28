@@ -95,7 +95,7 @@ class TzDrawer extends StatelessWidget {
                       ListTile(
                         onTap: () async => userController.logout(),
                         title: Text(
-                          'Logout'.tr,
+                          'logoutText'.tr,
                           style:
                               UITextStyle.boldMeduim.apply(fontSizeFactor: .8),
                         ),
