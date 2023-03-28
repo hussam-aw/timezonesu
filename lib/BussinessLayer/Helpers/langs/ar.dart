@@ -39,4 +39,10 @@ const Map<String, String> ar = {
   'movementTitle': 'الحركة: ',
   'caseSizeTitle': 'الحجم: ',
   'addToCartButton': 'أضف الى السلة',
+  //Cart
+  'shoppingCartTitle': 'سلة التسوق',
+  'totalText': 'المبلغ الكلي: ',
+  'discountText': 'الخصم: ',
+  'netValueText': 'المبلغ الصافي: ',
+  'checkOutButton': 'ادفع',
 };

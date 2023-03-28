@@ -40,4 +40,10 @@ const Map<String, String> en = {
   'movementTitle': 'Movement: ',
   'caseSizeTitle': 'Case size: ',
   'addToCartButton': 'Add to Cart: ',
+  //Cart
+  'shoppingCartTitle': 'Shopping Cart',
+  'totalText': 'Total:',
+  'discountText': 'Discount:',
+  'netValueText': 'Net Value:',
+  'checkOutButton': 'Check Out:',
 };
