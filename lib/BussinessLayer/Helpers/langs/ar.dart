@@ -48,6 +48,9 @@ const Map<String, String> ar = {
   'enterQuantityMessage': 'يرجى ادخال الكمية الجديدة: ',
   'quantityHint': 'أدخل الكمية الجديدة',
   'editButton': 'تعديل',
+  'qtyTitle': 'الكمية: ',
+  'priceTitle': 'السعر: ',
+  //Profile
   'profileTitle': 'حسابي',
   'leaveEmptyHint': 'اتركه فارغ لتجنب التغيير',
   'updateProfileInfoButton': 'تحديث معلومات الحساب',

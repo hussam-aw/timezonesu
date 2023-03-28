@@ -49,6 +49,8 @@ const Map<String, String> en = {
   'enterQuantityMessage': 'Please Enter a New Quantity: ',
   'quantityHint': 'Enter a New Quantity',
   'editButton': 'Edit',
+  'qtyTitle': 'Qty',
+  'priceTitle': 'Price',
   //Profile
   'profileTitle': 'My Profile',
   'leaveEmptyHint': 'Leave It Empty To Avoid Change',
