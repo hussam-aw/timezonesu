@@ -67,7 +67,7 @@ class TzDrawer extends StatelessWidget {
                       ),
                     ListTile(
                       title: Text(
-                        'homeTitle'.tr,
+                        'homeItem'.tr,
                         style: UITextStyle.boldMeduim.apply(fontSizeFactor: .8),
                       ),
                       leading: const Icon(
