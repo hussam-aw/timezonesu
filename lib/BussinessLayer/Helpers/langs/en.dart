@@ -46,4 +46,9 @@ const Map<String, String> en = {
   'discountText': 'Discount:',
   'netValueText': 'Net Value:',
   'checkOutButton': 'Check Out:',
+  'enterQuantityMessage': 'Please Enter a New Quantity: ',
+  'quantityHint': 'Enter a New Quantity',
+  'editButton': 'Edit',
+  //SnackBars
+  'successMessage': 'Added Successfully',
 };

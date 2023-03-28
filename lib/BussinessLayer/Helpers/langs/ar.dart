@@ -45,4 +45,9 @@ const Map<String, String> ar = {
   'discountText': 'الخصم: ',
   'netValueText': 'المبلغ الصافي: ',
   'checkOutButton': 'ادفع',
+  'enterQuantityMessage': 'يرجى ادخال الكمية الجديدة: ',
+  'quantityHint': 'أدخل الكمية الجديدة',
+  'editButton': 'تعديل',
+  //SnackBars
+  'successMessage': 'تمت الاضافة بنجاح',
 };
