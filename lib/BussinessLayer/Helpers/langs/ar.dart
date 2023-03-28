@@ -1,7 +1,7 @@
 const Map<String, String> ar = {
   //Login
   'welcomeTitle': 'أهلا بك مجددا',
-  'welcomeMessage': 'يرجى تسجيل الدخول الى الحساب الخاص بك',
+  'welcomeText': 'يرجى تسجيل الدخول الى الحساب الخاص بك',
   'emailHint': 'أدخل البريد الالكتروني الخاص بك',
   'passwordHint': 'أدخل كلمة السر الخاصة بك',
   'forgetPasswordText': 'هل نسيت كلمة السر؟',
@@ -49,5 +49,8 @@ const Map<String, String> ar = {
   'quantityHint': 'أدخل الكمية الجديدة',
   'editButton': 'تعديل',
   //SnackBars
+  'welcomeMessage': 'مرحبا ',
   'successMessage': 'تمت الاضافة بنجاح',
+  'notMatchMessage': 'بياناتك لا تتطابق مع سجلاتنا',
+  'requiredFieldMessage': 'يرجى تعبئة الحقول المطلوبة للمتابعة',
 };

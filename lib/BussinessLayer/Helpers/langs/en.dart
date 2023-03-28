@@ -1,7 +1,7 @@
 const Map<String, String> en = {
   //Auth
   'welcomeTitle': 'Welcome Back',
-  'welcomeMessage': 'Please Sign In To Your Account',
+  'welcomeText': 'Please Sign In To Your Account',
   'emailHint': 'Enter Your Email',
   'passwordHint': 'Enter Your Password',
   'forgetPasswordText': 'Forget Password?',
@@ -50,5 +50,8 @@ const Map<String, String> en = {
   'quantityHint': 'Enter a New Quantity',
   'editButton': 'Edit',
   //SnackBars
+  'welcomeMessage': 'Welcome ',
   'successMessage': 'Added Successfully',
+  'notMatchMessage': 'Your credentials don\'t match our records',
+  'requiredFieldMessage': 'Please fill required fields to contiune',
 };
