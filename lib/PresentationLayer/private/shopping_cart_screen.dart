@@ -34,7 +34,7 @@ class ShoppingCartScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            pageTitle("Shopping Cart"),
+                            pageTitle('shoppingCartTitle'.tr),
                             Expanded(
                               child: SizedBox(
                                 height: 450,
@@ -60,7 +60,7 @@ class ShoppingCartScreen extends StatelessWidget {
                                   Row(
                                     children: [
                                       Text(
-                                        'Total :',
+                                        'totalText'.tr,
                                         style:
                                             UITextStyle.normalMeduim.copyWith(
                                           color: UIColors.white,
@@ -80,7 +80,7 @@ class ShoppingCartScreen extends StatelessWidget {
                                   Row(
                                     children: [
                                       Text(
-                                        'Discount:',
+                                        'discountText'.tr,
                                         style:
                                             UITextStyle.normalMeduim.copyWith(
                                           color: UIColors.specialText,
@@ -101,8 +101,8 @@ class ShoppingCartScreen extends StatelessWidget {
                                   spacer(),
                                   Row(
                                     children: [
-                                      const Text(
-                                        'Net Value:',
+                                      Text(
+                                        'netValueText'.tr,
                                         style: UITextStyle.normalMeduim,
                                       ),
                                       const SizedBox(width: 30),
@@ -126,7 +126,7 @@ class ShoppingCartScreen extends StatelessWidget {
                             onPressed: () async {},
                             style: normalButtonStyle,
                             child: Text(
-                              'Check Out',
+                              'checkOutButton'.tr,
                               style: UITextStyle.boldMeduim.copyWith(
                                 color: UIColors.primary,
                               ),
