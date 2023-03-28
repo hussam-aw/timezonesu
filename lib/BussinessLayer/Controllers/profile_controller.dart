@@ -33,11 +33,11 @@ class ProfileController extends GetxController {
       if (user != null) {
         MyApp.appUser = user;
         await boxClient.setAuthedUser(user);
-        SnackBars.showSuccess("Information is updated successfully");
+        SnackBars.showSuccess('updateSuccessMessage'.tr);
         update();
       }
     } else {
-      SnackBars.showWarning(" Please fill required fields to contiune");
+      SnackBars.showWarning('requiredFieldMessage'.tr);
     }
   }
 }
