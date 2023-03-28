@@ -52,31 +52,31 @@ class TZBottomNavigationBar extends StatelessWidget {
             Icons.home,
             size: 32,
           ),
-          label: 'homeTitle'.tr,
+          label: 'homeItem'.tr,
         ),
         BottomNavigationBarItem(
           icon: const Icon(
             Icons.notifications,
           ),
-          label: 'notificationsTitle'.tr,
+          label: 'notificationsItem'.tr,
         ),
         BottomNavigationBarItem(
           icon: const Icon(
             Icons.shopping_cart_outlined,
           ),
-          label: 'myBagTitle'.tr,
+          label: 'myBagItem'.tr,
         ),
         BottomNavigationBarItem(
           icon: const Icon(
             Icons.star_border,
           ),
-          label: 'favouritesTitle'.tr,
+          label: 'favouritesItem'.tr,
         ),
         BottomNavigationBarItem(
           icon: const Icon(
             Icons.person,
           ),
-          label: 'profileTitle'.tr,
+          label: 'profileItem'.tr,
         ),
       ],
     );
