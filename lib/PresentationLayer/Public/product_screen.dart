@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/cart_controller.dart';
+import 'package:timezonesu/BussinessLayer/Controllers/favorites_controller.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/product_controller.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_styles.dart';
@@ -14,6 +15,8 @@ class ProductScreen extends StatelessWidget {
 
   final productController = Get.find<ProductController>();
   final CartController cartController = Get.find<CartController>();
+  final FavouriteController favouriteController =
+      Get.find<FavouriteController>();
   final Product product = Get.arguments['product'];
 
   @override
@@ -30,6 +33,7 @@ class ProductScreen extends StatelessWidget {
                 flex: 9,
                 child: SingleChildScrollView(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Stack(
                         children: [
@@ -184,6 +188,19 @@ class ProductScreen extends StatelessWidget {
                             spacer(),
                             const Divider(color: UIColors.lightGrey),
                           ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(25),
+                        child: IconButton(
+                          onPressed: () {
+                            favouriteController.toggleFavorite(product);
+                          },
+                          icon: const Icon(
+                            size: 45,
+                            color: UIColors.red,
+                            Icons.favorite_rounded,
+                          ),
                         ),
                       ),
                     ],
