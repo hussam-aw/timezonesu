@@ -42,11 +42,11 @@ class ProfileScreen extends StatelessWidget {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 12),
                       child: Text(
-                        'My Profile',
+                        'profileTitle'.tr,
                         style: UITextStyle.boldHeading,
                       ),
                     ),
@@ -67,7 +67,7 @@ class ProfileScreen extends StatelessWidget {
                                   backgroundColor:
                                       UIColors.circleAvatarBackground,
                                   child: ClipOval(
-                                    child: user!.avatar != ''
+                                    child: user!.avatar != 'users/default.png'
                                         ? Image.network(user!.avatar)
                                         : Image.asset(
                                             'assets/images/user-default.png',
@@ -121,8 +121,7 @@ class ProfileScreen extends StatelessWidget {
                                     controller:
                                         profileController.updateNameController,
                                     decoration: profileInputsStyle.copyWith(
-                                      hintText:
-                                          'Leave It Empty To Avoid Change',
+                                      hintText: 'leaveEmptyHint'.tr,
                                     ),
                                   ),
                                   spacer(height: 14),
@@ -131,7 +130,7 @@ class ProfileScreen extends StatelessWidget {
                                     controller:
                                         profileController.updateEmailController,
                                     decoration: profileInputsStyle.copyWith(
-                                      hintText: 'Enter Your Adress',
+                                      hintText: 'emailHint'.tr,
                                     ),
                                   ),
                                 ],
@@ -146,8 +145,8 @@ class ProfileScreen extends StatelessWidget {
                                     profileController.updateInfo();
                                   },
                                   style: acceptButtonWithBorderStyle,
-                                  child: const Text(
-                                    'Update Profile Info',
+                                  child: Text(
+                                    'updateProfileInfoButton'.tr,
                                     style: UITextStyle.boldMeduim,
                                   ),
                                 ),
