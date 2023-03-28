@@ -35,7 +35,7 @@ class TZBottomNavigationBar extends StatelessWidget {
             Get.toNamed(AppRoutes.cartScreen);
             break;
           case 3:
-            Get.toNamed(AppRoutes.cartScreen);
+            Get.toNamed(AppRoutes.favouritesScreen);
             break;
           case 4:
             if (MyApp.appUser != null) {
