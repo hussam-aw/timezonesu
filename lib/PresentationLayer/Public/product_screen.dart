@@ -65,30 +65,29 @@ class ProductScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(right: 80),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        product.brand.toUpperCase(),
-                                        style: UITextStyle.boldHeading,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      product.brand.toUpperCase(),
+                                      style: UITextStyle.boldHeading,
+                                    ),
+                                    spacer(height: 15),
+                                    Text(
+                                      product.name,
+                                      style: UITextStyle.boldHeading.copyWith(
+                                        color: UIColors.lightGrey,
                                       ),
-                                      spacer(height: 15),
-                                      Text(
-                                        product.name,
-                                        style: UITextStyle.boldHeading.copyWith(
-                                          color: UIColors.lightGrey,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Column(
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 80),
+                                  child: Column(
                                     children: [
                                       Text(
                                         product.price,
@@ -107,8 +106,8 @@ class ProductScreen extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                             spacer(),
                             Text(
@@ -121,8 +120,8 @@ class ProductScreen extends StatelessWidget {
                             spacer(),
                             Row(
                               children: [
-                                const Text(
-                                  'Brand: ',
+                                Text(
+                                  'brandTitle'.tr,
                                   style: UITextStyle.boldBody,
                                 ),
                                 Text(
@@ -132,8 +131,8 @@ class ProductScreen extends StatelessWidget {
                                   ),
                                 ),
                                 const SizedBox(width: 14),
-                                const Text(
-                                  'R.Number: ',
+                                Text(
+                                  'rNumberTitle'.tr,
                                   style: UITextStyle.boldBody,
                                 ),
                                 Text(
@@ -143,17 +142,17 @@ class ProductScreen extends StatelessWidget {
                                   ),
                                 ),
                                 const SizedBox(width: 14),
-                                const Text(
-                                  'Gender: ',
-                                  style: UITextStyle.boldBody,
-                                ),
-                                /* Text(
-                                  productController
-                                      .getGender(int.parse(product.gender)),
-                                  style: UITextStyle.normalBody.copyWith(
-                                    color: UIColors.lightGrey,
-                                  ),
-                                ), */
+                                // Text(
+                                //   'genderTitle'.tr,
+                                //   style: UITextStyle.boldBody,
+                                // ),
+                                // Text(
+                                //   productController
+                                //       .getGender(int.parse(product.gender)),
+                                //   style: UITextStyle.normalBody.copyWith(
+                                //     color: UIColors.lightGrey,
+                                //   ),
+                                // ),
                               ],
                             ),
                             spacer(height: 10),
@@ -201,8 +200,8 @@ class ProductScreen extends StatelessWidget {
                       cartController.addToCart(product);
                     },
                     style: acceptButtonStyle,
-                    child: const Text(
-                      'Add to cart',
+                    child: Text(
+                      'addToCartButton'.tr,
                       style: UITextStyle.normalHeading,
                     ),
                   ),
