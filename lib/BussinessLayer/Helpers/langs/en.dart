@@ -55,6 +55,8 @@ const Map<String, String> en = {
   'profileTitle': 'My Profile',
   'leaveEmptyHint': 'Leave It Empty To Avoid Change',
   'updateProfileInfoButton': 'Update Profile Info',
+  //Favourites
+  'favouritesTitle': 'Favourites Products',
   //SnackBars
   'welcomeMessage': 'Welcome ',
   'successMessage': 'Added Successfully',

@@ -54,6 +54,8 @@ const Map<String, String> ar = {
   'profileTitle': 'حسابي',
   'leaveEmptyHint': 'اتركه فارغ لتجنب التغيير',
   'updateProfileInfoButton': 'تحديث معلومات الحساب',
+  //Favourites
+  'favouritesTitle': 'المنتجات المفضلة: ',
   //SnackBars
   'welcomeMessage': 'مرحبا ',
   'successMessage': 'تمت الاضافة بنجاح',
