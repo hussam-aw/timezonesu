@@ -54,7 +54,9 @@ class BannerBox extends StatelessWidget {
                     width: 80,
                     height: 20,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        //Use button link
+                      },
                       style: bannerButtonStyle.copyWith(
                         backgroundColor: MaterialStatePropertyAll<Color>(
                           HexColor(banner.backgroundColor!),
