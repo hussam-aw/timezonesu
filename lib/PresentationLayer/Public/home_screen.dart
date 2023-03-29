@@ -8,7 +8,7 @@ import 'package:timezonesu/BussinessLayer/Controllers/home_controller.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_styles.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
-import 'package:timezonesu/PresentationLayer/Widgets/Home/advertisement_box.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/Home/banner_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/brand_icon.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/category_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Home/product_box.dart';
@@ -16,6 +16,8 @@ import 'package:timezonesu/PresentationLayer/Widgets/Public/bottom_navigation_ba
 import 'package:timezonesu/PresentationLayer/Widgets/Public/custom_slider.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/drawer.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/timezome_appbar.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/shimmers/banner_shimmer.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/shimmers/base_shimmer.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/shimmers/home_brand_shimmer.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/shimmers/home_category_shimmer.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/shimmers/home_featured_shimmer.dart';
@@ -45,22 +47,17 @@ class HomeScreen extends StatelessWidget {
                 width: width,
                 child: Column(
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 20),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20),
                       child: CustomSlider(
                         height: 120,
-                        widgets: [
-                          AdvertisementBox(
-                            title: 'Flash Sales',
-                            subtitle: 'Under 500',
-                            image: 'assets/images/slider1.png',
-                          ),
-                          AdvertisementBox(
-                            title: 'Flash Sales',
-                            subtitle: 'Under 500',
-                            image: 'assets/images/slider2.png',
-                          ),
-                        ],
+                        widgets: !homeController.loadingBanners.value
+                            ? homeController.banners
+                                .map((banner) => BannerBox(
+                                      banner: banner,
+                                    ))
+                                .toList()
+                            : [brandShimmer()],
                       ),
                     ),
                     Container(
