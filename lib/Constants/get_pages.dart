@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:timezonesu/BussinessLayer/bindings/init_binding.dart';
+import 'package:timezonesu/PresentationLayer/Public/big_deals_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/category_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/favorites_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/home_screen.dart';
@@ -33,4 +34,5 @@ List<GetPage<dynamic>> getPages = [
   GetPage(
       name: AppRoutes.notificationsScreen, page: () => NotificationsScreen()),
   GetPage(name: AppRoutes.favouritesScreen, page: () => FavouritesScreen()),
+  GetPage(name: AppRoutes.bigDealsScreen, page: () => BigDealsScreen()),
 ];
