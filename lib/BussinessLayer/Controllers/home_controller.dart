@@ -1,8 +1,10 @@
 import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
 import 'package:timezonesu/Constants/get_routes.dart';
+import 'package:timezonesu/DataAccesslayer/Models/banner.dart';
 import 'package:timezonesu/DataAccesslayer/Models/brand.dart';
 import 'package:timezonesu/DataAccesslayer/Models/category.dart';
+import 'package:timezonesu/DataAccesslayer/Repositories/banner_repo.dart';
 import 'package:timezonesu/DataAccesslayer/Repositories/brand_repo.dart';
 import 'package:timezonesu/DataAccesslayer/Repositories/category_repo.dart';
 import 'package:timezonesu/DataAccesslayer/Repositories/featured_repo.dart';
@@ -10,9 +12,13 @@ import 'package:timezonesu/DataAccesslayer/Repositories/featured_repo.dart';
 import '../../DataAccesslayer/Models/product.dart';
 
 class HomeController extends GetxController with GetTickerProviderStateMixin {
+  var loadingBanners = false.obs;
   var loadingCategories = false.obs;
   var loadingBrands = false.obs;
   var loadingProducts = false.obs;
+
+  BannersRepo bannersRepo = BannersRepo();
+  List<AppBanner> banners = [];
 
   CategoriesRepo categoriesRepo = CategoriesRepo();
   List<Category> categories = [];
@@ -25,6 +31,13 @@ class HomeController extends GetxController with GetTickerProviderStateMixin {
 
   var animationVal = 0.0.obs;
   late AnimationController arrowAnimation;
+
+  Future<void> getBanners() async {
+    loadingBanners.value = true;
+    banners = await bannersRepo.myBanners();
+    loadingBanners.value = false;
+  }
+
   Future<void> getCategories() async {
     loadingCategories.value = true;
     categories = await categoriesRepo.myCategories();
@@ -44,6 +57,7 @@ class HomeController extends GetxController with GetTickerProviderStateMixin {
   }
 
   void fetchHomeData() async {
+    getBanners();
     getCategories();
     getBrands();
     getFeaturedProducts();
