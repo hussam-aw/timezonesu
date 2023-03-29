@@ -51,6 +51,19 @@ final normalButtonWithBorderStyle = normalButtonStyle.copyWith(
   ),
 );
 
+final bannerButtonStyle = normalButtonStyle.copyWith(
+  elevation: const MaterialStatePropertyAll(0),
+  shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
+    RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(15),
+      side: const BorderSide(width: 1, color: UIColors.primary),
+    ),
+  ),
+  minimumSize: const MaterialStatePropertyAll<Size>(
+    Size(double.infinity, 56),
+  ),
+);
+
 //Input Styles
 final authInputsStyle = InputDecoration(
   filled: true,
@@ -101,6 +114,7 @@ final profileInputsStyle = InputDecoration(
 
 //Border Radius
 const raduis10 = BorderRadius.all(Radius.circular(10));
+const raduis15 = BorderRadius.all(Radius.circular(15));
 const raduis20 = BorderRadius.all(Radius.circular(20));
 const raduis20bottom = BorderRadius.only(
   bottomLeft: Radius.circular(20),
