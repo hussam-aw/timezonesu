@@ -10,3 +10,4 @@ const featuredProductsLink = "/featureProducts";
 const productsLink = "/products";
 const updateProfileLink = "/updateProfile";
 const productsByIdLink = "/products/byIds";
+const bannersLink = "/banners";
