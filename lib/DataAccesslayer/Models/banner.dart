@@ -1,4 +1,4 @@
-class Banner {
+class AppBanner {
   final int id;
   final String type;
   final String? staticImage;
@@ -9,7 +9,7 @@ class Banner {
   final String? buttonText;
   final String? buttonUrl;
 
-  Banner({
+  AppBanner({
     required this.id,
     required this.type,
     this.staticImage,
@@ -35,17 +35,17 @@ class Banner {
     };
   }
 
-  factory Banner.fromMap(Map<String, dynamic> map) {
-    return Banner(
-      id: map['id'],
+  factory AppBanner.fromMap(Map<String, dynamic> map) {
+    return AppBanner(
+      id: map['id'] as int,
       type: map['type'],
-      staticImage: map['static_image'],
-      backgroundColor: map['background_color'],
-      dynamicImage: map['dynamic_image'],
-      title: map['title'],
-      subtitle: map['subtitle'],
-      buttonText: map['button_text'],
-      buttonUrl: map['button_url'],
+      staticImage: map['static_image'] ?? '',
+      backgroundColor: map['background_color'] ?? '',
+      dynamicImage: map['dynamic_image'] ?? '',
+      title: map['title'] ?? '',
+      subtitle: map['subtitle'] ?? '',
+      buttonText: map['button_text'] ?? '',
+      buttonUrl: map['button_url'] ?? '',
     );
   }
 }
