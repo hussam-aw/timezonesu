@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/app_language_controller.dart';
+import 'package:timezonesu/BussinessLayer/Controllers/home_controller.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/user_controller.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
@@ -13,6 +14,7 @@ class TzDrawer extends StatelessWidget {
   final UserController userController = Get.put(UserController());
   final AppLanguageController appLanguageController =
       Get.find<AppLanguageController>();
+  final HomeController homeController = Get.find<HomeController>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -84,6 +86,9 @@ class TzDrawer extends StatelessWidget {
                           color: UIColors.activeIcon),
                     ),
                     ListTile(
+                      onTap: () {
+                        Get.toNamed(AppRoutes.bigDealsScreen);
+                      },
                       title: Text(
                         'topSalesTitle'.tr,
                         style: UITextStyle.boldMeduim.apply(fontSizeFactor: .8),
@@ -91,19 +96,6 @@ class TzDrawer extends StatelessWidget {
                       leading: const Icon(Icons.shopping_bag,
                           color: UIColors.activeIcon),
                     ),
-                    if (MyApp.appUser != null)
-                      ListTile(
-                        onTap: () async => userController.logout(),
-                        title: Text(
-                          'logoutText'.tr,
-                          style:
-                              UITextStyle.boldMeduim.apply(fontSizeFactor: .8),
-                        ),
-                        leading: const Icon(
-                          Icons.logout,
-                          color: UIColors.activeIcon,
-                        ),
-                      ),
                     ListTile(
                       title: Text(
                         'languageTitle'.tr,
@@ -132,6 +124,19 @@ class TzDrawer extends StatelessWidget {
                         },
                       ),
                     ),
+                    if (MyApp.appUser != null)
+                      ListTile(
+                        onTap: () async => userController.logout(),
+                        title: Text(
+                          'logoutText'.tr,
+                          style:
+                              UITextStyle.boldMeduim.apply(fontSizeFactor: .8),
+                        ),
+                        leading: const Icon(
+                          Icons.logout,
+                          color: UIColors.activeIcon,
+                        ),
+                      ),
                   ],
                 ),
               );
