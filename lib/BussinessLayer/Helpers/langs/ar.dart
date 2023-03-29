@@ -27,7 +27,7 @@ const Map<String, String> ar = {
   'profileItem': 'الحساب',
   //Drawer
   'timezoneUserTitle': 'مستخدم Timezone',
-  'topSalesTitle': 'أعلى مبيعات',
+  'topSalesTitle': 'أعلى المبيعات',
   'languageTitle': 'اللغة',
   'arLanguage': 'العربية',
   'enLanguage': 'الانكليزية',
