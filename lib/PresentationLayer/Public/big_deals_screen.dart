@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/cart_controller.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/home_controller.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/Cart/cart_product_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Category/product_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/timezome_appbar.dart';
 
@@ -32,10 +33,11 @@ class BigDealsScreen extends StatelessWidget {
                 Expanded(
                   child: SizedBox(
                     child: ListView.builder(
-                      itemCount: homeController.featuredProducts.length,
+                      itemCount: homeController.bigDealProducts.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return ProductBox(
-                          product: homeController.featuredProducts[index],
+                        return CartProductBox(
+                          cartProduct: homeController.bigDealProducts[index],
+                          index: index,
                           cartController: cartController,
                         );
                       },
