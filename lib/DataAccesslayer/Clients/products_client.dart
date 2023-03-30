@@ -18,6 +18,27 @@ class ProductsClient {
     }
   }
 
+  Future<dynamic> getBrandProducts(brandId) async {
+    var response =
+        await http.get(Uri.parse("$baseUrlV1/brand/$brandId$productsLink"));
+
+    if (response.statusCode == 200) {
+      return response.body;
+    } else {
+      return "";
+    }
+  }
+
+  Future<dynamic> getBigDealProdcts() async {
+    var response = await http.get(Uri.parse("$baseUrlV1$bigDealProductsLink"));
+
+    if (response.statusCode == 200) {
+      return response.body;
+    } else {
+      return "";
+    }
+  }
+
   Future<dynamic> getProductsByIds(ids) async {
     print(ids);
     var response = await http.post(Uri.parse(baseUrlV1 + productsByIdLink),
