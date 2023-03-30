@@ -28,13 +28,11 @@ class ProductsRepo {
     return [];
   }
 
-  Future<List<CartProduct>> bigDealProducts() async {
+  Future<List<Product>> bigDealProducts() async {
     var response = await client.getBigDealProdcts();
     if (response != "") {
       final parsed = json.decode(response).cast<Map<String, dynamic>>();
-      return parsed
-          .map<CartProduct>((json) => CartProduct.fromMap(json))
-          .toList();
+      return parsed.map<Product>((json) => Product.fromMap(json)).toList();
     }
     return [];
   }

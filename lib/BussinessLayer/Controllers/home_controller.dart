@@ -33,7 +33,7 @@ class HomeController extends GetxController with GetTickerProviderStateMixin {
   List<Product> featuredProducts = [];
 
   ProductsRepo productsRepo = ProductsRepo();
-  List<CartProduct> bigDealProducts = [];
+  List<Product> bigDealProducts = [];
 
   var animationVal = 0.0.obs;
   late AnimationController arrowAnimation;
@@ -73,7 +73,7 @@ class HomeController extends GetxController with GetTickerProviderStateMixin {
     getCategories();
     getBrands();
     getFeaturedProducts();
-    //getBigDealProducts();
+    getBigDealProducts();
     update();
   }
 

@@ -35,9 +35,8 @@ class BigDealsScreen extends StatelessWidget {
                     child: ListView.builder(
                       itemCount: homeController.bigDealProducts.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return CartProductBox(
-                          cartProduct: homeController.bigDealProducts[index],
-                          index: index,
+                        return ProductBox(
+                          product: homeController.bigDealProducts[index],
                           cartController: cartController,
                         );
                       },
