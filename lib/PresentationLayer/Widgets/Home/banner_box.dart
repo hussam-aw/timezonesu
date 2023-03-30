@@ -16,72 +16,81 @@ class BannerBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 280,
-      decoration: BoxDecoration(
-        borderRadius: raduis15,
-        color: banner.type == "dynamic"
-            ? HexColor(banner.backgroundColor!)
-            : UIColors.darkGrey,
-        image: DecorationImage(
-          fit: BoxFit.cover,
-          image: banner.type == "dynamic"
-              ? NetworkImage(
-                  banner.dynamicImage!,
-                )
-              : NetworkImage(banner.staticImage!) as ImageProvider,
-        ),
-      ),
-      child: banner.type == "dynamic"
-          ? Padding(
-              padding: const EdgeInsets.only(top: 20, left: 145),
-              child: Column(
-                crossAxisAlignment: appLanguageController.appLang == "en"
-                    ? CrossAxisAlignment.start
-                    : CrossAxisAlignment.end,
+    return banner.type == 'dynamic'
+        ? Container(
+            width: 280,
+            decoration: BoxDecoration(
+              borderRadius: raduis15,
+              color: HexColor(banner.backgroundColor!),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text(
-                    banner.title!,
-                    style: UITextStyle.boldMeduim,
-                  ),
-                  spacer(height: 6),
-                  Text(
-                    banner.subtitle!,
-                    style: UITextStyle.boldMeduim,
-                  ),
-                  spacer(),
-                  SizedBox(
-                    width: 80,
-                    height: 20,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        //Use button link
-                      },
-                      style: bannerButtonStyle.copyWith(
-                        backgroundColor: MaterialStatePropertyAll<Color>(
-                          HexColor(banner.backgroundColor!),
+                  Padding(
+                    padding: appLanguageController.appLang == 'en'
+                        ? const EdgeInsets.only(left: 20)
+                        : const EdgeInsets.only(right: 20),
+                    child: Column(
+                      crossAxisAlignment: appLanguageController.appLang == "en"
+                          ? CrossAxisAlignment.start
+                          : CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          banner.title!,
+                          style: UITextStyle.boldMeduim,
                         ),
-                      ),
-                      child: Text(
-                        banner.buttonText!,
-                        style:
-                            UITextStyle.normalSmall.apply(fontSizeFactor: 0.7),
-                      ),
+                        spacer(height: 5),
+                        Text(
+                          banner.subtitle!,
+                          style: UITextStyle.boldMeduim,
+                        ),
+                        spacer(height: 5),
+                        SizedBox(
+                          width: 80,
+                          height: 20,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              //Use button link
+                            },
+                            style: bannerButtonStyle.copyWith(
+                              backgroundColor: MaterialStatePropertyAll<Color>(
+                                HexColor(banner.backgroundColor!),
+                              ),
+                            ),
+                            child: Text(
+                              banner.buttonText!,
+                              style: UITextStyle.normalSmall
+                                  .apply(fontSizeFactor: 0.7),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 70,
+                    height: 90,
+                    child: Image.network(
+                      banner.dynamicImage!,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ],
               ),
-            )
-          : Container(),
-    );
+            ),
+          )
+        : Container(
+            width: 280,
+            decoration: BoxDecoration(
+              borderRadius: raduis15,
+              color: UIColors.lightGrey,
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: NetworkImage(banner.staticImage!),
+              ),
+            ),
+          );
   }
 }
-
-// ClipRRect(
-//       borderRadius: BorderRadius.circular(15),
-//       child: Image.asset(
-//         image.toString(),
-//         width: 280,
-//         fit: BoxFit.cover,
-//       ),
-//     );
