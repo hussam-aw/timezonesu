@@ -17,7 +17,6 @@ import 'package:timezonesu/PresentationLayer/Widgets/Public/custom_slider.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/drawer.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/timezome_appbar.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/shimmers/banner_shimmer.dart';
-import 'package:timezonesu/PresentationLayer/Widgets/shimmers/base_shimmer.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/shimmers/home_brand_shimmer.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/shimmers/home_category_shimmer.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/shimmers/home_featured_shimmer.dart';
@@ -184,6 +183,11 @@ class HomeScreen extends StatelessWidget {
                                           scrollDirection: Axis.horizontal,
                                           itemBuilder: (context, index) {
                                             return BrandIcon(
+                                              onTap: () {
+                                                homeController.goToBrandScreen(
+                                                    homeController
+                                                        .brands[index]);
+                                              },
                                               brandImage: homeController
                                                   .brands[index].image,
                                             );
@@ -223,12 +227,12 @@ class HomeScreen extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                homeController.loadingProducts.value
+                                homeController.loadingFeaturedProducts.value
                                     ? Shimmer.fromColors(
                                         baseColor: UIColors.containerBackground,
                                         highlightColor: UIColors.mainBackground,
                                         enabled: homeController
-                                            .loadingProducts.value,
+                                            .loadingFeaturedProducts.value,
                                         child: SizedBox(
                                           height: 200,
                                           child: ListView.separated(
