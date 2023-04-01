@@ -3,11 +3,9 @@ import 'package:get/get.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/cart_controller.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/home_controller.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
-import 'package:timezonesu/PresentationLayer/Widgets/Cart/cart_product_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Category/product_box.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/timezome_appbar.dart';
 
-import '../../DataAccesslayer/Models/product.dart';
 import '../Widgets/Public/page_title.dart';
 
 class BigDealsScreen extends StatelessWidget {
@@ -18,7 +16,6 @@ class BigDealsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: UIColors.lightprimary,
       appBar: tzAppBar(),
@@ -29,7 +26,7 @@ class BigDealsScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                pageTitle('topSalesTitle'.tr + ':'),
+                pageTitle('${'topSalesTitle'.tr}:'),
                 Expanded(
                   child: SizedBox(
                     child: ListView.builder(

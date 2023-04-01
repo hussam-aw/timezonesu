@@ -37,7 +37,15 @@ final normalButtonStyle = ButtonStyle(
     ),
   ),
 );
-
+final successButtonStyle = ButtonStyle(
+  elevation: const MaterialStatePropertyAll(0),
+  backgroundColor: const MaterialStatePropertyAll<Color>(UIColors.success),
+  shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
+    RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(17),
+    ),
+  ),
+);
 final normalButtonWithBorderStyle = normalButtonStyle.copyWith(
   elevation: const MaterialStatePropertyAll(0),
   shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
@@ -108,7 +116,6 @@ final profileInputsStyle = InputDecoration(
     fontSize: 16,
     fontWeight: FontWeight.w400,
     fontStyle: FontStyle.normal,
-    fontFamily: 'Red Hat Display',
   ),
 );
 

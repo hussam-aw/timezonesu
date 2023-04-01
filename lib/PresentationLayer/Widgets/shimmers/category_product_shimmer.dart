@@ -40,11 +40,11 @@ Widget categoryProducrShimmer() {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Shimmerwidget.rectangler(width: 80, height: 20),
+                        const Shimmerwidget.rectangler(width: 80, height: 20),
                         spacer(height: 4),
-                        Shimmerwidget.rectangler(width: 140, height: 15),
+                        const Shimmerwidget.rectangler(width: 140, height: 15),
                         spacer(),
-                        Shimmerwidget.rectangler(width: 100, height: 15),
+                        const Shimmerwidget.rectangler(width: 100, height: 15),
                       ],
                     ),
                   ),

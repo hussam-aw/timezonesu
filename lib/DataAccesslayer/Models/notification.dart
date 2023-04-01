@@ -5,6 +5,7 @@ class UserNotification {
   final dynamic data;
   final String type;
   final String time;
+  final String image;
 
   UserNotification({
     required this.id,
@@ -13,15 +14,17 @@ class UserNotification {
     required this.data,
     required this.type,
     required this.time,
+    required this.image,
   });
 
   factory UserNotification.fromMap(Map<String, dynamic> map) {
     return UserNotification(
         id: map['id'] as int,
-        title: map['title'] as String,
-        subtitle: map['subtitle'] as String,
+        title: map['title'] ?? "",
+        subtitle: map['subtitle'] ?? "",
         data: map['data'],
-        type: map['type'],
-        time: map['time'] as String);
+        type: map['type'] ?? "test",
+        time: map['time'] ?? "",
+        image: map['time'] ?? "");
   }
 }

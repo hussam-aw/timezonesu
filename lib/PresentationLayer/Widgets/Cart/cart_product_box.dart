@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/cart_controller.dart';
+import 'package:timezonesu/Constants/get_routes.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/DataAccesslayer/Models/cart_product.dart';
@@ -25,7 +26,7 @@ class CartProductBox extends StatelessWidget {
           padding: const EdgeInsets.all(15),
           margin: const EdgeInsets.symmetric(vertical: 10),
           decoration: BoxDecoration(
-            color: UIColors.lightprimary,
+            color: UIColors.primary,
             borderRadius: BorderRadius.circular(15),
           ),
           child: Row(
@@ -38,26 +39,30 @@ class CartProductBox extends StatelessWidget {
                   children: [
                     Expanded(
                       flex: 2,
-                      child: Container(
-                        height: 80,
-                        decoration: BoxDecoration(
-                            color: UIColors.white,
-                            border: Border.all(
-                              color: UIColors.lightGrey,
-                              width: 2,
-                            ),
-                            borderRadius: BorderRadius.circular(15),
-                            image: DecorationImage(
-                                image: NetworkImage(
-                                    cartProduct.product!.images[0]),
-                                fit: BoxFit.cover)
-                            // image: DecorationImage(
-                            //   image: NetworkImage(
-                            //     '',
-                            //   ),
-                            //   fit: BoxFit.fill,
-                            // ),
-                            ),
+                      child: InkWell(
+                        onTap: () => Get.toNamed(AppRoutes.productScreen,
+                            arguments: [cartProduct.product]),
+                        child: Container(
+                          height: 80,
+                          decoration: BoxDecoration(
+                              color: UIColors.white,
+                              border: Border.all(
+                                color: UIColors.lightGrey,
+                                width: 2,
+                              ),
+                              borderRadius: BorderRadius.circular(15),
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      cartProduct.product!.images[0]),
+                                  fit: BoxFit.cover)
+                              // image: DecorationImage(
+                              //   image: NetworkImage(
+                              //     '',
+                              //   ),
+                              //   fit: BoxFit.fill,
+                              // ),
+                              ),
+                        ),
                       ),
                     ),
                     const SizedBox(width: 15),

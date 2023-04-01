@@ -30,6 +30,7 @@ class BackNotificationController extends GetxController {
       isLoading.value = true;
       userNotifications =
           await backNotificationRepo.getNotifications(MyApp.appUser!.id);
+      print(userNotifications);
       update();
       isLoading.value = false;
     }

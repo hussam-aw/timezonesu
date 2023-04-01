@@ -8,6 +8,7 @@ import 'package:timezonesu/PresentationLayer/Public/home_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/notifications_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/product_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/splash_screen.dart';
+import 'package:timezonesu/PresentationLayer/private/checkout_screen.dart';
 import 'package:timezonesu/PresentationLayer/private/profile_screen.dart';
 import 'package:timezonesu/PresentationLayer/private/shopping_cart_screen.dart';
 
@@ -31,10 +32,28 @@ List<GetPage<dynamic>> getPages = [
   GetPage(name: AppRoutes.categoryScreen, page: () => CategoryScreen()),
   GetPage(name: AppRoutes.brandScreen, page: () => BrandScreen()),
   GetPage(name: AppRoutes.productScreen, page: () => ProductScreen()),
-  GetPage(name: AppRoutes.profileScreen, page: () => ProfileScreen()),
-  GetPage(name: AppRoutes.cartScreen, page: () => ShoppingCartScreen()),
   GetPage(
-      name: AppRoutes.notificationsScreen, page: () => NotificationsScreen()),
-  GetPage(name: AppRoutes.favouritesScreen, page: () => FavouritesScreen()),
-  GetPage(name: AppRoutes.bigDealsScreen, page: () => BigDealsScreen()),
+      name: AppRoutes.profileScreen,
+      page: () => ProfileScreen(),
+      transition: Transition.circularReveal),
+  GetPage(
+      name: AppRoutes.cartScreen,
+      page: () => ShoppingCartScreen(),
+      transition: Transition.leftToRightWithFade),
+  GetPage(
+      name: AppRoutes.checkoutScreen,
+      page: () => CheckOutScreen(),
+      transition: Transition.rightToLeft),
+  GetPage(
+      name: AppRoutes.notificationsScreen,
+      page: () => NotificationsScreen(),
+      transition: Transition.size),
+  GetPage(
+      name: AppRoutes.favouritesScreen,
+      page: () => FavouritesScreen(),
+      transition: Transition.circularReveal),
+  GetPage(
+      name: AppRoutes.bigDealsScreen,
+      page: () => BigDealsScreen(),
+      transition: Transition.upToDown),
 ];

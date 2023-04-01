@@ -11,6 +11,7 @@ class ProfileController extends GetxController {
   BoxClient boxClient = BoxClient();
   TextEditingController updateNameController = TextEditingController();
   TextEditingController updateEmailController = TextEditingController();
+    TextEditingController updatePasswwordController = TextEditingController();
 
   Future<void> updateInfo() async {
     User? user;

@@ -22,12 +22,12 @@ const Map<String, String> ar = {
   'featuredProductsTitle': 'المنتجات المميزة',
   'homeItem': 'الرئيسية',
   'notificationsItem': 'الاشعارات',
-  'myBagItem': 'سلتي',
-  'favouritesItem': 'المنتجات المفضلة',
+  'myBagItem': 'سلة الشراء',
+  'favouritesItem': 'المفضلة',
   'profileItem': 'الحساب',
   //Drawer
   'timezoneUserTitle': 'مستخدم Timezone',
-  'topSalesTitle': 'أعلى المبيعات',
+  'topSalesTitle': 'الأكثر طلباً',
   'languageTitle': 'اللغة',
   'arLanguage': 'العربية',
   'enLanguage': 'الانكليزية',
@@ -39,12 +39,20 @@ const Map<String, String> ar = {
   'movementTitle': 'الحركة: ',
   'caseSizeTitle': 'الحجم: ',
   'addToCartButton': 'أضف الى السلة',
+  'woman': 'نسائي',
+  'men': 'رجالي',
   //Cart
   'shoppingCartTitle': 'سلة التسوق',
   'totalText': 'المبلغ الكلي: ',
   'discountText': 'الخصم: ',
   'netValueText': 'المبلغ الصافي: ',
-  'checkOutButton': 'ادفع',
+  'checkOutButton': 'متابعة الطلب',
+  'checkOut': 'إرسال الطلب',
+  'paymentmethod': 'طريقة الدفع',
+  "cash_payment": "دفع مباشر ",
+  "online_payment": "دفع الكتروني ",
+  "entercardnumber": "أدخل رقم البطاقة",
+  "sendorder": "إرسال الطلب",
   'enterQuantityMessage': 'يرجى ادخال الكمية الجديدة: ',
   'quantityHint': 'أدخل الكمية الجديدة',
   'editButton': 'تعديل',
@@ -55,7 +63,7 @@ const Map<String, String> ar = {
   'leaveEmptyHint': 'اتركه فارغ لتجنب التغيير',
   'updateProfileInfoButton': 'تحديث معلومات الحساب',
   //Favourites
-  'favouritesTitle': 'المنتجات المفضلة: ',
+  'favouritesTitle': ' المفضلة ',
   //SnackBars
   'welcomeMessage': 'مرحبا ',
   'successMessage': 'تمت الاضافة بنجاح',
@@ -64,4 +72,7 @@ const Map<String, String> ar = {
   'addingSuccessMessage': 'تمت الاضافة بنجاح',
   'updateSuccessMessage': 'تم تحديث المعلومات بنجاح',
   'removeSuccessMessage': 'تمت الازالة بنجاح',
+
+  //addons
+  "no_noti": "لا توجد إشعارات",
 };

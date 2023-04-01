@@ -1,7 +1,7 @@
 import 'dart:convert';
 
+import '../../DataAccessLayer/Models/notification.dart';
 import '../Clients/notification_client.dart';
-import '../Models/notification.dart';
 
 class NotificationRepo {
   var client = NotificationClient();

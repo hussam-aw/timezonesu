@@ -103,26 +103,9 @@ class TzDrawer extends StatelessWidget {
                       ),
                       leading: const Icon(Icons.language,
                           color: UIColors.activeIcon),
-                      trailing: DropdownButton(
-                        underline: const SizedBox(),
-                        style: UITextStyle.boldMeduim.copyWith(
-                          color: UIColors.normalText,
-                        ),
-                        value: appLanguageController.appLang,
-                        items: [
-                          DropdownMenuItem(
-                            value: 'en',
-                            child: Text('enLanguage'.tr),
-                          ),
-                          DropdownMenuItem<String>(
-                            value: 'ar',
-                            child: Text('arLanguage'.tr),
-                          ),
-                        ],
-                        onChanged: (value) {
-                          appLanguageController.changeLanguage(value);
-                        },
-                      ),
+                      onTap: () async {
+                        appLanguageController.showLanguageDialog();
+                      },
                     ),
                     if (MyApp.appUser != null)
                       ListTile(

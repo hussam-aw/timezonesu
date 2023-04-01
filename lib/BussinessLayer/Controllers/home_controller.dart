@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:timezonesu/Constants/get_routes.dart';
 import 'package:timezonesu/DataAccesslayer/Models/banner.dart';
 import 'package:timezonesu/DataAccesslayer/Models/brand.dart';
-import 'package:timezonesu/DataAccesslayer/Models/cart_product.dart';
 import 'package:timezonesu/DataAccesslayer/Models/category.dart';
 import 'package:timezonesu/DataAccesslayer/Repositories/banner_repo.dart';
 import 'package:timezonesu/DataAccesslayer/Repositories/brand_repo.dart';
@@ -114,7 +113,7 @@ class HomeController extends GetxController with GetTickerProviderStateMixin {
   void goToProductScreen(Product product) {
     Get.toNamed(
       AppRoutes.productScreen,
-      arguments: {'product': product},
+      arguments: [product],
     );
   }
 

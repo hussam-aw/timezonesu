@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/profile_controller.dart';
-import 'package:timezonesu/Constants/api_links.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_styles.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
@@ -20,17 +19,9 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: UIColors.primary,
-      appBar: tzAppBar(
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            size: 30,
-            color: UIColors.activeIcon,
-          ),
-        ),
-      ),
+      appBar: tzAppBar(),
       body: SafeArea(
         child: SizedBox(
           width: width,
@@ -60,10 +51,10 @@ class ProfileScreen extends StatelessWidget {
                             Expanded(
                               flex: 4,
                               child: CircleAvatar(
-                                minRadius: 68,
+                                minRadius: 52,
                                 backgroundColor: UIColors.circleAvatarBorder,
                                 child: CircleAvatar(
-                                  minRadius: 63,
+                                  minRadius: 50,
                                   backgroundColor:
                                       UIColors.circleAvatarBackground,
                                   child: ClipOval(
@@ -101,7 +92,7 @@ class ProfileScreen extends StatelessWidget {
                               child: Column(
                                 children: [
                                   TextFormField(
-                                    enabled: false,
+                                    enabled: true,
                                     keyboardType: TextInputType.name,
                                     decoration: profileInputsStyle.copyWith(
                                       hintText: user!.name,
@@ -109,7 +100,7 @@ class ProfileScreen extends StatelessWidget {
                                   ),
                                   spacer(height: 14),
                                   TextFormField(
-                                    enabled: false,
+                                    enabled: true,
                                     keyboardType: TextInputType.emailAddress,
                                     decoration: profileInputsStyle.copyWith(
                                       hintText: user!.email,

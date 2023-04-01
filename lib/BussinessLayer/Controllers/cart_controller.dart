@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
+import 'package:timezonesu/main.dart';
 
 import '../../DataAccesslayer/Models/cart_product.dart';
 import '../../DataAccesslayer/Models/product.dart';
@@ -12,14 +13,25 @@ import '../../PresentationLayer/Widgets/Public/su_text_input.dart';
 import '../../PresentationLayer/Widgets/snackbars.dart';
 import '../Helpers/box_client.dart';
 
+enum PaymentMethod { cashPay, onlinePay }
+
 class CartController extends GetxController {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController adressController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController noteController = TextEditingController();
+  TextEditingController cardNumberController = TextEditingController();
+
+  var paymentMethod = PaymentMethod.cashPay.obs;
+
   ProductsRepo productRepo = ProductsRepo();
   BoxClient boxClient = BoxClient();
   List<CartProduct> cartProducts = [];
   List<Product> products = [];
 
   var adding = false.obs;
-
+  var sendingOrder = false.obs;
   TextEditingController newQtyController = TextEditingController();
 
   num totalValue = 0;
@@ -29,7 +41,10 @@ class CartController extends GetxController {
   void onInit() async {
     await getCarts();
     await syncCartsOnline();
-
+    if (MyApp.appUser != null) {
+      nameController.value = TextEditingValue(text: MyApp.appUser!.name);
+      emailController.value = TextEditingValue(text: MyApp.appUser!.email);
+    }
     super.onInit();
   }
 
@@ -135,6 +150,11 @@ class CartController extends GetxController {
     update();
   }
 
+  void changePaymentType(PaymentMethod method) {
+    paymentMethod.value = method;
+    update();
+  }
+
   void calc() {
     totalValue = 0;
     netValue = 0;
@@ -150,5 +170,12 @@ class CartController extends GetxController {
       netValue = totalValue - discount;
       update();
     }
+  }
+
+  Future<void> submitOrder() async {
+    sendingOrder.value = true;
+
+    Future.delayed(const Duration(seconds: 3))
+        .then((value) => sendingOrder.value = false);
   }
 }

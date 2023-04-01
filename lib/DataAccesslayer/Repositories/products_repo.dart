@@ -2,13 +2,20 @@
 
 import 'dart:convert';
 
-import 'package:timezonesu/DataAccesslayer/Models/cart_product.dart';
-
 import '../Clients/products_client.dart';
 import '../Models/product.dart';
 
 class ProductsRepo {
   ProductsClient client = ProductsClient();
+
+  Future<List<Product>> getProducts() async {
+    var response = await client.getAll();
+    if (response != "") {
+      final parsed = json.decode(response).cast<Map<String, dynamic>>();
+      return parsed.map<Product>((json) => Product.fromMap(json)).toList();
+    }
+    return [];
+  }
 
   Future<List<Product>> products(categoryId) async {
     var response = await client.getProducts(categoryId);

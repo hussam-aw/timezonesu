@@ -82,8 +82,8 @@ class FavouriteController extends GetxController {
     Favourite? index = favoritesProducts
         .firstWhereOrNull((element) => element.productId == product.id);
     if (index != null) {
-      return false;
+      return true;
     }
-    return true;
+    return false;
   }
 }

@@ -17,7 +17,7 @@ class ProductScreen extends StatelessWidget {
   final CartController cartController = Get.find<CartController>();
   final FavouriteController favouriteController =
       Get.find<FavouriteController>();
-  final Product product = Get.arguments['product'];
+  final Product product = Get.arguments[0];
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +61,27 @@ class ProductScreen extends StatelessWidget {
                               ),
                             ),
                           ),
+                          GetBuilder(
+                              init: favouriteController,
+                              builder: (context) {
+                                return Positioned(
+                                  bottom: 20,
+                                  left: 20,
+                                  child: IconButton(
+                                    onPressed: () {
+                                      favouriteController
+                                          .toggleFavorite(product);
+                                    },
+                                    icon: Icon(
+                                      size: 35,
+                                      color: UIColors.red,
+                                      favouriteController.checkFavorite(product)
+                                          ? Icons.favorite_rounded
+                                          : Icons.favorite_border,
+                                    ),
+                                  ),
+                                );
+                              })
                         ],
                       ),
                       Padding(
@@ -190,19 +211,6 @@ class ProductScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(25),
-                        child: IconButton(
-                          onPressed: () {
-                            favouriteController.toggleFavorite(product);
-                          },
-                          icon: const Icon(
-                            size: 45,
-                            color: UIColors.red,
-                            Icons.favorite_rounded,
-                          ),
-                        ),
-                      ),
                     ],
                   ),
                 ),
@@ -211,7 +219,7 @@ class ProductScreen extends StatelessWidget {
                 child: Container(
                   width: Get.width,
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
                   child: ElevatedButton(
                     onPressed: () async {
                       cartController.addToCart(product);

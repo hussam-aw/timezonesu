@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezonesu/Constants/get_routes.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
+import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/main.dart';
 
 class TZBottomNavigationBar extends StatelessWidget {
@@ -12,6 +13,8 @@ class TZBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      selectedLabelStyle: UITextStyle.boldSmall,
+      unselectedLabelStyle: UITextStyle.normalSmall,
       backgroundColor: UIColors.red,
       selectedItemColor: UIColors.activeIcon,
       selectedFontSize: 12,

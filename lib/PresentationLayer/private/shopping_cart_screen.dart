@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/cart_controller.dart';
+import 'package:timezonesu/Constants/get_routes.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_styles.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
@@ -17,7 +18,7 @@ class ShoppingCartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: const TZBottomNavigationBar(),
-      backgroundColor: UIColors.primary,
+      backgroundColor: UIColors.lightprimary,
       appBar: tzAppBar(),
       body: SafeArea(
         child: SizedBox(
@@ -123,7 +124,9 @@ class ShoppingCartScreen extends StatelessWidget {
                         child: SizedBox(
                           width: Get.width,
                           child: ElevatedButton(
-                            onPressed: () async {},
+                            onPressed: () async {
+                              Get.toNamed(AppRoutes.checkoutScreen);
+                            },
                             style: normalButtonStyle,
                             child: Text(
                               'checkOutButton'.tr,

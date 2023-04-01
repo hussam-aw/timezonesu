@@ -31,7 +31,7 @@ class AuthController extends GetxController {
       if (user != null) {
         MyApp.appUser = user;
         await client.setAuthedUser(user);
-        SnackBars.showSuccess('welcomeMessage'.tr + "${user.name}");
+        SnackBars.showSuccess("${'welcomeMessage'.tr}${user.name}");
         Get.toNamed(AppRoutes.homepage);
       } else {
         SnackBars.showWarning('notMatchMessage'.tr);

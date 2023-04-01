@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezonesu/BussinessLayer/Controllers/cart_controller.dart';
+import 'package:timezonesu/Constants/get_routes.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_styles.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
@@ -37,15 +38,21 @@ class ProductBox extends StatelessWidget {
                 children: [
                   Expanded(
                     flex: 2,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: UIColors.white,
-                        borderRadius: raduis10,
-                        image: DecorationImage(
-                          image: NetworkImage(
-                            product.images[0],
+                    child: InkWell(
+                      onTap: () {
+                        Get.toNamed(AppRoutes.productScreen,
+                            arguments: [product]);
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: UIColors.white,
+                          borderRadius: raduis10,
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              product.images[0],
+                            ),
+                            fit: BoxFit.cover,
                           ),
-                          fit: BoxFit.cover,
                         ),
                       ),
                     ),

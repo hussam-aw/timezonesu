@@ -40,12 +40,20 @@ const Map<String, String> en = {
   'movementTitle': 'Movement: ',
   'caseSizeTitle': 'Case size: ',
   'addToCartButton': 'Add to Cart: ',
+  'woman': 'Woman',
+  'men': 'Men',
   //Cart
   'shoppingCartTitle': 'Shopping Cart',
   'totalText': 'Total:',
   'discountText': 'Discount:',
   'netValueText': 'Net Value:',
   'checkOutButton': 'Check Out:',
+  'checkOut': 'Send Order',
+  'paymentmethod': 'Payment Method',
+  "cash_payment": "Cash Payment ",
+  "online_payment": "E-Payment ",
+  "entercardnumber": "Enter Card Code",
+  "sendorder": "Send Order",
   'enterQuantityMessage': 'Please Enter a New Quantity: ',
   'quantityHint': 'Enter a New Quantity',
   'editButton': 'Edit',
@@ -56,7 +64,7 @@ const Map<String, String> en = {
   'leaveEmptyHint': 'Leave It Empty To Avoid Change',
   'updateProfileInfoButton': 'Update Profile Info',
   //Favourites
-  'favouritesTitle': 'Favourites Products',
+  'favouritesTitle': 'Favourites',
 
   //SnackBars
   'welcomeMessage': 'Welcome ',
@@ -66,4 +74,7 @@ const Map<String, String> en = {
   'addingSuccessMessage': 'Added Successfull',
   'updateSuccessMessage': 'Information is updated successfully',
   'removeSuccessMessage': 'Removed Successfull',
+
+  //addons
+  "no_noti": "There's no notifications",
 };
