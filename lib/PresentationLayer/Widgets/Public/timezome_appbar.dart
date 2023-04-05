@@ -30,7 +30,7 @@ PreferredSizeWidget tzAppBar(
         ),
       ),
       IconButton(
-        onPressed: () {},
+        onPressed: () => Get.toNamed(AppRoutes.searchScreen),
         icon: const Icon(
           Icons.search,
           size: 30,
