@@ -8,7 +8,7 @@ import '../../Constants/api_links.dart';
 
 class ProductsClient {
   Future<dynamic> getAll() async {
-    var response = await http.get(Uri.parse("$baseUrlV1/product"));
+    var response = await http.get(Uri.parse("$baseUrlV1$productsLink"));
 
     if (response.statusCode == 200) {
       return response.body;
