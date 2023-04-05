@@ -11,25 +11,24 @@ class ProfileController extends GetxController {
   BoxClient boxClient = BoxClient();
   TextEditingController updateNameController = TextEditingController();
   TextEditingController updateEmailController = TextEditingController();
-    TextEditingController updatePasswwordController = TextEditingController();
+  TextEditingController updatePasswwordController = TextEditingController();
+  TextEditingController updateAddressController = TextEditingController();
+  TextEditingController updateMobileController = TextEditingController();
 
   Future<void> updateInfo() async {
     User? user;
-    if (updateEmailController.value.text.isNotEmpty) {
-      if (updateNameController.value.text.isNotEmpty) {
+    String name = updateNameController.value.text;
+    String email = updateEmailController.value.text;
+    String password = updatePasswwordController.value.text;
+    String address = updateAddressController.value.text;
+    String mobileNumber = updateMobileController.value.text;
+    if (email.isNotEmpty) {
+      if (name.isNotEmpty) {
         user = await userRepo.updateInfo(
-          MyApp.appUser!.id,
-          updateNameController.value.text,
-          updateEmailController.value.text,
-          MyApp.appUser!.mobileNumber,
-        );
+            MyApp.appUser!.id, name, email, password, address, mobileNumber);
       } else {
-        user = await userRepo.updateInfo(
-          MyApp.appUser!.id,
-          MyApp.appUser!.name,
-          updateEmailController.value.text,
-          MyApp.appUser!.mobileNumber,
-        );
+        user = await userRepo.updateInfo(MyApp.appUser!.id, MyApp.appUser!.name,
+            email, password, address, mobileNumber);
       }
       if (user != null) {
         MyApp.appUser = user;
