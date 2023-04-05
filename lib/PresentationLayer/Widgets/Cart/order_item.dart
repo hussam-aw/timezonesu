@@ -41,8 +41,8 @@ Widget orderItem(Order order) {
                 children: [
                   RichText(
                     text: TextSpan(children: [
-                      const TextSpan(
-                        text: "حالة الطلب : ",
+                      TextSpan(
+                        text: 'orderStatusTitle'.tr,
                         style: UITextStyle.boldBody,
                       ),
                       TextSpan(
@@ -54,8 +54,8 @@ Widget orderItem(Order order) {
                   spacer(),
                   RichText(
                     text: TextSpan(children: [
-                      const TextSpan(
-                        text: "قيمة الطلب : ",
+                      TextSpan(
+                        text: 'orderValueTitle'.tr,
                         style: UITextStyle.boldBody,
                       ),
                       TextSpan(
