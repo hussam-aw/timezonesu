@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:get/state_manager.dart';
-import 'package:timezonesu/Constants/api_links.dart';
 
 import '../../DataAccesslayer/Models/product.dart';
 import '../../DataAccesslayer/Repositories/products_repo.dart';
@@ -16,9 +14,11 @@ class SearchController extends GetxController {
       searchLoading.value = true;
       filteredProducts = allProducts
           .where((product) =>
-              product.name.toLowerCase() == searchText ||
-              product.category.toLowerCase() == searchText ||
-              product.brand.toLowerCase() == searchText)
+              product.name.toLowerCase().contains(searchText.toLowerCase()) ||
+              product.category
+                  .toLowerCase()
+                  .contains(searchText.toLowerCase()) ||
+              product.brand.toLowerCase().contains(searchText.toLowerCase()))
           .toList();
 
       print(filteredProducts);
