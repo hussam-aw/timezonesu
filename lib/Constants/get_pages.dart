@@ -7,6 +7,7 @@ import 'package:timezonesu/PresentationLayer/Public/favorites_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/home_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/notifications_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/product_screen.dart';
+import 'package:timezonesu/PresentationLayer/Public/search_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/splash_screen.dart';
 import 'package:timezonesu/PresentationLayer/private/checkout_screen.dart';
 import 'package:timezonesu/PresentationLayer/private/order_screen.dart';
@@ -66,4 +67,5 @@ List<GetPage<dynamic>> getPages = [
       name: AppRoutes.orderScreen,
       page: () => OrderScreen(),
       transition: Transition.zoom),
+  GetPage(name: AppRoutes.searchScreen, page: () => SearchScreen()),
 ];
