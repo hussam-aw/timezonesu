@@ -12,3 +12,5 @@ const updateProfileLink = "/updateProfile";
 const productsByIdLink = "/products/byIds";
 const bigDealProductsLink = "/bigDealsProducts";
 const bannersLink = "/banners";
+const postorderLink = "/order";
+const ordersByEmailLink = "/ordersByEmail";

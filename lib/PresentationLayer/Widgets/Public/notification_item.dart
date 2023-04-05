@@ -16,6 +16,7 @@ class NotificationItem extends StatelessWidget {
         color: UIColors.white,
       ),
       padding: const EdgeInsets.all(5),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       child: Row(
         children: [
           Container(
@@ -38,10 +39,18 @@ class NotificationItem extends StatelessWidget {
                 userNotification.title,
                 style: UITextStyle.boldMeduim.apply(color: UIColors.primary),
               ),
-              Text(
-                userNotification.subtitle,
-                style: UITextStyle.normalMeduim.apply(color: UIColors.darkGrey),
-              )
+              if (userNotification.subtitle.isNotEmpty)
+                Text(
+                  userNotification.subtitle,
+                  style:
+                      UITextStyle.normalMeduim.apply(color: UIColors.darkGrey),
+                ),
+              if (userNotification.time.isNotEmpty)
+                Text(
+                  userNotification.time,
+                  style:
+                      UITextStyle.normalSmall.apply(color: UIColors.darkGrey),
+                )
             ],
           ))
         ],

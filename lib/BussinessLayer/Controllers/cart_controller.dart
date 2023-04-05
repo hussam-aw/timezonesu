@@ -1,9 +1,12 @@
 // ignore_for_file: avoid_print
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
+import 'package:timezonesu/DataAccesslayer/Clients/order_client.dart';
 import 'package:timezonesu/main.dart';
 
 import '../../DataAccesslayer/Models/cart_product.dart';
@@ -37,6 +40,8 @@ class CartController extends GetxController {
   num totalValue = 0;
   num discount = 0;
   num netValue = 0;
+
+  OrderClient orderClient = OrderClient();
   @override
   void onInit() async {
     await getCarts();
@@ -92,6 +97,13 @@ class CartController extends GetxController {
     await syncCarts();
     update();
     SnackBars.showSuccess('successMessage'.tr);
+  }
+
+  Future<void> removeAll() async {
+    await boxClient.removeAllCarts();
+    cartProducts.clear();
+    calc();
+    update();
   }
 
   void showEditDialog(index, oldvalue) {
@@ -174,8 +186,48 @@ class CartController extends GetxController {
 
   Future<void> submitOrder() async {
     sendingOrder.value = true;
+    String info = "";
+    List<Map<String, dynamic>> cartitems = [];
 
-    Future.delayed(const Duration(seconds: 3))
-        .then((value) => sendingOrder.value = false);
+    if (cartProducts.isEmpty) {
+      SnackBars.showWarning("لا يمكن انشاء طلب فارغ");
+    } else if (nameController.value.toString().isEmpty ||
+        emailController.value.toString().isEmpty ||
+        adressController.value.toString().isEmpty ||
+        phoneController.value.toString().isEmpty) {
+      SnackBars.showWarning("الرجاء إتمام الخانات المطلوبة");
+    } else {
+      if (paymentMethod == PaymentMethod.onlinePay &&
+          cardNumberController.value.text.isEmpty) {
+      } else {
+        info = jsonEncode(<String, dynamic>{
+          "payment_type": paymentMethod == PaymentMethod.cashPay ? 0 : 1,
+          "name": nameController.value.text,
+          "email": emailController.value.text,
+          "address": adressController.value.text,
+          "mobile_number": phoneController.value.text,
+          "note": noteController.value.text,
+          "customerRef": cardNumberController.value.text
+        });
+        for (var element in cartProducts) {
+          cartitems.add(element.toApiMap());
+        }
+        boxClient.saveUserMail(emailController.value.text);
+      }
+
+      var response = await orderClient.postOrder(jsonDecode(info),
+          MyApp.appUser != null ? MyApp.appUser!.id : null, cartitems);
+
+      if (response == null) {
+        SnackBars.showError("خطأ في الطلب , يرجى التأكد من اتصالك بالانترنت");
+      } else if (response == 'Invalid') {
+        SnackBars.showWarning("يرجى التأكد من رقم البطاقة");
+      } else {
+        SnackBars.showSuccess("تم إرسال الطلب بنجاح");
+        await removeAll();
+      }
+    }
+
+    sendingOrder.value = false;
   }
 }

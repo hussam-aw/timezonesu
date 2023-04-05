@@ -5,6 +5,7 @@ import 'package:timezonesu/Constants/ui_colors.dart';
 import 'package:timezonesu/Constants/ui_styles.dart';
 import 'package:timezonesu/Constants/ui_text_style.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Cart/payment_method_item.dart';
+import 'package:timezonesu/PresentationLayer/Widgets/Public/loading_item.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/page_title.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/spaces.dart';
 import 'package:timezonesu/PresentationLayer/Widgets/Public/su_text_input.dart';
@@ -16,6 +17,7 @@ class CheckOutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       /* bottomNavigationBar: const TZBottomNavigationBar(), */
       backgroundColor: UIColors.lightprimary,
       appBar: tzAppBar(),
@@ -29,7 +31,7 @@ class CheckOutScreen extends StatelessWidget {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      pageTitle('checkout'.tr),
+                      pageTitle('checkOut'.tr),
                       Expanded(
                         flex: 9,
                         child: SingleChildScrollView(
@@ -183,31 +185,33 @@ class CheckOutScreen extends StatelessWidget {
                                   ],
                                 ),
                               ),
+                              Obx(() {
+                                return SizedBox(
+                                  height: 50,
+                                  child: ElevatedButton(
+                                      style: successButtonStyle,
+                                      onPressed: () async {
+                                        await cartController.submitOrder();
+                                      },
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          if (cartController.sendingOrder.value)
+                                            loadingItem(false),
+                                          Text(
+                                            "sendorder".tr,
+                                            style: UITextStyle.normalMeduim,
+                                          )
+                                        ],
+                                      )),
+                                );
+                              })
                             ],
                           ),
                         ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Obx(() {
-                          return ElevatedButton(
-                              style: successButtonStyle,
-                              onPressed: () async {
-                                await cartController.submitOrder();
-                              },
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  if (cartController.sendingOrder.value)
-                                    const CircularProgressIndicator(),
-                                  Text(
-                                    "sendorder".tr,
-                                    style: UITextStyle.normalMeduim,
-                                  )
-                                ],
-                              ));
-                        }),
                       ),
                     ],
                   );

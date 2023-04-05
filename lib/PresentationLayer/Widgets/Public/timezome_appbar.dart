@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:timezonesu/Constants/get_routes.dart';
 import 'package:timezonesu/Constants/ui_colors.dart';
 
 PreferredSizeWidget tzAppBar(
@@ -18,7 +20,9 @@ PreferredSizeWidget tzAppBar(
     ),
     actions: [
       IconButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.toNamed(AppRoutes.cartScreen);
+        },
         icon: const Icon(
           Icons.shopping_cart,
           size: 30,

@@ -54,6 +54,19 @@ class TzDrawer extends StatelessWidget {
                           color: UIColors.activeIcon,
                         ),
                       ),
+                    if (MyApp.appUser != null)
+                      ListTile(
+                        onTap: () => Get.toNamed(AppRoutes.ordersScreen),
+                        title: Text(
+                          "الطلبات",
+                          style:
+                              UITextStyle.boldMeduim.apply(fontSizeFactor: .8),
+                        ),
+                        leading: const Icon(
+                          Icons.menu,
+                          color: UIColors.activeIcon,
+                        ),
+                      ),
                     if (MyApp.appUser == null)
                       ListTile(
                         onTap: () async => userController.gotoLogin(),

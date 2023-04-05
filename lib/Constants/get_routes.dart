@@ -13,4 +13,6 @@ class AppRoutes {
   static const checkoutScreen = "/homepage/cart-screen/checkout";
   static const favouritesScreen = "/homepage/favourites";
   static const bigDealsScreen = "/bigDeals";
+  static const ordersScreen = "/homepage/orders";
+  static const orderScreen = "/homepage/orders/order";
 }

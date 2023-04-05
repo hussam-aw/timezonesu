@@ -39,7 +39,7 @@ const Map<String, String> en = {
   'genderTitle': 'Gender: ',
   'movementTitle': 'Movement: ',
   'caseSizeTitle': 'Case size: ',
-  'addToCartButton': 'Add to Cart: ',
+  'addToCartButton': 'Add to Cart',
   'woman': 'Woman',
   'men': 'Men',
   //Cart
@@ -47,7 +47,7 @@ const Map<String, String> en = {
   'totalText': 'Total:',
   'discountText': 'Discount:',
   'netValueText': 'Net Value:',
-  'checkOutButton': 'Check Out:',
+  'checkOutButton': 'Check Out',
   'checkOut': 'Send Order',
   'paymentmethod': 'Payment Method',
   "cash_payment": "Cash Payment ",

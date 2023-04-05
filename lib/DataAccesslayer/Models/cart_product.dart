@@ -18,6 +18,12 @@ class CartProduct {
     };
   }
 
+  Map<String, dynamic> toApiMap() {
+    return <String, dynamic>{
+      'product_id': productId,
+      'quantity': qty,
+    };
+  }
   factory CartProduct.fromMap(Map<String, dynamic> map) {
     return CartProduct(
       productId: map['productId'] as int,

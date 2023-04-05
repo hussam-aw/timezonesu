@@ -52,6 +52,19 @@ class BoxClient {
     await box.write('su_cart_items', map.toList());
   }
 
+  Future<void> saveUserMail(email) async {
+    await box.remove('su_user_mail');
+    await box.write('su_user_mail', email);
+  }
+
+  Future<String> getSavedMail() async {
+    return await box.read('su_user_mail');
+  }
+
+  Future<void> removeAllCarts() async {
+    await box.remove('su_cart_items');
+  }
+
   Future<List<Favourite>> getFavorites() async {
     var favoriteItems = await box.read('su_favorites');
     if (favoriteItems != null) {

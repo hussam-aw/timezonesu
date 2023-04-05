@@ -9,6 +9,8 @@ import 'package:timezonesu/PresentationLayer/Public/notifications_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/product_screen.dart';
 import 'package:timezonesu/PresentationLayer/Public/splash_screen.dart';
 import 'package:timezonesu/PresentationLayer/private/checkout_screen.dart';
+import 'package:timezonesu/PresentationLayer/private/order_screen.dart';
+import 'package:timezonesu/PresentationLayer/private/orders_screen.dart';
 import 'package:timezonesu/PresentationLayer/private/profile_screen.dart';
 import 'package:timezonesu/PresentationLayer/private/shopping_cart_screen.dart';
 
@@ -56,4 +58,12 @@ List<GetPage<dynamic>> getPages = [
       name: AppRoutes.bigDealsScreen,
       page: () => BigDealsScreen(),
       transition: Transition.upToDown),
+  GetPage(
+      name: AppRoutes.ordersScreen,
+      page: () => OrdersScreen(),
+      transition: Transition.leftToRightWithFade),
+  GetPage(
+      name: AppRoutes.orderScreen,
+      page: () => OrderScreen(),
+      transition: Transition.zoom),
 ];
