@@ -27,7 +27,7 @@ class OrdersScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  pageTitle("Orders", isBlue: true),
+                  pageTitle('ordersTitle'.tr, isBlue: true),
                   Flexible(
                     child: ordersController.loading.value
                         ? Center(

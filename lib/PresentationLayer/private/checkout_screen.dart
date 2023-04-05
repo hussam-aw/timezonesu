@@ -40,31 +40,31 @@ class CheckOutScreen extends StatelessWidget {
                             children: [
                               spacer(height: 30),
                               SuTextForm(
-                                hint: "قم بإدخال اسمك",
+                                hint: 'nameHint'.tr,
                                 obsecure: false,
                                 controller: cartController.nameController,
                               ),
                               spacer(),
                               SuTextForm(
-                                hint: "قم بإدخال بريدك الإلكتروني",
+                                hint: 'emailHint'.tr,
                                 obsecure: false,
                                 controller: cartController.emailController,
                               ),
                               spacer(),
                               SuTextForm(
-                                hint: "قم بإدخال عنوانك",
+                                hint: 'addressHint'.tr,
                                 obsecure: false,
                                 controller: cartController.adressController,
                               ),
                               spacer(),
                               SuTextForm(
-                                hint: "قم بإدخال رقم للتواصل",
+                                hint: 'phoneNumberHint'.tr,
                                 obsecure: false,
                                 controller: cartController.phoneController,
                               ),
                               spacer(),
                               SuTextForm(
-                                hint: "ملاحظات",
+                                hint: 'notesHint'.tr,
                                 obsecure: false,
                                 controller: cartController.noteController,
                                 minLines: 3,
@@ -75,7 +75,7 @@ class CheckOutScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "paymentmethod".tr,
+                                    "paymentMethodTitle".tr,
                                     style: UITextStyle.normalMeduim,
                                   ),
                                   spacer(),
@@ -90,7 +90,7 @@ class CheckOutScreen extends StatelessWidget {
                                                         PaymentMethod.cashPay),
                                                 child: paymentMethodItem(
                                                     Icons.money,
-                                                    "cash_payment".tr,
+                                                    'cashPaymentTitle'.tr,
                                                     cartController.paymentMethod
                                                             .value ==
                                                         PaymentMethod
@@ -103,7 +103,7 @@ class CheckOutScreen extends StatelessWidget {
                                                             .onlinePay),
                                                 child: paymentMethodItem(
                                                     Icons.credit_card_outlined,
-                                                    "online_payment".tr,
+                                                    'onlinePaymentTitle'.tr,
                                                     cartController.paymentMethod
                                                             .value ==
                                                         PaymentMethod
@@ -115,7 +115,7 @@ class CheckOutScreen extends StatelessWidget {
                                   if (cartController.paymentMethod.value ==
                                       PaymentMethod.onlinePay)
                                     SuTextForm(
-                                        hint: "entercardnumber".tr,
+                                        hint: 'enterCardNumberHint'.tr,
                                         obsecure: true,
                                         controller:
                                             cartController.cardNumberController)
@@ -202,7 +202,7 @@ class CheckOutScreen extends StatelessWidget {
                                           if (cartController.sendingOrder.value)
                                             loadingItem(false),
                                           Text(
-                                            "sendorder".tr,
+                                            'sendOrderTitle'.tr,
                                             style: UITextStyle.normalMeduim,
                                           )
                                         ],

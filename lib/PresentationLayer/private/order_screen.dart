@@ -30,15 +30,15 @@ class OrderScreen extends StatelessWidget {
           title: Text(detail.product, style: UITextStyle.boldBody),
           subtitle: RichText(
               text: TextSpan(children: [
-            const TextSpan(text: "الكمية : ", style: UITextStyle.boldSmall),
+            TextSpan(text: 'qtyTitle'.tr, style: UITextStyle.boldSmall),
             TextSpan(
                 text: detail.quantity.toString(),
                 style: UITextStyle.normalSmall),
-            const TextSpan(
-                text: "- الافرادي :  ", style: UITextStyle.boldSmall),
+            TextSpan(
+                text: '- ' + 'individualText'.tr, style: UITextStyle.boldSmall),
             TextSpan(
                 text: detail.price.toString(), style: UITextStyle.normalSmall),
-            const TextSpan(text: "- الإجمالي : ", style: UITextStyle.boldSmall),
+            TextSpan(text: '- ' + 'totalText'.tr, style: UITextStyle.boldSmall),
             TextSpan(
                 text: detail.totalPrice.toString(),
                 style: UITextStyle.normalSmall),
@@ -63,7 +63,7 @@ class OrderScreen extends StatelessWidget {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      pageTitle("الطلب رقم : ${order.id}"),
+                      pageTitle('orderNumberTitle'.tr + "${order.id}"),
                       RefreshIndicator(
                         onRefresh: () async => await controller.refreshOrder(),
                         child: SingleChildScrollView(
@@ -74,16 +74,16 @@ class OrderScreen extends StatelessWidget {
                               spacer(height: 30),
                               RichText(
                                   text: TextSpan(children: [
-                                const TextSpan(
-                                    text: "حالة الطلب :  ",
+                                TextSpan(
+                                    text: 'orderStatusTitle'.tr,
                                     style: UITextStyle.boldMeduim),
                                 TextSpan(
                                     text: OrderState.fromId(order.status),
                                     style: UITextStyle.normalMeduim),
                               ])),
                               spacer(height: 40),
-                              const Text(
-                                "تفاصيل الطلب : ",
+                              Text(
+                                'orderDetailsTitle'.tr,
                                 style: UITextStyle.boldMeduim,
                               ),
                               spacer(),

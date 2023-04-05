@@ -190,12 +190,12 @@ class CartController extends GetxController {
     List<Map<String, dynamic>> cartitems = [];
 
     if (cartProducts.isEmpty) {
-      SnackBars.showWarning("لا يمكن انشاء طلب فارغ");
+      SnackBars.showWarning('emptyOrderMessage'.tr);
     } else if (nameController.value.toString().isEmpty ||
         emailController.value.toString().isEmpty ||
         adressController.value.toString().isEmpty ||
         phoneController.value.toString().isEmpty) {
-      SnackBars.showWarning("الرجاء إتمام الخانات المطلوبة");
+      SnackBars.showWarning('requiredFieldMessage'.tr);
     } else {
       if (paymentMethod == PaymentMethod.onlinePay &&
           cardNumberController.value.text.isEmpty) {
@@ -219,11 +219,11 @@ class CartController extends GetxController {
           MyApp.appUser != null ? MyApp.appUser!.id : null, cartitems);
 
       if (response == null) {
-        SnackBars.showError("خطأ في الطلب , يرجى التأكد من اتصالك بالانترنت");
+        SnackBars.showError('connectionErrorMessage'.tr);
       } else if (response == 'Invalid') {
-        SnackBars.showWarning("يرجى التأكد من رقم البطاقة");
+        SnackBars.showWarning('cardNumberVerifyMessage'.tr);
       } else {
-        SnackBars.showSuccess("تم إرسال الطلب بنجاح");
+        SnackBars.showSuccess('orderSendingSuccessMessage'.tr);
         await removeAll();
       }
     }
