@@ -22,13 +22,17 @@ class UserClient {
     }
   }
 
-  Future<dynamic> updateInfo(id, name, email, mobileNumber) async {
+  Future<dynamic> updateInfo(
+      id, name, email, password, address, mobileNumber) async {
+    print(address);
     var response = await http.post(Uri.parse('$baseUrlV1$updateProfileLink'),
         body: jsonEncode(<String, dynamic>{
           "id": id.toString(),
           "name": name,
           "email": email,
-          "mobile_number": mobileNumber,
+          "password": password,
+          "address": address,
+          "mobile_number": mobileNumber.toString(),
         }),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
