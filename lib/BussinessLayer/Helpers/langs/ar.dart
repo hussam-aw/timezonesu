@@ -27,6 +27,7 @@ const Map<String, String> ar = {
   'profileItem': 'الحساب',
   //Drawer
   'timezoneUserTitle': 'مستخدم Timezone',
+  'ordersTitle': 'الطلبات',
   'topSalesTitle': 'الأكثر طلباً',
   'languageTitle': 'اللغة',
   'arLanguage': 'العربية',
@@ -48,16 +49,32 @@ const Map<String, String> ar = {
   'netValueText': 'المبلغ الصافي: ',
   'checkOutButton': 'متابعة الطلب',
   'checkOut': 'إرسال الطلب',
-  'paymentmethod': 'طريقة الدفع',
-  "cash_payment": "دفع مباشر ",
-  "online_payment": "دفع الكتروني ",
-  "entercardnumber": "أدخل رقم البطاقة",
-  "sendorder": "إرسال الطلب",
   'enterQuantityMessage': 'يرجى ادخال الكمية الجديدة: ',
   'quantityHint': 'أدخل الكمية الجديدة',
   'editButton': 'تعديل',
   'qtyTitle': 'الكمية: ',
   'priceTitle': 'السعر: ',
+  //Checkout
+  'sendOrderTitle': 'إرسال الطلب',
+  'addressHint': 'قم بادخال عنوانك',
+  'phoneNumberHint': 'قم بادخال رقم للتواصل',
+  'notesHint': 'ملاحظات',
+  'paymentMethodTitle': 'طريقة الدفع',
+  'cashPaymentTitle': 'دفع مباشر ',
+  'onlinePaymentTitle': 'دفع الكتروني ',
+  'enterCardNumberHint': 'أدخل رقم البطاقة',
+  //Orders
+  'orderStatusTitle': 'حالة الطلب: ',
+  'orderValueTitle': 'قيمة الطلب: ',
+  //Order
+  'orderNumberTitle': 'رقم الطلب: ',
+  'orderDetailsTitle': 'تفاصيل الطلب: ',
+  'individualText': 'الافرادي: ',
+  'receivedOrderStatus': 'تم الاستلام',
+  'checkOrderStatus': 'قيد التدقيق',
+  'processOrderStatus': 'قيد التجهيز',
+  'deliveryOrderStatus': 'قيد التوصيل',
+  'deliveredOrderStatus': 'تم التوصيل',
   //Profile
   'profileTitle': 'حسابي',
   'leaveEmptyHint': 'اتركه فارغ لتجنب التغيير',
@@ -72,7 +89,13 @@ const Map<String, String> ar = {
   'addingSuccessMessage': 'تمت الاضافة بنجاح',
   'updateSuccessMessage': 'تم تحديث المعلومات بنجاح',
   'removeSuccessMessage': 'تمت الازالة بنجاح',
-
+  'emptyOrderMessage': 'لا يمكن انشاء طلب فارغ',
+  'connectionErrorMessage': 'خطأ في الطلب , يرجى التأكد من اتصالك بالانترنت',
+  'cardNumberVerifyMessage': 'يرجى التأكد من رقم البطاقة',
+  'orderSendingSuccessMessage': 'تم إرسال الطلب بنجاح',
   //addons
   "no_noti": "لا توجد إشعارات",
+  //Search
+  'searchTitle': 'بحث',
+  'noResultText': 'لا يوجد نتيجة',
 };
