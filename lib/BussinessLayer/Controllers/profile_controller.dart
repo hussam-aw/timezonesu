@@ -9,11 +9,16 @@ import 'package:timezonesu/main.dart';
 class ProfileController extends GetxController {
   UserRepo userRepo = UserRepo();
   BoxClient boxClient = BoxClient();
-  TextEditingController updateNameController = TextEditingController();
-  TextEditingController updateEmailController = TextEditingController();
-  TextEditingController updatePasswwordController = TextEditingController();
-  TextEditingController updateAddressController = TextEditingController();
-  TextEditingController updateMobileController = TextEditingController();
+  TextEditingController updateNameController =
+      TextEditingController(text: MyApp.appUser!.name);
+  TextEditingController updateEmailController =
+      TextEditingController(text: MyApp.appUser!.email);
+  TextEditingController updatePasswwordController =
+      TextEditingController(text: '********');
+  TextEditingController updateAddressController =
+      TextEditingController(text: MyApp.appUser!.address);
+  TextEditingController updateMobileController =
+      TextEditingController(text: MyApp.appUser!.mobileNumber);
 
   Future<void> updateInfo() async {
     User? user;

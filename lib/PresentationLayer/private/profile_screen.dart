@@ -93,22 +93,6 @@ class ProfileScreen extends StatelessWidget {
                                 child: Column(
                                   children: [
                                     TextFormField(
-                                      enabled: true,
-                                      keyboardType: TextInputType.name,
-                                      decoration: profileInputsStyle.copyWith(
-                                        hintText: user!.name,
-                                      ),
-                                    ),
-                                    spacer(height: 14),
-                                    TextFormField(
-                                      enabled: true,
-                                      keyboardType: TextInputType.emailAddress,
-                                      decoration: profileInputsStyle.copyWith(
-                                        hintText: user!.email,
-                                      ),
-                                    ),
-                                    spacer(height: 14),
-                                    TextFormField(
                                       keyboardType: TextInputType.name,
                                       controller: profileController
                                           .updateNameController,
