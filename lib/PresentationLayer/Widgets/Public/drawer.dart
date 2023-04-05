@@ -58,7 +58,7 @@ class TzDrawer extends StatelessWidget {
                       ListTile(
                         onTap: () => Get.toNamed(AppRoutes.ordersScreen),
                         title: Text(
-                          "الطلبات",
+                          'ordersTitle'.tr,
                           style:
                               UITextStyle.boldMeduim.apply(fontSizeFactor: .8),
                         ),
