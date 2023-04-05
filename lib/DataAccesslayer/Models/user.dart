@@ -5,6 +5,7 @@ class User {
   final String mobileNumber;
   final String name;
   final String email;
+  final String address;
   final String avatar;
   final String token;
   User({
@@ -12,6 +13,7 @@ class User {
     required this.mobileNumber,
     required this.name,
     required this.email,
+    required this.address,
     required this.avatar,
     required this.token,
   });
@@ -22,6 +24,7 @@ class User {
       'mobile_number': mobileNumber,
       'name': name,
       'email': email,
+      'address': address,
       'avatar': avatar,
       'token': token
     };
@@ -33,6 +36,7 @@ class User {
       mobileNumber: map['user']['mobile_number'] ?? '',
       name: map['user']['name'] ?? '',
       email: map['user']['email'] ?? '',
+      address: map['user']['address'] ?? '',
       avatar: map['user']['avatar'] ?? '',
       token: map['token'] ?? '',
     );
@@ -43,6 +47,7 @@ class User {
       mobileNumber: map['mobile_number'] ?? '',
       name: map['name'] ?? '',
       email: map['email'] ?? '',
+      address: map['address'] ?? '',
       avatar: map['avatar'] ?? '',
       token: map['token'] ?? '',
     );
