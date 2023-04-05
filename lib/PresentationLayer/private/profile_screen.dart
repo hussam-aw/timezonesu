@@ -89,44 +89,75 @@ class ProfileScreen extends StatelessWidget {
                           children: [
                             Expanded(
                               flex: 10,
-                              child: Column(
-                                children: [
-                                  TextFormField(
-                                    enabled: true,
-                                    keyboardType: TextInputType.name,
-                                    decoration: profileInputsStyle.copyWith(
-                                      hintText: user!.name,
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    TextFormField(
+                                      enabled: true,
+                                      keyboardType: TextInputType.name,
+                                      decoration: profileInputsStyle.copyWith(
+                                        hintText: user!.name,
+                                      ),
                                     ),
-                                  ),
-                                  spacer(height: 14),
-                                  TextFormField(
-                                    enabled: true,
-                                    keyboardType: TextInputType.emailAddress,
-                                    decoration: profileInputsStyle.copyWith(
-                                      hintText: user!.email,
+                                    spacer(height: 14),
+                                    TextFormField(
+                                      enabled: true,
+                                      keyboardType: TextInputType.emailAddress,
+                                      decoration: profileInputsStyle.copyWith(
+                                        hintText: user!.email,
+                                      ),
                                     ),
-                                  ),
-                                  spacer(height: 14),
-                                  TextFormField(
-                                    keyboardType: TextInputType.name,
-                                    controller:
-                                        profileController.updateNameController,
-                                    decoration: profileInputsStyle.copyWith(
-                                      hintText: 'leaveEmptyHint'.tr,
+                                    spacer(height: 14),
+                                    TextFormField(
+                                      keyboardType: TextInputType.name,
+                                      controller: profileController
+                                          .updateNameController,
+                                      decoration: profileInputsStyle.copyWith(
+                                        hintText: 'leaveEmptyHint'.tr,
+                                      ),
                                     ),
-                                  ),
-                                  spacer(height: 14),
-                                  TextFormField(
-                                    keyboardType: TextInputType.emailAddress,
-                                    controller:
-                                        profileController.updateEmailController,
-                                    decoration: profileInputsStyle.copyWith(
-                                      hintText: 'emailHint'.tr,
+                                    spacer(height: 14),
+                                    TextFormField(
+                                      keyboardType: TextInputType.emailAddress,
+                                      controller: profileController
+                                          .updateEmailController,
+                                      decoration: profileInputsStyle.copyWith(
+                                        hintText: 'emailHint'.tr,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                    spacer(height: 14),
+                                    TextFormField(
+                                      keyboardType:
+                                          TextInputType.visiblePassword,
+                                      controller: profileController
+                                          .updatePasswwordController,
+                                      decoration: profileInputsStyle.copyWith(
+                                        hintText: 'passwordHint'.tr,
+                                      ),
+                                    ),
+                                    spacer(height: 14),
+                                    TextFormField(
+                                      keyboardType: TextInputType.streetAddress,
+                                      controller: profileController
+                                          .updateAddressController,
+                                      decoration: profileInputsStyle.copyWith(
+                                        hintText: 'addressHint'.tr,
+                                      ),
+                                    ),
+                                    spacer(height: 14),
+                                    TextFormField(
+                                      keyboardType: TextInputType.phone,
+                                      controller: profileController
+                                          .updateMobileController,
+                                      decoration: profileInputsStyle.copyWith(
+                                        hintText: 'phoneNumberHint'.tr,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
+                            spacer(height: 18),
                             Expanded(
                               flex: 2,
                               child: SizedBox(
