@@ -15,4 +15,5 @@ class AppRoutes {
   static const bigDealsScreen = "/bigDeals";
   static const ordersScreen = "/homepage/orders";
   static const orderScreen = "/homepage/orders/order";
+  static const searchScreen = '/homepage/search';
 }
