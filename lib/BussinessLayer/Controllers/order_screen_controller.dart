@@ -1,15 +1,17 @@
 import 'package:get/get.dart';
+import 'package:timezonesu/DataAccesslayer/Repositories/orders_repo.dart';
 
 import '../../DataAccesslayer/Models/order.dart';
 
 class OrderScreenController extends GetxController {
-  final Order order;
+  Order? order;
+  final OrdersRepo ordersRepo = OrdersRepo();
 
   OrderScreenController(this.order);
 
   Future<void> refreshOrder() async {
-    //TODO ALI : get order info by id (Ask Ruba for API LINK)
-    //order = await .....
-    // update();
+    order = await ordersRepo.getOrderByID(order!.id);
+    print(order!.id);
+    update();
   }
 }
