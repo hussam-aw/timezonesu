@@ -23,4 +23,12 @@ class OrdersRepo {
     }
     return [];
   }
+
+  Future<Order?> getOrderByID(id) async {
+    var response = await client.getOrderById(id);
+    if (response != "") {
+      return Order.fromMap(json.decode(response));
+    }
+    return null;
+  }
 }
