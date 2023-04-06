@@ -18,14 +18,15 @@ class OrderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> buildDetails() {
       List<Widget> temp = [];
-      for (var detail in order.orderDetails) {
+      for (var detail in controller.order!.orderDetails) {
         temp.add(ListTile(
           isThreeLine: true,
           dense: true,
           leading: CircleAvatar(
             backgroundColor: UIColors.white,
             radius: 15,
-            child: Text((order.orderDetails.indexOf(detail) + 1).toString()),
+            child: Text((controller.order!.orderDetails.indexOf(detail) + 1)
+                .toString()),
           ),
           title: Text(detail.product, style: UITextStyle.boldBody),
           subtitle: RichText(
@@ -63,7 +64,8 @@ class OrderScreen extends StatelessWidget {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      pageTitle('orderNumberTitle'.tr + "${order.id}"),
+                      pageTitle(
+                          'orderNumberTitle'.tr + "${controller.order!.id}"),
                       RefreshIndicator(
                         onRefresh: () async => await controller.refreshOrder(),
                         child: SingleChildScrollView(
@@ -78,7 +80,8 @@ class OrderScreen extends StatelessWidget {
                                     text: 'orderStatusTitle'.tr,
                                     style: UITextStyle.boldMeduim),
                                 TextSpan(
-                                    text: OrderState.fromId(order.status),
+                                    text: OrderState.fromId(
+                                        controller.order!.status),
                                     style: UITextStyle.normalMeduim),
                               ])),
                               spacer(height: 40),
